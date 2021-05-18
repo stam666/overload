@@ -2,6 +2,7 @@ package scoreboard;
 
 import java.util.ArrayList;
 
+import constant.ImageHolder;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import player.Player;
 public class Test extends Application {
 	public void start(Stage primaryStage) {
 		// TODO
+		ImageHolder.LoadImage();
 		ArrayList<Player> s= new ArrayList<Player>();
 		s.add(new Player("AA"));
 		s.add(new Player("AS"));

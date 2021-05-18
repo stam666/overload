@@ -11,7 +11,7 @@ public class PlayerPane extends VBox{
 	private Label playerName;
 	private PlayerPole poleDisplay;
 	private Label point;
-	public PlayerPane(Player player) {
+	public PlayerPane(int idx,Player player) {
 		this.setAlignment(Pos.CENTER);
 		int width=200,height=256;
 		this.setMinWidth(width);
@@ -28,7 +28,7 @@ public class PlayerPane extends VBox{
 		this.point.setFont(Font.font("Arial",30)); 
 		this.point.textProperty().setValue(Integer.toString(player.getPoint()));
 		
-		this.poleDisplay = new PlayerPole();
+		this.poleDisplay = new PlayerPole(idx,player);
 		//this.poleDisplay = new PlayerPole(player.getSub().get(0).getCounter(),player.getSub().get(1).getCounter());
 		this.getChildren().addAll(this.playerName,this.poleDisplay,this.point);
 		

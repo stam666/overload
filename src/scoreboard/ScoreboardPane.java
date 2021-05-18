@@ -22,8 +22,10 @@ public class ScoreboardPane extends HBox {
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(15);
 		this.playerPanes = new ArrayList<PlayerPane>();
+		int count=0;
 		for(Player e :this.players) {
-			playerPanes.add(new PlayerPane(e));
+			playerPanes.add(new PlayerPane(count,e));
+			count++;
 		}
 		for(VBox e :playerPanes) {
 			this.getChildren().add(e);
@@ -32,8 +34,10 @@ public class ScoreboardPane extends HBox {
 	public void update() {
 		this.getChildren().clear();
 		this.playerPanes.clear();
+		int count=0;
 		for(Player e :players) {
-			playerPanes.add(new PlayerPane(e));
+			playerPanes.add(new PlayerPane(count,e));
+			count++;
 		}
 		for(VBox e :playerPanes) {
 			this.getChildren().add(e);
