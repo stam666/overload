@@ -8,6 +8,7 @@ import java.util.Scanner;
 import input.InputUtility;
 import javafx.util.Pair;
 import player.*;
+
 public class logic {
 	private static ArrayList<Player> players= new ArrayList<Player>();
 	private static Scanner kb = new Scanner(System.in);
