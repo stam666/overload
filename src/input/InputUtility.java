@@ -15,8 +15,12 @@ public class InputUtility {
 	public static void setAtSameActionEnter(boolean act) {
 		atSameActionEntered=act;
 	}
-	public static int[] getAtSameAction() {
-		return atSameAction;
+	public static ArrayList<Integer> getAtSameAction() {
+		ArrayList<Integer> s = new ArrayList<Integer>();
+		for(int i=0;i<=7;i++) {
+			s.add(atSameAction[i]);
+		}
+		return s;
 	}
 	public static boolean isAtSameActionEntered() {
 		return atSameActionEntered;
