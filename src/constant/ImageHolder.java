@@ -12,7 +12,7 @@ public class ImageHolder {
 		for(int j=0;j<=4;j++) {
 			for(int i=0;i<=8;i++) {
 				String numberOfRing = String.valueOf(i);
-				String img_path=ClassLoader.getSystemResource("pole/1D/"+Pole1DColor[j]+"/dark/"+numberOfRing+".png").toString();
+				String img_path=ClassLoader.getSystemResource("pole/1D/"+Pole1DColor[j]+numberOfRing+".png").toString();
 				Pole1D[j][i]=new Image(img_path);
 			}
 		}
