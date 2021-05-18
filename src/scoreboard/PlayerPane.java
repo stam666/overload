@@ -13,7 +13,7 @@ public class PlayerPane extends VBox{
 	private Label point;
 	public PlayerPane(Player player) {
 		this.setAlignment(Pos.CENTER);
-		int width=256,height=256;
+		int width=200,height=256;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);

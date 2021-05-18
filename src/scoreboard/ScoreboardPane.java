@@ -19,6 +19,8 @@ public class ScoreboardPane extends HBox {
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
+		this.setAlignment(Pos.CENTER);
+		this.setSpacing(15);
 		this.playerPanes = new ArrayList<PlayerPane>();
 		for(Player e :this.players) {
 			playerPanes.add(new PlayerPane(e));
