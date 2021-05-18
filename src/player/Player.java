@@ -6,7 +6,6 @@ public class Player {
 	private int point;
 	private String name;
 	ArrayList<SubPlayer> sub;
-	
 	public Player(String name) {
 		this.point=0;
 		SubPlayer first= new SubPlayer(),second =new SubPlayer();

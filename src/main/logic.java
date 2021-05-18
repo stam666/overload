@@ -5,13 +5,15 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import input.InputUtility;
 import javafx.util.Pair;
 import player.*;
-public class Main {
+public class logic {
 	private static ArrayList<Player> players= new ArrayList<Player>();
 	private static Scanner kb = new Scanner(System.in);
-	private static int stageLength,no;
-	
+	private static int stageLength,no,nowState,nowNumberSubPlayer,oldStage,nowStage;
+	private static SubPlayer nowSubPlayer;
+	private static ArrayList<Pair<Integer, Integer>> atSame= new ArrayList<Pair<Integer, Integer>>();
 	private static ArrayList<String> getName(int players){
 		ArrayList<String> name= new ArrayList<String>();
 		for(int i=1;i<=players;i++) {
@@ -143,18 +145,18 @@ public class Main {
 		}
 	}
 	static int turnofPlayer=0;
-	public static void main(String[] args) {
-	//public static ArrayList<Player> initial() {
+	//public static void main(String[] args) {
+	public static ArrayList<Player> initial() {
 		ArrayList<String> name = startScreen();
 		//System.out.println(name);
 		for(String e: name) {
 			players.add(new Player(e));
 		}
-		// return players;
-	//}
+		return players;
+	}
 	
-		while(true) {
-	//public static void update() {
+		//while(true) {
+	public static void update() {
 			System.out.println("Player "+turnofPlayer+ " turn");
 			int idx=turnofPlayer;
 			Random ran = new Random();
@@ -173,6 +175,109 @@ public class Main {
 			print();
 			turnofPlayer+=1;
 			turnofPlayer%=no;
+	//	}
+	}
+	public static void choosePole() {
+		System.out.println("Player "+turnofPlayer+ " turn");
+		int idx=turnofPlayer;
+		//Random ran = new Random();
+	   // int dice = ran.nextInt(8)+1;
+		if(players.get(idx).getSub().get(0).getStage()==0) {
+			players.get(idx).getSub().get(0).setCounter(askFirstNum());
+			nowState=3;nowNumberSubPlayer=0;
+			nowSubPlayer=players.get(turnofPlayer).getSub().get(0);
+		}
+		else if(players.get(idx).getSub().get(1).getStage()==0) {
+			players.get(idx).getSub().get(1).setCounter(askFirstNum());
+			nowState=3;nowNumberSubPlayer=1;
+			nowSubPlayer=players.get(turnofPlayer).getSub().get(1);
+		}
+		else {
+			//RenderChoosePole
+		}
+	}
+	public static void CheckPassedPole() {
+		for(int i=0;i<players.size();i++) {
+			for(int j=0;j<=1;j++) {
+				if(i==turnofPlayer && j==nowNumberSubPlayer) continue;
+				int thisStage= players.get(i).getSub().get(j).getStage();
+				if(thisStage>oldStage && thisStage<nowStage) {
+					
+					players.get(i).getSub().get(j).addCounter(1);
+					//RenderAddRing
+					if(players.get(i).getSub().get(j).isOverload()) {
+						players.get(turnofPlayer).addPoint(1);
+					}
+				}
+				else if(thisStage==nowStage) {
+					atSame.add( new Pair<Integer, Integer>(i,j));
+				}
+			}
+		}
+	}
+	public static void setRingsToSubPlayer(int numberOfRings) {
+		nowSubPlayer.setCounter(numberOfRings);
+	}
+	public static void updateLogic() {
+		if(nowState==1) {
+			choosePole();
+		}else if(nowState==2) {
+			if(InputUtility.isChoosePoleZero()) {
+				nowNumberSubPlayer=0;nowState=3;
+				nowSubPlayer=players.get(turnofPlayer).getSub().get(0);
+				InputUtility.afterChoosePole();
+			}else if(InputUtility.isChoosePoleOne()) {
+				nowNumberSubPlayer=1;nowState=3;
+				nowSubPlayer=players.get(turnofPlayer).getSub().get(1);
+				InputUtility.afterChoosePole();
+			}
+		}else if(nowState==3) {
+			//RenderAskNumberOfRings
+		}else if(nowState==4) {
+			if(InputUtility.getNumberOfRings!=-1) {
+				setRingsToSubPlayer(InputUtility.getNumberOfRings);
+				nowState=5;
+				//renderRolldice
+				InputUtility.setNumberOfRings(-1);
+			}
+		}else if(nowState==5) {
+			if(InputUtility.isRollDice()) {
+				//int dice=...
+				oldStage=nowSubPlayer.getStage();
+				nowStage= nowSubPlayer.addStage(dice);
+				nowState=6;
+				InputUtility.setRollDice(false);
+			}
+		}else if(nowState==6) {
+			//renderwalk
+//			if(render fin ) {
+//				nowState=7;
+//			}
+		}else if(nowState==7) {
+			atSame.clear();
+			CheckPassedPole();
+			nowState=8;
+		}else if(nowState==8) {
+//			if(render fin ) {
+//			nowState=9;
+//			}
+		}else if(nowState==9) {
+			if(atSame.isEmpty()) {
+				nowState=12;
+			}else {
+				//render
+				nowState=10;
+			}
+		}else if(nowStage==10) {
+			if(InputUtility.isAtSameActionEntered()) {
+				
+			}
+		}else if(nowStage==11) {
+//			if(render fin ) {
+//			nowState=12;
+//			}
+		}else if(nowStage==12) {
+			isFin
 		}
 	}
 }

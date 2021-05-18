@@ -3,6 +3,7 @@ package player;
 public class SubPlayer {
 	private int stage;
 	private int counter;
+	private String Color="RED";
 	public SubPlayer() {
 		this.counter=0;
 		this.stage=0;
@@ -40,5 +41,8 @@ public class SubPlayer {
 	}
 	public void setCounter(int counter) {
 		this.counter = counter;
+	}
+	public String getColor() {
+		return Color;
 	}
 }
