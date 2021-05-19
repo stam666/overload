@@ -27,6 +27,8 @@ public class ImageHolder {
 	
 	public ImageHolder() {
 		
+		nothing = loadImage("nothing/nothing", "png");
+		
 		bluePole1D = loadImageList("pole/1D/blue/blue_", "png", 8);
 		greenPole1D = loadImageList("pole/1D/green/green_", "png", 8);
 		pinkPole1D = loadImageList("pole/1D/pink/pink_", "png", 8);
