@@ -1,4 +1,4 @@
-package object.entity;
+package entity;
 
 public class Ring {
 

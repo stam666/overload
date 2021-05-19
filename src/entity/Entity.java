@@ -1,10 +1,10 @@
-package object.base;
+package entity;
 
 import javafx.scene.image.Image;
 import sharedObject.IRenderable;
 import sharedObject.ImageHolder;
 
-public abstract class GameObject implements IRenderable {
+public abstract class Entity implements IRenderable {
 	
 	protected double x,y;
 	protected int z;
@@ -15,7 +15,7 @@ public abstract class GameObject implements IRenderable {
 	int factor;
 	
 	
-	protected GameObject(){
+	protected Entity(){
 		isVisible = true;
 		isDestroyed = false;
 	}

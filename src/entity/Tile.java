@@ -1,16 +1,13 @@
-package object.board;
+package entity;
 
 import javafx.scene.canvas.GraphicsContext;
-import object.base.GameObject;
 import sharedObject.ImageHolder;
 
-public class Tile extends GameObject {
-	
-	private int i;
+public class Tile extends Entity {
 
 	public Tile() {
 		setZ(-999);
-		setSprite(ImageHolder.getInstance().floor);
+		setSprite(ImageHolder.getInstance().tile);
 	}
 	
 	@Override
