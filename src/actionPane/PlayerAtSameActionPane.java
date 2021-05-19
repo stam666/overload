@@ -41,8 +41,9 @@ public class PlayerAtSameActionPane extends VBox{
 		this.getChildren().add(enterButton);
 	}
 	
-	public void update(Boolean amLeft) {
+	public void update(ArrayList<SubPlayer> targets,Boolean amLeft) {
 		this.getChildren().clear();
+		this.targets=targets;
 		for(int i=0;i<this.targets.size();i++) {
 			SubPlayerAtSameActionPane r = new SubPlayerAtSameActionPane(i,targets.get(i),amLeft);
 			this.getChildren().add(r);

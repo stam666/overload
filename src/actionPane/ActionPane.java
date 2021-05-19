@@ -1,30 +1,62 @@
 package actionPane;
 
+import java.util.ArrayList;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import player.SubPlayer;
 import sharedObject.FontHolder;
 
 public class ActionPane extends VBox {
-	public ActionPane(int action) {
+	private int mode;
+	private RollDicePane rollDice;
+	private ChoosePolePane choosePole;
+	private ChooseNumberPane chooseNumber;
+	private PlayerAtSameActionPane atSame;
+	public ActionPane() {
+		this.mode=0;
 		this.setAlignment(Pos.CENTER);
 		int width=1024,height=256;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
-		if(action==1) {
-			//rollDice
-			this.getChildren().addAll(Label(1),new RollDicePane());
-		}else if(action==2) {
+		
+	}
+	public void changeMode(int mode) {
+		this.mode=mode;
+		this.getChildren().clear();
+		if(this.mode==1) {
+			//rollDice//update
+			this.rollDice=new RollDicePane();
+			this.getChildren().addAll(Label(1),this.rollDice);
+		}else if(this.mode==2) {
 			//choosePole
-			
-		}else if(action==3) {
+			this.choosePole=new ChoosePolePane();
+			this.getChildren().addAll(Label(2),this.choosePole);
+		}else if(this.mode==3) {
 			//ChooseNumber
-			this.getChildren().addAll(Label(3),new ChooseNumberPane());
-		}else if(action==4) {
-			//AtSame
+			this.chooseNumber=new ChooseNumberPane();
+			this.getChildren().addAll(Label(3),this.chooseNumber);
+		}
+	}
+	public void changeMode(int mode,ArrayList<SubPlayer> targets,Boolean amLeft) {
+		this.mode=mode;
+		this.getChildren().clear();
+		if(this.mode==4) {
+			this.atSame=new PlayerAtSameActionPane(targets, amLeft);
+			this.getChildren().addAll(Label(4),this.atSame);
+		}
+	}
+	public void Update(int mode) {
+		if(this.mode==1) {
+			this.rollDice.update();
+		}
+	}public void Update(int mode) {
+		if(this.mode==1) {
+			this.rollDice.update();
 		}
 	}
 	private HBox Label(int action) {
