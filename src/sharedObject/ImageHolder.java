@@ -9,6 +9,7 @@ public class ImageHolder {
 	
 	private static final ImageHolder instance = new ImageHolder();
 	public Image nothing;
+	public Image startBackground;
 	public List<Image> bluePole1D;
 	public List<Image> greenPole1D;
 	public List<Image> pinkPole1D;
@@ -29,7 +30,7 @@ public class ImageHolder {
 	public ImageHolder() {
 		
 		nothing = loadImage("nothing/nothing", "png");
-		
+		startBackground=loadImage("background/start", "jpg");
 		bluePole1D = loadImageList("pole/1D/blue/blue_", "png", 8);
 		greenPole1D = loadImageList("pole/1D/green/green_", "png", 8);
 		pinkPole1D = loadImageList("pole/1D/pink/pink_", "png", 8);

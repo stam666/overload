@@ -1,6 +1,6 @@
 package scoreboard;
 
-import constant.FontHolder;
+import sharedObject.FontHolder;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;

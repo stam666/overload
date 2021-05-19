@@ -6,7 +6,7 @@ public class InputUtility {
 	private static final int recieve=1,get=2;
 	private static int[] atSameAction = {0,0,0,0,0,0,0,0,0,0,0};
 	private static boolean atSameActionEntered = false;
-	private static boolean rollDice=false;
+	private static boolean stopDice=false;
 	private static boolean choosePoleZero=false,choosePoleOne=false;
 	private static int numberOfRings=-1;
 	public static void setAtSameAction(int idx,int act) {
@@ -31,14 +31,15 @@ public class InputUtility {
 		}
 		setAtSameActionEnter(false);
 	}
-	public static boolean isRollDice() {
-		return rollDice;
+	public static boolean isStopDice() {
+		return stopDice;
 	}
-	public static void setRollDice(boolean rollDice) {
-		InputUtility.rollDice = rollDice;
+	public static void setStopDice(boolean StopDice) {
+		InputUtility.stopDice = StopDice;
 	}
-	public static void afterRollDice() {
-		setRollDice(false);
+	
+	public static void afterStopDice() {
+		setStopDice(false);
 	}
 	
 	public static boolean isChoosePoleZero() {
