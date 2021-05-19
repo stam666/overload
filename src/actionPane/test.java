@@ -15,24 +15,11 @@ public class test extends Application {
 		// TODO
 		SubPlayer s= new SubPlayer();
 		//VBox root = new PlayerAtSameActionPane(2,s,true);
-		HBox root1 = new HBox();
+		//HBox root1 = new PlayerAtSameActionPane(null, amLeft);
 		ChoosePolePane root2 = new ChoosePolePane();
 		ChooseNumberPane root3 = new ChooseNumberPane();
-		root1.setAlignment(Pos.CENTER);
-		root1.setSpacing(20);
-		int width=1024,height=256;
-		root1.setMinWidth(width);
-		root1.setMaxWidth(height);
-		root1.setMinHeight(height);
-		root1.setMaxHeight(height);
-		for(int i=0;i<7;i++) {
-			VBox r = new PlayerAtSameActionPane(2,s,true);
-			root1.getChildren().add(r);
-		}
-		Button enterButton =new Button("Enter");
-		enterButton.setPrefSize(100,151);
-		root1.getChildren().add(enterButton);
-		Scene scene = new Scene(root3);
+		ActionPane root4= new ActionPane(3);
+		Scene scene = new Scene(root4);
 		primaryStage.setScene(scene);
 		primaryStage.setMaxWidth(1024);
 		primaryStage.setMinWidth(1024);

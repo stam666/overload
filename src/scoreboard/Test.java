@@ -22,7 +22,7 @@ public class Test extends Application {
 		s.add(new Player("AS"));
 		s.add(new Player("ADD"));
 		s.add(new Player("CC"));
-		
+		s.add(new Player("CCd"));
 		HBox root = new ScoreboardPane(s);
 	
 		/*HBox root = new HBox();

@@ -20,7 +20,7 @@ public class ScoreboardPane extends HBox {
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setAlignment(Pos.CENTER);
-		this.setSpacing(15);
+		this.setSpacing(10);
 		this.playerPanes = new ArrayList<PlayerPane>();
 		int count=0;
 		for(Player e :this.players) {

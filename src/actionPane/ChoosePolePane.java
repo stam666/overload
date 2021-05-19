@@ -13,7 +13,7 @@ public class ChoosePolePane extends HBox{
 		private Button chooseOneButton;
 		public ChoosePolePane() {
 			this.setAlignment(Pos.CENTER);
-			int width=1024,height=256;
+			int width=1024,height=200;
 			this.setMinWidth(width);
 			this.setMaxWidth(height);
 			this.setMinHeight(height);
@@ -24,14 +24,14 @@ public class ChoosePolePane extends HBox{
 			chooseZeroButton.setOnAction((ActionEvent event) -> {
 				InputUtility.setChoosePoleZero(true);
 			});
-			chooseZeroButton.setPrefSize(256, 256);
+			chooseZeroButton.setPrefSize(256, 200);
 			this.getChildren().add(chooseZeroButton);
 			//////////////////////////////////////////////////////////////////////
 			chooseOneButton = new Button("One");
 			chooseOneButton.setOnAction((ActionEvent event) -> {
 				InputUtility.setChoosePoleOne(true);
 			});
-			chooseOneButton.setPrefSize(256, 256);
+			chooseOneButton.setPrefSize(256, 200);
 			this.getChildren().add(chooseOneButton);
 			
 			

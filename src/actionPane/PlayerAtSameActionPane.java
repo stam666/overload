@@ -1,6 +1,8 @@
 package actionPane;
 
 
+import java.util.ArrayList;
+
 import input.InputUtility;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -10,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -18,56 +21,31 @@ import player.SubPlayer;
 import scoreboard.PlayerPole;
 
 public class PlayerAtSameActionPane extends VBox{
-	private boolean amLeft;
-	private SubPlayer target;
-	private Button recieveButton;
-	private Button giveButton;
-	public PlayerAtSameActionPane(int idx,SubPlayer target,Boolean amLeft) {
-		this.amLeft=amLeft;
-		this.target=target;
+	ArrayList<SubPlayer> targets;
+	public PlayerAtSameActionPane(ArrayList<SubPlayer> targets,Boolean amLeft) {
+		this.targets=targets;
 		this.setAlignment(Pos.CENTER);
-		int width=102,height=256;
+		this.setSpacing(20);
+		int width=1024,height=200;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
-		this.setSpacing(25);
-		Canvas canvas = new Canvas(100,50);
-		GraphicsContext gc= canvas.getGraphicsContext2D();
-		if(this.target.getColor().equals("RED")) {
-			gc.setFill(javafx.scene.paint.Color.RED);
+		for(int i=0;i<this.targets.size();i++) {
+			SubPlayerAtSameActionPane r = new SubPlayerAtSameActionPane(i,targets.get(i),amLeft);
+			
+			this.getChildren().add(r);
 		}
-		gc.fillRect(0, 0, 100, 50);
-		this.getChildren().add(canvas);
-		//////////////////////////////////////////////////////////
-		recieveButton = new Button("I recieve from this");
-		recieveButton.setPrefSize(100, 25);
-		recieveButton.setOnAction((ActionEvent event) -> {
-			InputUtility.setAtSameAction(idx, 1);
-		});
-		this.getChildren().add(recieveButton);
-		//////////////////////////////////////////////////////////////////////
-		giveButton = new Button("I give to this");
-		giveButton.setPrefSize(100, 25);
-		giveButton.setOnAction((ActionEvent event) -> {
-			InputUtility.setAtSameAction(idx, 2);
-		});
-		this.getChildren().add(giveButton);
-		
-		if(this.target.getCounter()==0) {
-			recieveButton.setDisable(true);
-		}
-		if(!this.amLeft) {
-			giveButton.setDisable(true);
-		}
+		Button enterButton =new Button("Enter");
+		enterButton.setPrefSize(100,151);
+		this.getChildren().add(enterButton);
 	}
 	
 	public void update(Boolean amLeft) {
-		this.amLeft=amLeft;
-		if(!this.amLeft) {
-			giveButton.setDisable(true);
-		}else {
-			giveButton.setDisable(true);
+		this.getChildren().clear();
+		for(int i=0;i<this.targets.size();i++) {
+			SubPlayerAtSameActionPane r = new SubPlayerAtSameActionPane(i,targets.get(i),amLeft);
+			this.getChildren().add(r);
 		}
 	}
 }

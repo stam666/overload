@@ -7,23 +7,24 @@ import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import sharedObject.FontHolder;
 
 public class ChooseNumberPane extends HBox {
 	ArrayList<Button> numberButton;
-
+	
 	public ChooseNumberPane() {
 		numberButton = new ArrayList<Button>();
 		this.setAlignment(Pos.CENTER);
-		int width = 1024, height = 256;
+		int width = 1024, height = 200;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setSpacing(15);
-
+		
 		for (int i = 0; i <= 8; i++) {
 			Button b = new Button(String.valueOf(i));
-			b.setStyle("-fx-font-size:40");
+			b.setFont(FontHolder.getInstance().gameFont_40);
 			numberButton.add(b);
 			this.getChildren().add(b);
 		}
