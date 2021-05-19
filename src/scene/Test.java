@@ -1,4 +1,4 @@
-package screen;
+package scene;
 
 import java.util.ArrayList;
 

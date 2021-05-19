@@ -1,25 +1,25 @@
-package screen;
+package scene;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ScreenHolder {
+public class SceneHolder {
 	private Stage bindStage;
 	public StartScene startScene;
 	
-	public ScreenHolder(Stage bindStage) {
+	public SceneHolder(Stage bindStage) {
 		this.bindStage = bindStage;
 	}
 	
 	public void initialize() {
 		startScene = new StartScene();
-		switchScreen(startScene);
+		switchScene(startScene);
 	}
 	
 	
-	public void switchScreen(Scene nextScreen) {
+	public void switchScene(Scene nextScrene) {
 		bindStage.setResizable(false);
-		bindStage.setScene(nextScreen);
+		bindStage.setScene(nextScrene);
 		bindStage.sizeToScene();
 	}
 	

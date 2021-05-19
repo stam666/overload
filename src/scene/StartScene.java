@@ -1,4 +1,4 @@
-package screen;
+package scene;
 
 import gui.start.StartScreen;
 import javafx.scene.Cursor;
