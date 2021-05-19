@@ -1,4 +1,4 @@
-package screen;
+package gui.start;
 
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;

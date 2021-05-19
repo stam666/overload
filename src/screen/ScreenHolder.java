@@ -5,15 +5,15 @@ import javafx.stage.Stage;
 
 public class ScreenHolder {
 	private Stage bindStage;
-	public StartScreen startScreen;
+	public StartScene startScene;
 	
 	public ScreenHolder(Stage bindStage) {
 		this.bindStage = bindStage;
 	}
 	
 	public void initialize() {
-		startScreen = new StartScreen();
-		switchScreen(startScreen);
+		startScene = new StartScene();
+		switchScreen(startScene);
 	}
 	
 	
