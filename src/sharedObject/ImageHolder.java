@@ -28,10 +28,10 @@ public class ImageHolder {
 	public ImageHolder() {
 		
 		bluePole1D = loadImageList("pole/1D/blue/blue_", "png", 8);
-		greenPole1D = loadImageList("pole/1D/blue/green_", "png", 8);
+		greenPole1D = loadImageList("pole/1D/green/green_", "png", 8);
 		pinkPole1D = loadImageList("pole/1D/blue/pink_", "png", 8);
-		redPole1D = loadImageList("pole/1D/blue/red_", "png", 8);
-		yellowPole1D = loadImageList("pole/1D/blue/yellow_", "png", 8);
+		redPole1D = loadImageList("pole/1D/red/red_", "png", 8);
+		yellowPole1D = loadImageList("pole/1D/yellow/yellow_", "png", 8);
 		
 		bluePole = loadImage("pole/3D/blue", "png");
 		greenPole = loadImage("pole/3D/green", "png");
