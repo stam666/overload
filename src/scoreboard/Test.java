@@ -2,7 +2,6 @@ package scoreboard;
 
 import java.util.ArrayList;
 
-import constant.ImageHolder;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -10,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import player.Player;
+import sharedObject.ImageHolder;
 
 public class Test extends Application {
 	public void start(Stage primaryStage) {

@@ -1,10 +1,10 @@
 package scoreboard;
-import constant.ImageHolder;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import player.Player;
+import sharedObject.ImageHolder;
 
 public class PlayerPole extends Pane{
 	public PlayerPole(int idx,Player player) {

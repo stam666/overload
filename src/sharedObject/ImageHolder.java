@@ -1,5 +1,5 @@
 
-package constant;
+package sharedObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class ImageHolder {
 	}
 	
 	public List<Image> loadImageList(String prefix, String fileFormat, int n) {
-		List list = new ArrayList();
+		List<Image> list = new ArrayList<>();
 		for (int i = 0; i <= n; i++) {
 			list.add(loadImage(prefix + i, fileFormat));
 		}
