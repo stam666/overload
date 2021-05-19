@@ -1,15 +1,17 @@
-package logic;
+package main;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.sun.org.apache.xalan.internal.templates.Constants;
+
 import input.InputUtility;
 import javafx.util.Pair;
 import player.*;
-
-public class GameLogic {
+import sharedObject.*;
+public class logic {
 	private static ArrayList<Player> players= new ArrayList<Player>();
 	private static Scanner kb = new Scanner(System.in);
 	private static int stageLength=25,no,nowState,nowNumberSubPlayer,oldStage,nowStage;
@@ -42,6 +44,8 @@ public class GameLogic {
 		}
 		else {
 			//RenderChoosePole
+			test.change=true;
+			test.changeNo=sharedObject.Constants.choosePole;
 		}
 	}
 	public static void CheckPassedPole() {
@@ -89,28 +93,33 @@ public class GameLogic {
 			if(InputUtility.isChoosePoleZero()) {
 				nowNumberSubPlayer=0;nowState=5;
 				nowSubPlayer=players.get(turnofPlayer).getSub().get(0);
+				test.change=true;test.changeNo=Constants.noAction;
 				InputUtility.afterChoosePole();
 			}else if(InputUtility.isChoosePoleOne()) {
 				nowNumberSubPlayer=1;nowState=5;
 				nowSubPlayer=players.get(turnofPlayer).getSub().get(1);
+				test.change=true;test.changeNo=Constants.noAction;
 				InputUtility.afterChoosePole();
 			}
 		}else if(nowState==3) {
 			//RenderAskNumberOfRings
+			test.change=true;test.changeNo=Constants.chooseNumber;
 		}else if(nowState==4) {
-			if(InputUtility.getNumberOfRings!=-1) {
-				setRingsToSubPlayer(InputUtility.getNumberOfRings);
+			if(InputUtility.getNumberOfRings()!=-1) {
+				setRingsToSubPlayer(InputUtility.getNumberOfRings());
 				nowState=5;
 				//renderRolldice
+				test.change=true;test.changeNo=Constants.rollDice;
 				InputUtility.setNumberOfRings(-1);
 			}
 		}else if(nowState==5) {
-			if(InputUtility.isRollDice()) {
-				//int dice=...
+			if(InputUtility.isStopDice()) {
+				int dice=InputUtility.getNumberDice();
 				oldStage=nowSubPlayer.getStage();
-				nowStage= nowSubPlayer.addStage(min(dice,/*check not end*/));
+				nowStage= nowSubPlayer.addStage(Math.min(dice,stageLength-oldStage));
+				
 				nowState=6;
-				InputUtility.setRollDice(false);
+				InputUtility.setStopDice(false);
 			}
 		}else if(nowState==6) {
 			//renderwalk
