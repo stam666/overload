@@ -16,8 +16,10 @@ public class ActionPane extends VBox {
 		this.setMaxHeight(height);
 		if(action==1) {
 			//rollDice
+			this.getChildren().addAll(Label(1),new RollDicePane());
 		}else if(action==2) {
 			//choosePole
+			
 		}else if(action==3) {
 			//ChooseNumber
 			this.getChildren().addAll(Label(3),new ChooseNumberPane());
