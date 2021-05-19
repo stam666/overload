@@ -5,19 +5,22 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.sun.org.apache.xalan.internal.templates.Constants;
-
 import input.InputUtility;
 import javafx.util.Pair;
 import player.*;
 import sharedObject.*;
 public class logic {
-	private static ArrayList<Player> players= new ArrayList<Player>();
+	private static ArrayList<Player> players;
 	private static Scanner kb = new Scanner(System.in);
-	private static int stageLength=25,no,nowState,nowNumberSubPlayer,oldStage,nowStage;
-	private static SubPlayer nowSubPlayer;
-	private static ArrayList<SubPlayer> atSame= new ArrayList<SubPlayer>();
+	private static final int scoreToWin=35;
+	static int nowState=1;
+	private static int stageLength=25,no,nowNumberSubPlayer,oldStage,nowStage;
+	protected static SubPlayer nowSubPlayer;
+	protected static ArrayList<SubPlayer> atSame= new ArrayList<SubPlayer>();
 	private static int turnofPlayer =0;
+	public static void initialize(ArrayList<Player> player) {
+		 players= player;
+	}
 	public static void CheckAtEnd() {	
 		if(nowStage>=stageLength) {
 			if(nowSubPlayer.getCounter()==8) {
@@ -45,7 +48,7 @@ public class logic {
 		else {
 			//RenderChoosePole
 			test.change=true;
-			test.changeNo=sharedObject.Constants.choosePole;
+			test.changeNo=sharedObject.Constants.choosePole;nowState=2;
 		}
 	}
 	public static void CheckPassedPole() {
@@ -57,7 +60,7 @@ public class logic {
 					
 					players.get(i).getSub().get(j).addCounter(1);
 					//RenderAddRing
-					if(players.get(i).getSub().get(j).isOverload()) {
+					if(players.get(i).getSub().get(j).isOverload() && players.get(i).getName().equals(players.get(turnofPlayer).getName())) {
 						players.get(turnofPlayer).addPoint(1);
 					}
 				}
@@ -104,6 +107,7 @@ public class logic {
 		}else if(nowState==3) {
 			//RenderAskNumberOfRings
 			test.change=true;test.changeNo=Constants.chooseNumber;
+			nowState=4;
 		}else if(nowState==4) {
 			if(InputUtility.getNumberOfRings()!=-1) {
 				setRingsToSubPlayer(InputUtility.getNumberOfRings());
@@ -113,16 +117,19 @@ public class logic {
 				InputUtility.setNumberOfRings(-1);
 			}
 		}else if(nowState==5) {
+			test.update=true;
 			if(InputUtility.isStopDice()) {
+				test.update=true;
 				int dice=InputUtility.getNumberDice();
 				oldStage=nowSubPlayer.getStage();
-				nowStage= nowSubPlayer.addStage(Math.min(dice,stageLength-oldStage));
-				
+				nowStage= nowSubPlayer.addStage(dice);
+				System.out.println(dice);
 				nowState=6;
 				InputUtility.setStopDice(false);
 			}
 		}else if(nowState==6) {
 			//renderwalk
+			nowState=7;
 //			if(render fin ) {
 //				nowState=7;
 //			}
@@ -135,31 +142,39 @@ public class logic {
 //			if(render fin ) {
 //			nowState=9;
 //			}
+			nowState=9;
 		}else if(nowState==9) {
 			if(atSame.isEmpty()) {
 				nowState=12;
 			}else {
 				//render
-				nowState=10;
+				test.changeSame=true;
+				nowState=12;
 			}
-		}else if(nowStage==10) {
+		}else if(nowState==10) {
 			if(InputUtility.isAtSameActionEntered()) {
 				atSameAction(InputUtility.getAtSameAction());
+				nowState=11;
 			}
-		}else if(nowStage==11) {
+		}else if(nowState==11) {
 //			if(render fin ) {
 //			nowState=12;
 //			}
-		}else if(nowStage==12) {
+			nowState=12;
+		}else if(nowState==12) {
 			CheckEndgame();
 			CheckAtEnd();
+			//System.out.println("hi");
 			turnofPlayer+=1;turnofPlayer%=4;
+			nowState=1;
 		}
 	}
 	private static void CheckEndgame() {
 		// TODO Auto-generated method stub
 		for(Player e:players) {
-			if
+			if(e.getPoint()>=scoreToWin) {
+				
+			}
 		}
 	}
 }

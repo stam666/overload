@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.util.Pair;
 import player.*;
 import scene.SceneHolder;
+import sharedObject.Constants;
 import sharedObject.ImageHolder;
 import sharedObject.RenderableHolder;
 
@@ -25,7 +26,7 @@ public class test extends Application {
 	public static boolean change=false;
 	static int a=0,b=0,changeNo;
 	public static SceneHolder sceneHolder;
-	private static GameScreen g;  
+ 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		ArrayList<Player> players = new ArrayList<Player>();
@@ -33,7 +34,8 @@ public class test extends Application {
 		players.add(new Player("GREEN"));
 		players.add(new Player("PINK"));
 		players.add(new Player("RED"));
-		g= new GameScreen(players);
+		GameScreen g= new GameScreen(players);
+		logic.initialize(players);
 	    Scene s= new Scene(g);
 	    primaryStage.setScene(s);
 	    primaryStage.getIcons().add(ImageHolder.getInstance().redPole1D.get(8));
@@ -42,6 +44,27 @@ public class test extends Application {
 	    
 	    AnimationTimer animation = new AnimationTimer() {
 			public void handle(long now) {
+				//g.update(true,3);
+				updateSame=false;
+				update=false;
+				changeSame=false;
+				change=false;
+				logic.updateLogic();
+				if(change) {
+					g.update(true,changeNo);
+				}else if(changeSame) {
+					g.updateAtSame(true,Constants.atSame,logic.atSame,logic.nowSubPlayer.getCounter()>0);
+				}else if(update) {
+					g.update(false,-1);
+				}else if(updateSame) {
+					g.updateAtSame(false,Constants.atSame,logic.atSame,logic.nowSubPlayer.getCounter()>0);
+				}
+	
+				for(Player e:players) {
+					SubPlayer a=e.getSub().get(0),b=e.getSub().get(1);
+					System.out.printf("%d  %d %d %d %d\n",logic.nowState,a.getCounter(),a.getStage(),b.getCounter(),b.getStage());
+				}
+				System.out.println("///////////////////////////////////////////////////");
 				
 			}
 		};

@@ -33,6 +33,7 @@ public class ChooseNumberPane extends HBox {
 		});
 		numberButton.get(1).setOnAction((ActionEvent event) -> {
 			InputUtility.setNumberOfRings(1);
+			System.out.println("1");
 		});
 		numberButton.get(2).setOnAction((ActionEvent event) -> {
 			InputUtility.setNumberOfRings(2);
