@@ -1,4 +1,4 @@
-package logic;
+package object.entity;
 
 import sharedObject.IRenderable;
 
