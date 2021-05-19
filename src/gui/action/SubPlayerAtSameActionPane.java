@@ -55,7 +55,7 @@ public class SubPlayerAtSameActionPane extends HBox{
 		});
 		this.getChildren().add(giveButton);
 		
-		if(this.target.getCounter()==0) {
+		if(this.target.getRings()==0) {
 			recieveButton.setDisable(true);
 		}
 		if(!this.amLeft) {

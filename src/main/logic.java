@@ -23,11 +23,11 @@ public class logic {
 	}
 	public static void CheckAtEnd() {	
 		if(nowStage>=stageLength) {
-			if(nowSubPlayer.getCounter()==8) {
+			if(nowSubPlayer.getRings()==8) {
 				players.get(turnofPlayer).addPoint(12);
 			}
 			else {
-				players.get(turnofPlayer).addPoint(nowSubPlayer.getCounter());
+				players.get(turnofPlayer).addPoint(nowSubPlayer.getRings());
 			}
 			nowSubPlayer.reset();
 		}
@@ -58,9 +58,9 @@ public class logic {
 				int thisStage= players.get(i).getSub().get(j).getStage();
 				if(thisStage>oldStage && thisStage<nowStage) {
 					
-					players.get(i).getSub().get(j).addCounter(1);
+					players.get(i).getSub().get(j).addRings(1);
 					//RenderAddRing
-					if(players.get(i).getSub().get(j).isOverload() && players.get(i).getName().equals(players.get(turnofPlayer).getName())) {
+					if(players.get(i).getSub().get(j).isOverload() && !(players.get(i).getName().equals(players.get(turnofPlayer).getName()))) {
 						players.get(turnofPlayer).addPoint(1);
 					}
 				}
@@ -71,21 +71,21 @@ public class logic {
 		}
 	}
 	public static void setRingsToSubPlayer(int numberOfRings) {
-		nowSubPlayer.setCounter(numberOfRings);
+		nowSubPlayer.setRings(numberOfRings);
 	}
 	public static void atSameAction(ArrayList<Integer> action) {
 		for(int i=0;i<atSame.size();i++) {
 			SubPlayer chosenPlayer=atSame.get(i);
 			if(action.get(i)==2) { //send
-				nowSubPlayer.reduceCounter(1);
-				chosenPlayer.addCounter(1);
+				nowSubPlayer.reduceRings(1);
+				chosenPlayer.addRings(1);
 				if(chosenPlayer.isOverload()) {
 					players.get(turnofPlayer).addPoint(1);
 				}
 			}else if(action.get(i)==1) { //get
-				nowSubPlayer.addCounter(1);
+				nowSubPlayer.addRings(1);
 				nowSubPlayer.isOverload();
-				chosenPlayer.reduceCounter(1);
+				chosenPlayer.reduceRings(1);
 			}
 		}
 	}
@@ -96,17 +96,18 @@ public class logic {
 			if(InputUtility.isChoosePoleZero()) {
 				nowNumberSubPlayer=0;nowState=5;
 				nowSubPlayer=players.get(turnofPlayer).getSub().get(0);
-				test.change=true;test.changeNo=Constants.noAction;
+				test.change=true;test.changeNo=Constants.rollDice;
 				InputUtility.afterChoosePole();
 			}else if(InputUtility.isChoosePoleOne()) {
 				nowNumberSubPlayer=1;nowState=5;
 				nowSubPlayer=players.get(turnofPlayer).getSub().get(1);
-				test.change=true;test.changeNo=Constants.noAction;
+				test.change=true;test.changeNo=Constants.rollDice;
 				InputUtility.afterChoosePole();
 			}
 		}else if(nowState==3) {
 			//RenderAskNumberOfRings
 			test.change=true;test.changeNo=Constants.chooseNumber;
+			
 			nowState=4;
 		}else if(nowState==4) {
 			if(InputUtility.getNumberOfRings()!=-1) {

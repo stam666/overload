@@ -53,16 +53,16 @@ public class test extends Application {
 				if(change) {
 					g.update(true,changeNo);
 				}else if(changeSame) {
-					g.updateAtSame(true,Constants.atSame,logic.atSame,logic.nowSubPlayer.getCounter()>0);
+					g.updateAtSame(true,Constants.atSame,logic.atSame,logic.nowSubPlayer.getRings()>0);
 				}else if(update) {
 					g.update(false,-1);
 				}else if(updateSame) {
-					g.updateAtSame(false,Constants.atSame,logic.atSame,logic.nowSubPlayer.getCounter()>0);
+					g.updateAtSame(false,Constants.atSame,logic.atSame,logic.nowSubPlayer.getRings()>0);
 				}
 	
 				for(Player e:players) {
 					SubPlayer a=e.getSub().get(0),b=e.getSub().get(1);
-					System.out.printf("%d  %d %d %d %d\n",logic.nowState,a.getCounter(),a.getStage(),b.getCounter(),b.getStage());
+					System.out.printf("%d  %d %d %d %d\n",logic.nowState,a.getRings(),a.getStage(),b.getRings(),b.getStage());
 				}
 				System.out.println("///////////////////////////////////////////////////");
 				

@@ -2,45 +2,45 @@ package player;
 
 public class SubPlayer {
 	private int stage;
-	private int counter;
+	private int rings;
 	private String Color="RED";
 	public SubPlayer() {
-		this.counter=0;
+		this.rings=0;
 		this.stage=0;
 	}
 	public int getStage() {
 		return stage;
 	}
 
-	public int getCounter() {
-		return counter;
+	public int getRings() {
+		return rings;
 	}
 
 	public int addStage(int add) {
 		this.stage+=add;
 		return this.stage;
 	}
-	public int addCounter(int add) {
-		this.counter+=add;
-		return this.counter;
+	public int addRings(int add) {
+		this.rings+=add;
+		return this.rings;
 	}
-	public int reduceCounter(int reduce) {
-		this.counter-=reduce;
-		return this.counter;
+	public int reduceRings(int reduce) {
+		this.rings-=reduce;
+		return this.rings;
 	}
 	public boolean isOverload() {
-		if(this.counter>8) {
+		if(this.rings>8) {
 			this.reset();
 			return true;
 		}
 		return false;
 	}
 	public void reset() {
-		this.counter=0;
+		this.rings=0;
 		this.stage=0;
 	}
-	public void setCounter(int counter) {
-		this.counter = counter;
+	public void setRings(int counter) {
+		this.rings = counter;
 	}
 	public String getColor() {
 		return Color;
