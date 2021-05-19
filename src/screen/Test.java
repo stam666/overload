@@ -12,8 +12,8 @@ import scoreboard.ScoreboardPane;
 public class Test extends Application {
 	public void start(Stage primaryStage) {
 		// TODO
-		//StartScreen root1= new StartScreen();
-		ButtonStart root1 = new ButtonStart(); 
+		StartScreen root1= new StartScreen();
+		//ButtonStart root1 = new ButtonStart(); 
 		Scene scene = new Scene(root1);
 		primaryStage.setScene(scene);
 		primaryStage.setMaxWidth(1024);

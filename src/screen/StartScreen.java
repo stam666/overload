@@ -9,10 +9,10 @@ import javafx.scene.paint.Color;
 import sharedObject.FontHolder;
 import sharedObject.ImageHolder;
 
-public class StartScreen extends VBox {
-	Button playButton,exitButton;
+public class StartScreen extends StackPane {
+
 	public StartScreen() {
-		//this.setAlignment(Pos.CENTER);
+		this.setAlignment(Pos.BOTTOM_CENTER);
 		int width=1024,height=768;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
@@ -22,11 +22,8 @@ public class StartScreen extends VBox {
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		drawBackground(gc);
 		this.getChildren().add(canvas);
-		playButton=new Button("Play");
-		playButton.setFont(FontHolder.getInstance().gameFont_50);
-		playButton.setPrefSize(150,100);
-		exitButton=new Button("Exit");
-		this.getChildren().addAll(playButton,exitButton);
+		ButtonStart button = new ButtonStart();
+		this.getChildren().add(button);
 	}
 	private void drawBackground(GraphicsContext gc) {
 		gc.drawImage(ImageHolder.getInstance().startBackground, 0, 0,1024,768);
