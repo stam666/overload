@@ -1,5 +1,6 @@
 package scoreboard;
 
+import constant.FontHolder;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -21,11 +22,11 @@ public class PlayerPane extends VBox{
 		this.setSpacing(15);
 		
 		this.playerName = new Label();
-		this.playerName.setFont(Font.font("Arial",25)); 
+		this.playerName.setFont(FontHolder.getInstance().gameFont_40); 
 		this.playerName.textProperty().setValue(player.getName());
 		
 		this.point = new Label();
-		this.point.setFont(Font.font("Arial",30)); 
+		this.point.setFont(FontHolder.getInstance().gameFont_50); 
 		this.point.textProperty().setValue(Integer.toString(player.getPoint()));
 		
 		this.poleDisplay = new PlayerPole(idx,player);
