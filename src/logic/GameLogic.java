@@ -1,4 +1,4 @@
-package main;
+package logic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import input.InputUtility;
 import javafx.util.Pair;
 import player.*;
 
-public class logic {
+public class GameLogic {
 	private static ArrayList<Player> players= new ArrayList<Player>();
 	private static Scanner kb = new Scanner(System.in);
 	private static int stageLength=25,no,nowState,nowNumberSubPlayer,oldStage,nowStage;

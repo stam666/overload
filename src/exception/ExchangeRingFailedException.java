@@ -5,6 +5,6 @@ public class ExchangeRingFailedException extends Exception{
 	
 	public ExchangeRingFailedException(String message) {
 		this.message = message;
-		//(AudioLoader
+		//(AudioHolder.getInstance()
 	}
 }
