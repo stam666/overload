@@ -1,8 +1,9 @@
-package actionPane;
+package gui.action;
 
 
 import java.util.ArrayList;
 
+import gui.score.PlayerPole;
 import input.InputUtility;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -18,7 +19,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import player.Player;
 import player.SubPlayer;
-import scoreboard.PlayerPole;
 
 public class PlayerAtSameActionPane extends VBox{
 	ArrayList<SubPlayer> targets;

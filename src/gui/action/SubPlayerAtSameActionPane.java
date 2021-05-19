@@ -1,6 +1,7 @@
-package actionPane;
+package gui.action;
 
 
+import gui.score.PlayerPole;
 import input.InputUtility;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -16,7 +17,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import player.Player;
 import player.SubPlayer;
-import scoreboard.PlayerPole;
 
 public class SubPlayerAtSameActionPane extends HBox{
 	private boolean amLeft;

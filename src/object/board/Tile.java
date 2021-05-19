@@ -5,6 +5,8 @@ import object.base.GameObject;
 import sharedObject.ImageHolder;
 
 public class Tile extends GameObject {
+	
+	private int i;
 
 	public Tile() {
 		setZ(-999);

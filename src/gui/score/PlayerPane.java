@@ -1,4 +1,4 @@
-package scoreboard;
+package gui.score;
 
 import sharedObject.FontHolder;
 import javafx.geometry.Pos;

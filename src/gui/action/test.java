@@ -1,4 +1,4 @@
-package actionPane;
+package gui.action;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
