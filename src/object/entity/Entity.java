@@ -1,8 +1,9 @@
 package object.entity;
 
+import object.base.GameObject;
 import sharedObject.IRenderable;
 
-public abstract class Entity implements IRenderable{
+public abstract class Entity extends GameObject {
 	
 	protected double x,y;
 	protected int z;

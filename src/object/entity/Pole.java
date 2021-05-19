@@ -1,5 +1,5 @@
 package object.entity;
 
-public class Pole {
+public class Pole extends Entity {
 
 }

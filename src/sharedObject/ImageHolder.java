@@ -20,12 +20,15 @@ public class ImageHolder {
 	public Image redPole;
 	public Image yellowPole;
 	public List<Image> ring;
+	public Image floor;
 	
 	public static ImageHolder getInstance() {
 	    return instance;
 	}
 	
 	public ImageHolder() {
+		
+		nothing = loadImage("nothing/nothing", "png");
 		
 		bluePole1D = loadImageList("pole/1D/blue/blue_", "png", 8);
 		greenPole1D = loadImageList("pole/1D/green/green_", "png", 8);
@@ -40,6 +43,9 @@ public class ImageHolder {
 		yellowPole = loadImage("pole/3D/yellow", "png");
 		
 		ring = loadImageList("ring/ring_", "png", 2);
+		
+		floor = loadImage("board/white-floor", "png");
+		
 	}
 	
 	public Image loadImage(String prefix, String fileFormat) {
