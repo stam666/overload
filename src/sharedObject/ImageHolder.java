@@ -29,7 +29,7 @@ public class ImageHolder {
 		
 		bluePole1D = loadImageList("pole/1D/blue/blue_", "png", 8);
 		greenPole1D = loadImageList("pole/1D/green/green_", "png", 8);
-		pinkPole1D = loadImageList("pole/1D/blue/pink_", "png", 8);
+		pinkPole1D = loadImageList("pole/1D/pink/pink_", "png", 8);
 		redPole1D = loadImageList("pole/1D/red/red_", "png", 8);
 		yellowPole1D = loadImageList("pole/1D/yellow/yellow_", "png", 8);
 		
@@ -43,7 +43,8 @@ public class ImageHolder {
 	}
 	
 	public Image loadImage(String prefix, String fileFormat) {
-		return new Image(ClassLoader.getSystemResourceAsStream("res/" + prefix + "." + fileFormat));
+		//System.out.println(prefix + "." + fileFormat);
+		return new Image(ClassLoader.getSystemResource(prefix + "." + fileFormat).toString());
 	}
 	
 	public List<Image> loadImageList(String prefix, String fileFormat, int n) {
