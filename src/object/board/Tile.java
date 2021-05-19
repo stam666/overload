@@ -5,12 +5,10 @@ import object.base.GameObject;
 import sharedObject.ImageHolder;
 
 public class Tile extends GameObject {
-	
-	private int i;
 
 	public Tile() {
 		setZ(-999);
-		setSprite(ImageHolder.getInstance().floor);
+		setSprite(ImageHolder.getInstance().tile);
 	}
 	
 	@Override
