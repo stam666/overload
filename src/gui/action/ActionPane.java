@@ -42,7 +42,7 @@ public class ActionPane extends VBox {
 			this.getChildren().addAll(Label(3),this.chooseNumber);
 		}
 	}
-	public void changeMode(int mode,ArrayList<SubPlayer> targets,Boolean amLeft) {
+	public void changeModeAtSame(int mode,ArrayList<SubPlayer> targets,Boolean amLeft) {
 		this.mode=mode;
 		this.getChildren().clear();
 		if(this.mode==4) {
@@ -50,11 +50,12 @@ public class ActionPane extends VBox {
 			this.getChildren().addAll(Label(4),this.atSame);
 		}
 	}
-	public void Update(int mode) {
+	public void update() {
 		if(this.mode==1) {
 			this.rollDice.update();
 		}
-	}public void Update(int mode,ArrayList<SubPlayer> targets,Boolean amLeft) {
+	}
+	public void updateAtSame(ArrayList<SubPlayer> targets,Boolean amLeft) {
 		if(this.mode==4) {
 			this.atSame.update(targets,amLeft);
 		}

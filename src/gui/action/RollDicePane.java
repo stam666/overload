@@ -38,9 +38,10 @@ public class RollDicePane extends HBox{
 		
 		stopButton = new  Button("Stop");
 		stopButton.setFont(FontHolder.getInstance().gameFont_40);
-		stopButton.setPrefSize(100, 100);
+		stopButton.setPrefSize(150, 150);
 		stopButton.setOnAction((ActionEvent event) -> {
 			InputUtility.setStopDice(true);
+			InputUtility.setNumberDice(this.nowNumber);
 		});
 		this.getChildren().addAll(canvas,stopButton);
 	}

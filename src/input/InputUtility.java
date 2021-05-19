@@ -8,7 +8,14 @@ public class InputUtility {
 	private static boolean atSameActionEntered = false;
 	private static boolean stopDice=false;
 	private static boolean choosePoleZero=false,choosePoleOne=false;
-	private static int numberOfRings=-1;
+	private static int numberOfRings=-1,numberDice;
+	
+	public static int getNumberDice() {
+		return numberDice;
+	}
+	public static void setNumberDice(int numberDice) {
+		InputUtility.numberDice = numberDice;
+	}
 	public static void setAtSameAction(int idx,int act) {
 		atSameAction[idx]=act;
 	}
