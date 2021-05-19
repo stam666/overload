@@ -36,9 +36,7 @@ public class Pole extends Entity {
 	}
 	
 	
-	public void update() {
-		
-	}
+	public void update() {}
 
 	public List<Ring> getRingStack() {
 		return ringStack;
