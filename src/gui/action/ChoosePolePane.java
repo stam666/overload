@@ -1,4 +1,4 @@
-package actionPane;
+package gui.action;
 
 import input.InputUtility;
 import javafx.geometry.Pos;

@@ -1,4 +1,4 @@
-package scoreboard;
+package gui.score;
 
 import java.util.ArrayList;
 

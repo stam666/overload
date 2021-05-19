@@ -1,14 +1,14 @@
-package scoreboard;
+package gui.score;
 
 import java.util.ArrayList;
 
+import gui.score.PlayerPane;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import player.Player;
-import scoreboard.PlayerPane;
 public class ScoreboardPane extends HBox {
 	private ArrayList<PlayerPane> playerPanes;
 	private ArrayList<Player> players;

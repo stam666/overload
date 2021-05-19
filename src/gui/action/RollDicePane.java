@@ -1,4 +1,4 @@
-package actionPane;
+package gui.action;
 
 import java.util.Random;
 

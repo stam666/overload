@@ -9,17 +9,17 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import player.*;
-import scene.SceneHolder;
+import screen.ScreenHolder;
 import sharedObject.ImageHolder;
 
 public class Main extends Application {
 	public static final int WINDOW_WIDTH = 1024;
 	public static final int WINDOW_HEIGHT = 768;
-	public static SceneHolder sceneHolder;
+	public static ScreenHolder sceneHolder;
 	  
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		sceneHolder = new SceneHolder(primaryStage);
+		sceneHolder = new ScreenHolder(primaryStage);
 	    sceneHolder.initialize();
 	    
 	    primaryStage.getIcons().add(ImageHolder.getInstance().redPole1D.get(8));

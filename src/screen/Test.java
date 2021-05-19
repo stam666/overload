@@ -2,12 +2,12 @@ package screen;
 
 import java.util.ArrayList;
 
+import gui.score.ScoreboardPane;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import player.Player;
-import scoreboard.ScoreboardPane;
 
 public class Test extends Application {
 	public void start(Stage primaryStage) {
