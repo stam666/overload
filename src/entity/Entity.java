@@ -71,7 +71,15 @@ public abstract class Entity implements IRenderable {
 	    return getSprite().getWidth() * factor;
 	}
 
-	  public double getHeight() {
+	public double getHeight() {
 	    return getSprite().getHeight() * factor;
+	}
+	  
+	public double getCenterX() {
+		return getX() + getWidth() / 2.0D;
+	}
+	
+	public double getCenterY() {
+		return getY() + getWidth() / 2.0D;
 	}
 }

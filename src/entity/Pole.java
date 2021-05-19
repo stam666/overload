@@ -34,6 +34,11 @@ public class Pole extends Entity {
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
+	
+	
+	public void update() {
+		
+	}
 
 	public List<Ring> getRingStack() {
 		return ringStack;
@@ -46,9 +51,17 @@ public class Pole extends Entity {
 	public int getRing() {
 		return ring;
 	}
-
+	
 	public void setRing(int ring) {
 		this.ring = ring;
+	}
+
+	public void addRing(int ring) {
+		ring += 1;
+	}
+	
+	public void removeRing(int ring) {
+		ring -= 1;
 	}
 
 }
