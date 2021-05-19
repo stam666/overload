@@ -1,10 +1,9 @@
-package object.board;
+package entity;
 
 import javafx.scene.canvas.GraphicsContext;
-import object.base.GameObject;
 import sharedObject.ImageHolder;
 
-public class Tile extends GameObject {
+public class Tile extends Entity {
 
 	public Tile() {
 		setZ(-999);
