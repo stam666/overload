@@ -54,9 +54,9 @@ public class ActionPane extends VBox {
 		if(this.mode==1) {
 			this.rollDice.update();
 		}
-	}public void Update(int mode) {
-		if(this.mode==1) {
-			this.rollDice.update();
+	}public void Update(int mode,ArrayList<SubPlayer> targets,Boolean amLeft) {
+		if(this.mode==4) {
+			this.atSame.update(targets,amLeft);
 		}
 	}
 	private HBox Label(int action) {

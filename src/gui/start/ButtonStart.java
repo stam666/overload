@@ -24,6 +24,7 @@ public class ButtonStart extends HBox{
 	
 		exitButton=new Button("Exit");
 		exitButton.setFont(FontHolder.getInstance().gameFont_50);
+		exitButton.setOnMouseClicked(e -> System.exit(0));
 		this.getChildren().addAll(playButton,exitButton);
 	}
 }
