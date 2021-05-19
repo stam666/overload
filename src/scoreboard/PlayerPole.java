@@ -11,8 +11,26 @@ public class PlayerPole extends Pane{
 		Canvas canvas = new Canvas(200,130);
 		GraphicsContext gc= canvas.getGraphicsContext2D();
 		//String img_path=ClassLoader.getSystemResource("pole/1D/blue/dark/1.png").toString();
-		draw(gc,ImageHolder.Pole1D[idx][player.getSub().get(0).getCounter()],6,0);
-		draw(gc,ImageHolder.Pole1D[idx][player.getSub().get(1).getCounter()],102,0);
+		if(idx==0) {
+			draw(gc,ImageHolder.getInstance().bluePole1D.get(player.getSub().get(0).getCounter()),6,0);
+			draw(gc,ImageHolder.getInstance().bluePole1D.get(player.getSub().get(1).getCounter()),102,0);
+		}else if(idx==1) {
+			draw(gc,ImageHolder.getInstance().greenPole1D.get(player.getSub().get(0).getCounter()),6,0);
+			draw(gc,ImageHolder.getInstance().greenPole1D.get(player.getSub().get(1).getCounter()),102,0);
+		}else if(idx==2) {
+			draw(gc,ImageHolder.getInstance().pinkPole1D.get(player.getSub().get(0).getCounter()),6,0);
+			draw(gc,ImageHolder.getInstance().pinkPole1D.get(player.getSub().get(1).getCounter()),102,0);
+		}
+		else if(idx==3) {
+			draw(gc,ImageHolder.getInstance().redPole1D.get(player.getSub().get(0).getCounter()),6,0);
+			draw(gc,ImageHolder.getInstance().redPole1D.get(player.getSub().get(1).getCounter()),102,0);
+		}
+		else if(idx==4) {
+			draw(gc,ImageHolder.getInstance().yellowPole1D.get(player.getSub().get(0).getCounter()),6,0);
+			draw(gc,ImageHolder.getInstance().yellowPole1D.get(player.getSub().get(1).getCounter()),102,0);
+		}
+
+
 		this.getChildren().add(canvas);
 		
 	}

@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -14,13 +17,22 @@ import sharedObject.ImageHolder;
 public class Test extends Application {
 	public void start(Stage primaryStage) {
 		// TODO
-		ImageHolder.LoadImage();
 		ArrayList<Player> s= new ArrayList<Player>();
 		s.add(new Player("AA"));
 		s.add(new Player("AS"));
 		s.add(new Player("ADD"));
 		s.add(new Player("CC"));
+		
 		HBox root = new ScoreboardPane(s);
+	
+		/*HBox root = new HBox();
+		Canvas canvas = new Canvas(200,130);
+		GraphicsContext gc= canvas.getGraphicsContext2D();
+		
+		String img_path=ClassLoader.getSystemResource("pole/1D/blue/light/8.png").toString();
+		Image sa =new Image(img_path);
+		gc.drawImage(sa, 0, 0);
+		root.getChildren().add(canvas);*/
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setMaxWidth(1024);
