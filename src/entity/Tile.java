@@ -14,8 +14,5 @@ public class Tile extends Entity {
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
-	
-	public void update() {
-		
-	}
+
 }
