@@ -20,7 +20,7 @@ import javafx.scene.text.Font;
 import player.Player;
 import player.SubPlayer;
 
-public class PlayerAtSameActionPane extends VBox{
+public class PlayerAtSameActionPane extends HBox{
 	ArrayList<SubPlayer> targets;
 	public PlayerAtSameActionPane(ArrayList<SubPlayer> targets,Boolean amLeft) {
 		this.targets=targets;
@@ -36,9 +36,9 @@ public class PlayerAtSameActionPane extends VBox{
 			
 			this.getChildren().add(r);
 		}
-		Button enterButton =new Button("Enter");
+		/*Button enterButton =new Button("Enter");
 		enterButton.setPrefSize(100,151);
-		this.getChildren().add(enterButton);
+		this.getChildren().add(enterButton);*/
 	}
 	
 	public void update(ArrayList<SubPlayer> targets,Boolean amLeft) {

@@ -1,6 +1,8 @@
 package gui.action;
 
 
+
+
 import gui.score.PlayerPole;
 import input.InputUtility;
 import javafx.event.ActionEvent;
@@ -17,8 +19,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import player.Player;
 import player.SubPlayer;
+import sharedObject.FontHolder;
 
-public class SubPlayerAtSameActionPane extends HBox{
+public class SubPlayerAtSameActionPane extends VBox{
 	private boolean amLeft;
 	private SubPlayer target;
 	private Button recieveButton;
@@ -32,26 +35,27 @@ public class SubPlayerAtSameActionPane extends HBox{
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
-		this.setSpacing(25);
-		Canvas canvas = new Canvas(100,50);
+		this.setSpacing(15);
+		Canvas canvas = new Canvas(100,100);
 		GraphicsContext gc= canvas.getGraphicsContext2D();
-		if(this.target.getColor().equals("RED")) {
-			gc.setFill(javafx.scene.paint.Color.RED);
-		}
-		gc.fillRect(0, 0, 100, 50);
+		gc.drawImage(target.get1D(), 15, 0,70,100);
 		this.getChildren().add(canvas);
 		//////////////////////////////////////////////////////////
-		recieveButton = new Button("I recieve from this");
+		recieveButton = new Button("GET");//I recieve from this
 		recieveButton.setPrefSize(100, 25);
+		recieveButton.setFont(FontHolder.getInstance().gameFont_20);
 		recieveButton.setOnAction((ActionEvent event) -> {
-			InputUtility.setAtSameAction(idx, 1);
+			InputUtility.setAtSameAction(idx, sharedObject.Constants.get);
+			InputUtility.setAtSameActionEnter(true);
 		});
 		this.getChildren().add(recieveButton);
 		//////////////////////////////////////////////////////////////////////
-		giveButton = new Button("I give to this");
+		giveButton = new Button("GIVE");
 		giveButton.setPrefSize(100, 25);
+		giveButton.setFont(FontHolder.getInstance().gameFont_20);
 		giveButton.setOnAction((ActionEvent event) -> {
-			InputUtility.setAtSameAction(idx, 2);
+			InputUtility.setAtSameActionEnter(true);
+			InputUtility.setAtSameAction(idx, sharedObject.Constants.give);
 		});
 		this.getChildren().add(giveButton);
 		

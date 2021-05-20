@@ -1,5 +1,7 @@
 package gui.action;
 
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,18 +15,21 @@ import player.SubPlayer;
 public class test extends Application {
 	public void start(Stage primaryStage) {
 		// TODO
-		SubPlayer s= new SubPlayer();
-		//VBox root = new PlayerAtSameActionPane(2,s,true);
+		ArrayList<SubPlayer> s =  new ArrayList<SubPlayer>();
+		for(int i=0;i<2;i++) {
+			s.add(new SubPlayer(0, "PINK"));
+		}
+		HBox root = new PlayerAtSameActionPane(s,true);
 		//HBox root1 = new PlayerAtSameActionPane(null, amLeft);
 		ChoosePolePane root2 = new ChoosePolePane();
 		ChooseNumberPane root3 = new ChooseNumberPane();
 		//ActionPane root4= new ActionPane(3);
-		Scene scene = new Scene(root3);
+		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setMaxWidth(1024);
 		primaryStage.setMinWidth(1024);
-		primaryStage.setMaxHeight(256);
-		primaryStage.setMinHeight(256);
+		primaryStage.setMaxHeight(200);
+		primaryStage.setMinHeight(200);
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}

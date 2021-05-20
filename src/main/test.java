@@ -30,12 +30,13 @@ public class test extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		ArrayList<Player> players = new ArrayList<Player>();
-		players.add(new Player("BLUE"));
+		players.add(new Player("BULE"));
 		players.add(new Player("GREEN"));
 		players.add(new Player("PINK"));
 		players.add(new Player("RED"));
-		GameScreen g= new GameScreen(players);
 		logic.initialize(players);
+		GameScreen g= new GameScreen(players);
+		
 	    Scene s= new Scene(g);
 	    primaryStage.setScene(s);
 	    primaryStage.getIcons().add(ImageHolder.getInstance().redPole1D.get(8));
@@ -62,7 +63,7 @@ public class test extends Application {
 	
 				for(Player e:players) {
 					SubPlayer a=e.getSub().get(0),b=e.getSub().get(1);
-					System.out.printf("%d  %d %d %d %d\n",logic.nowState,a.getRings(),a.getStage(),b.getRings(),b.getStage());
+					System.out.printf("%d  %d %d\n",logic.nowState,a.getStage(),b.getStage());
 				}
 				System.out.println("///////////////////////////////////////////////////");
 				

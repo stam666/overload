@@ -33,12 +33,12 @@ public class RollDicePane extends HBox{
 		gc.setFill(Color.RED);
 		gc.fillRoundRect(50, 50, 100, 100,5,5);
 		gc.setFill(Color.BLACK);
-		gc.setFont(FontHolder.getInstance().gameFont_50);
-		gc.fillText(String.valueOf(this.nowNumber) ,95 , 105 );
+		gc.setFont(FontHolder.getInstance().gameFont_70);
+		gc.fillText(String.valueOf(this.nowNumber) ,90, 115 );
 		System.out.println(this.nowNumber);
 		stopButton = new  Button("Stop");
 		stopButton.setFont(FontHolder.getInstance().gameFont_40);
-		stopButton.setPrefSize(150, 150);
+		stopButton.setPrefSize(150, 100);
 		stopButton.setOnAction((ActionEvent event) -> {
 			InputUtility.setNumberDice(this.nowNumber);
 			InputUtility.setStopDice(true);
@@ -52,8 +52,8 @@ public class RollDicePane extends HBox{
 			gc.setFill(Color.RED);
 			gc.fillRoundRect(50, 50, 100, 100,5,5);
 			gc.setFill(Color.BLACK);
-			gc.setFont(FontHolder.getInstance().gameFont_40);
-			gc.fillText(String.valueOf(this.nowNumber) ,95 ,105 );
+			gc.setFont(FontHolder.getInstance().gameFont_70);
+			gc.fillText(String.valueOf(this.nowNumber) ,90 ,115 );
 
 	}
 }

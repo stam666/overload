@@ -1,12 +1,19 @@
 package player;
 
+import javafx.scene.image.Image;
+import sharedObject.ImageHolder;
+
 public class SubPlayer {
 	private int stage;
 	private int rings;
-	private String Color="RED";
-	public SubPlayer() {
+	private String name="RED";
+	private int idx;
+	
+	public SubPlayer(int idx,String name) {
 		this.rings=0;
 		this.stage=0;
+		this.idx=idx;
+		this.name=name;
 	}
 	public int getStage() {
 		return stage;
@@ -42,7 +49,36 @@ public class SubPlayer {
 	public void setRings(int counter) {
 		this.rings = counter;
 	}
-	public String getColor() {
-		return Color;
+	public String getName() {
+		return name;
 	}
+	public Image get1D() {
+		if(idx==0) {
+			if(getName().equals("RED")) {
+				return ImageHolder.getInstance().redPole1D.get(getRings());
+			}else if(getName().equals("BULE")) {
+				return ImageHolder.getInstance().bluePole1D.get(getRings());
+			}else if(getName().equals("GREEN")) {
+				return ImageHolder.getInstance().greenPole1D.get(getRings());
+			}else if(getName().equals("PINK")) {
+				return ImageHolder.getInstance().pinkPole1D.get(getRings());
+			}
+		}else if(idx==1) {
+			if(getName().equals("RED")) {
+				return ImageHolder.getInstance().redPole1D.get(getRings());
+			}else if(getName().equals("BULE")) {
+				return ImageHolder.getInstance().bluePole1D.get(getRings());
+			}else if(getName().equals("GREEN")) {
+				return ImageHolder.getInstance().greenPole1D.get(getRings());
+			}else if(getName().equals("PINK")) {
+				return ImageHolder.getInstance().pinkPole1D.get(getRings());
+			}
+		}
+		return null;
+	
+	}
+	public int getIdx() {
+		return idx;
+	}
+	
 }

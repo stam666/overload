@@ -1,11 +1,17 @@
 package gui.score;
 
 import sharedObject.FontHolder;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import main.logic;
 import player.Player;
 
 public class PlayerPane extends VBox{
@@ -20,7 +26,9 @@ public class PlayerPane extends VBox{
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setSpacing(15);
-		
+		if(logic.getPlayer().getName().equals(player.getName())) {
+			this.setBackground(new Background(new BackgroundFill(Color.GREENYELLOW, CornerRadii.EMPTY, Insets.EMPTY)));
+		}
 		this.playerName = new Label();
 		this.playerName.setFont(FontHolder.getInstance().gameFont_40); 
 		this.playerName.textProperty().setValue(player.getName());

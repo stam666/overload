@@ -9,7 +9,7 @@ public class Player {
 	
 	public Player(String name) {
 		this.point=0;
-		SubPlayer first= new SubPlayer(),second =new SubPlayer();
+		SubPlayer first= new SubPlayer(0,name),second =new SubPlayer(1,name);
 		sub = new ArrayList<SubPlayer>();
 		sub.add(first);
 		sub.add(second);

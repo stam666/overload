@@ -75,10 +75,10 @@ public class ActionPane extends VBox {
 		}else if(action==2) {
 			direction="Choose Pole You Want to Play";
 		}else if(action==3) {
-			direction="How Many Rings You Want to Add to Your Pole ?";
+			direction="How Many Rings You Want to Add ?";
 		}else if(action==4) {
 			//AtSame
-			direction="Select Player for Giving from/Sending to?";
+			direction="Select Getting from/Giving to Each Pole?";
 		}
 		labelPane.setAlignment(Pos.CENTER);
 		label.textProperty().setValue(direction);
