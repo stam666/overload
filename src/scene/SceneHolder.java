@@ -17,9 +17,9 @@ public class SceneHolder {
 	}
 	
 	
-	public void switchScene(Scene nextScrene) {
+	public void switchScene(Scene nextScene) {
 		bindStage.setResizable(false);
-		bindStage.setScene(nextScrene);
+		bindStage.setScene(nextScene);
 		bindStage.sizeToScene();
 	}
 	

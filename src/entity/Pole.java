@@ -10,7 +10,8 @@ import sharedObject.ImageHolder;
 public class Pole extends Entity {
 	
 	private List<Ring> ringStack;
-	private int ring;
+	private int ringCount;
+	private boolean isFull;
 
 	public Pole(String color) {
 		if (color == "blue") {
@@ -26,43 +27,57 @@ public class Pole extends Entity {
 		}
 
 		List<Ring> ringStack = new ArrayList<>(7);
-		setRing(0);
+		setRingCount(0);
+		setFull(false);
 		
 	}
 
 	@Override
 	public void draw(GraphicsContext gc) {
+		update();
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
 	
-	
-	public void update() {}
-	
-	public void addRing(Ring ring) {
-		ringStack.add(ring);
-		this.ring += 1;
+	public void update() {
+		if (ringCount > 8) {
+			setFull(true);
+		} else {
+			setFull(false);
+		}
 	}
 	
-	public void removeRing(int ring) {
-		ring -= 1;
+	public void move() {
+		
 	}
 	
-	public List<Ring> getRingStack() {
-		return ringStack;
+	public void addNewRing() {
+		Ring newRing = new Ring();
+		ringStack.add(newRing);
+		this.ringCount += 1;
 	}
-
+	
 	public void setRingStack(List<Ring> ringStack) {
 		this.ringStack = ringStack;
 	}
 
-	public int getRing() {
-		return ring;
-	}
-	
-	public void setRing(int ring) {
-		this.ring = ring;
+	public int getRingCount() {
+		return ringCount;
 	}
 
+	public void setRingCount(int ringCount) {
+		this.ringCount = ringCount;
+	}
 
+	public List<Ring> getRingStack() {
+		return ringStack;
+	}
+
+	public boolean isFull() {
+		return isFull;
+	}
+
+	public void setFull(boolean isFull) {
+		this.isFull = isFull;
+	}
 
 }
