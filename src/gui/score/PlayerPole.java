@@ -24,22 +24,22 @@ public class PlayerPole extends Pane{
 		draw(gc,player.getSub().get(0).get1D(),6,0);
 		draw(gc,player.getSub().get(1).get1D(),102,0);
 		if(idx==0) {
-			draw(gc,ImageHolder.getInstance().bluePole1D.get(player.getSub().get(0).getRings()),6,0);
-			draw(gc,ImageHolder.getInstance().bluePole1D.get(player.getSub().get(1).getRings()),102,0);
+			draw(gc,ImageHolder.getInstance().darkBluePole1D.get(player.getSub().get(0).getRings()),6,0);
+			draw(gc,ImageHolder.getInstance().lightBluePole1D.get(player.getSub().get(1).getRings()),102,0);
 		}else if(idx==1) {
-			draw(gc,ImageHolder.getInstance().greenPole1D.get(player.getSub().get(0).getRings()),6,0);
-			draw(gc,ImageHolder.getInstance().greenPole1D.get(player.getSub().get(1).getRings()),102,0);
+			draw(gc,ImageHolder.getInstance().darkGreenPole1D.get(player.getSub().get(0).getRings()),6,0);
+			draw(gc,ImageHolder.getInstance().lightGreenPole1D.get(player.getSub().get(1).getRings()),102,0);
 		}else if(idx==2) {
-			draw(gc,ImageHolder.getInstance().pinkPole1D.get(player.getSub().get(0).getRings()),6,0);
-			draw(gc,ImageHolder.getInstance().pinkPole1D.get(player.getSub().get(1).getRings()),102,0);
+			draw(gc,ImageHolder.getInstance().darkPinkPole1D.get(player.getSub().get(0).getRings()),6,0);
+			draw(gc,ImageHolder.getInstance().lightPinkPole1D.get(player.getSub().get(1).getRings()),102,0);
 		}
 		else if(idx==3) {
-			draw(gc,ImageHolder.getInstance().redPole1D.get(player.getSub().get(0).getRings()),6,0);
-			draw(gc,ImageHolder.getInstance().redPole1D.get(player.getSub().get(1).getRings()),102,0);
+			draw(gc,ImageHolder.getInstance().darkRedPole1D.get(player.getSub().get(0).getRings()),6,0);
+			draw(gc,ImageHolder.getInstance().lightRedPole1D.get(player.getSub().get(1).getRings()),102,0);
 		}
 		else if(idx==4) {
-			draw(gc,ImageHolder.getInstance().yellowPole1D.get(player.getSub().get(0).getRings()),6,0);
-			draw(gc,ImageHolder.getInstance().yellowPole1D.get(player.getSub().get(1).getRings()),102,0);
+			draw(gc,ImageHolder.getInstance().darkYellowPole1D.get(player.getSub().get(0).getRings()),6,0);
+			draw(gc,ImageHolder.getInstance().lightYellowPole1D.get(player.getSub().get(1).getRings()),102,0);
 		}
 
 

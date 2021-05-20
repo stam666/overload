@@ -10,16 +10,26 @@ public class ImageHolder {
 	private static final ImageHolder instance = new ImageHolder();
 	public Image nothing;
 	public Image startBackground;
-	public List<Image> bluePole1D;
-	public List<Image> greenPole1D;
-	public List<Image> pinkPole1D;
-	public List<Image> redPole1D;
-	public List<Image> yellowPole1D;
-	public Image bluePole;
-	public Image greenPole;
-	public Image pinkPole;
-	public Image redPole;
-	public Image yellowPole;
+	public List<Image> darkBluePole1D;
+	public List<Image> lightBluePole1D;
+	public List<Image> darkGreenPole1D;
+	public List<Image> lightGreenPole1D;
+	public List<Image> darkPinkPole1D;
+	public List<Image> lightPinkPole1D;
+	public List<Image> darkRedPole1D;
+	public List<Image> lightRedPole1D;
+	public List<Image> darkYellowPole1D;
+	public List<Image> lightYellowPole1D;
+	public Image darkBluePole;
+	public Image lightBluePole;
+	public Image darkGreenPole;
+	public Image lightGreenPole;
+	public Image darkPinkPole;
+	public Image lightPinkPole;
+	public Image darkRedPole;
+	public Image lightRedPole;
+	public Image darkYellowPole;
+	public Image lightYellowPole;
 	public List<Image> ring;
 	public Image tile;
 	
@@ -31,17 +41,27 @@ public class ImageHolder {
 		
 		nothing = loadImage("nothing/nothing", "png");
 		startBackground=loadImage("background/start", "jpg");
-		bluePole1D = loadImageList("pole/1D/blue/blue_", "png", 8);
-		greenPole1D = loadImageList("pole/1D/green/green_", "png", 8);
-		pinkPole1D = loadImageList("pole/1D/pink/pink_", "png", 8);
-		redPole1D = loadImageList("pole/1D/red/red_", "png", 8);
-		yellowPole1D = loadImageList("pole/1D/yellow/yellow_", "png", 8);
+		darkBluePole1D = loadImageList("pole/1D/blue/dark/", "png", 8);
+		lightBluePole1D = loadImageList("pole/1D/blue/light/", "png", 8);
+		darkGreenPole1D = loadImageList("pole/1D/green/dark/", "png", 8);
+		lightGreenPole1D = loadImageList("pole/1D/green/light/", "png", 8);
+		darkPinkPole1D = loadImageList("pole/1D/pink/dark/", "png", 8);
+		lightPinkPole1D = loadImageList("pole/1D/pink/light/", "png", 8);
+		darkRedPole1D = loadImageList("pole/1D/red/dark/", "png", 8);
+		lightRedPole1D = loadImageList("pole/1D/red/light/", "png", 8);
+		darkYellowPole1D = loadImageList("pole/1D/yellow/dark/", "png", 8);
+		lightYellowPole1D = loadImageList("pole/1D/yellow/light/", "png", 8);
 		
-		bluePole = loadImage("pole/3D/blue", "png");
-		greenPole = loadImage("pole/3D/green", "png");
-		pinkPole = loadImage("pole/3D/pink", "png");
-		redPole = loadImage("pole/3D/red", "png");
-		yellowPole = loadImage("pole/3D/yellow", "png");
+		darkBluePole = loadImage("pole/3D/dark/blue", "png");
+		lightBluePole = loadImage("pole/3D/light/blue", "png");
+		darkGreenPole = loadImage("pole/3D/dark/green", "png");
+		lightGreenPole = loadImage("pole/3D/light/green", "png");
+		darkPinkPole = loadImage("pole/3D/dark/pink", "png");
+		lightPinkPole = loadImage("pole/3D/light/pink", "png");
+		darkRedPole = loadImage("pole/3D/dark/red", "png");
+		lightRedPole = loadImage("pole/3D/light/red", "png");
+		darkYellowPole = loadImage("pole/3D/dark/yellow", "png");
+		lightYellowPole = loadImage("pole/3D/light/yellow", "png");
 		
 		ring = loadImageList("ring/ring_", "png", 2);
 		

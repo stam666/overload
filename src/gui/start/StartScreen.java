@@ -27,7 +27,7 @@ public class StartScreen extends StackPane {
 	}
 	private void drawBackground(GraphicsContext gc) {
 		gc.drawImage(ImageHolder.getInstance().startBackground, 0, 0,1024,768);
-		gc.drawImage(ImageHolder.getInstance().bluePole1D.get(8),100, 57,124,180);
+		gc.drawImage(ImageHolder.getInstance().lightRedPole1D.get(8),100, 57,124,180);
 		gc.setFont(FontHolder.getInstance().gameFont_200);
 		gc.setFill(Color.BLUE);
 		gc.setStroke(Color.WHITE);
