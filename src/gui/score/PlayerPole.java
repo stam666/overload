@@ -21,6 +21,8 @@ public class PlayerPole extends Pane{
 				gc.fillRect(102, 0, 90, 130);
 			}
 		}
+		draw(gc,player.getSub().get(0).get1D(),6,0);
+		draw(gc,player.getSub().get(1).get1D(),102,0);
 		if(idx==0) {
 			draw(gc,ImageHolder.getInstance().bluePole1D.get(player.getSub().get(0).getRings()),6,0);
 			draw(gc,ImageHolder.getInstance().bluePole1D.get(player.getSub().get(1).getRings()),102,0);

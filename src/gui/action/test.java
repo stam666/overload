@@ -24,7 +24,7 @@ public class test extends Application {
 		ChoosePolePane root2 = new ChoosePolePane();
 		ChooseNumberPane root3 = new ChooseNumberPane();
 		//ActionPane root4= new ActionPane(3);
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(root2);
 		primaryStage.setScene(scene);
 		primaryStage.setMaxWidth(1024);
 		primaryStage.setMinWidth(1024);

@@ -35,7 +35,6 @@ public class RollDicePane extends HBox{
 		gc.setFill(Color.BLACK);
 		gc.setFont(FontHolder.getInstance().gameFont_70);
 		gc.fillText(String.valueOf(this.nowNumber) ,90, 115 );
-		System.out.println(this.nowNumber);
 		stopButton = new  Button("Stop");
 		stopButton.setFont(FontHolder.getInstance().gameFont_40);
 		stopButton.setPrefSize(150, 100);

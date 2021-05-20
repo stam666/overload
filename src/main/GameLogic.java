@@ -93,7 +93,7 @@ public class GameLogic {
 		} else {
 			// RenderChoosePole
 			change = true;
-			nextAction = sharedObject.Constants.choosePole;
+			nextAction = Constants.choosePole;
 			nowState = 2;
 		}
 	}

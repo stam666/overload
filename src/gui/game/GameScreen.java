@@ -61,8 +61,8 @@ public class GameScreen extends VBox{
 					/*for(Player e:players) {
 						SubPlayer a=e.getSub().get(0),b=e.getSub().get(1);
 						System.out.printf("%d  %d %d\n",GameLogic.getNowState(),a.getStage(),b.getStage());
-					}*/
-					System.out.println(GameScreen.this.action.getMode());
+					}
+					System.out.println(GameScreen.this.action.getMode());*/
 		          
 		        }
 		      };
