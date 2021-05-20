@@ -30,14 +30,17 @@ public class ActionPane extends VBox {
 		this.getChildren().clear();
 		if(this.mode==1) {
 			//rollDice//update
+			System.out.println("hi");
 			this.rollDice=new RollDicePane();
 			this.getChildren().addAll(Label(1),this.rollDice);
 		}else if(this.mode==2) {
 			//choosePole
+			
 			this.choosePole=new ChoosePolePane();
 			this.getChildren().addAll(Label(2),this.choosePole);
 		}else if(this.mode==3) {
 			//ChooseNumber
+			System.out.println("hi2");
 			this.chooseNumber=new ChooseNumberPane();
 			this.getChildren().addAll(Label(3),this.chooseNumber);
 		}
@@ -85,4 +88,9 @@ public class ActionPane extends VBox {
 		labelPane.getChildren().add(label);
 		return labelPane;
 	}
+	public int getMode() {
+		return mode;
+	}
+	
+	
 }

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import gui.game.GameScreen;
+import gui.game.GameScreen1;
 import input.InputUtility;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -35,7 +35,7 @@ public class test extends Application {
 		players.add(new Player("PINK"));
 		players.add(new Player("RED"));
 		logic.initialize(players);
-		GameScreen g= new GameScreen(players);
+		GameScreen1 g= new GameScreen1(players);
 		
 	    Scene s= new Scene(g);
 	    primaryStage.setScene(s);

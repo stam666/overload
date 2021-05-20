@@ -4,7 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import main.logic;
+import main.GameLogic;
 import player.Player;
 import sharedObject.ImageHolder;
 
@@ -13,11 +13,11 @@ public class PlayerPole extends Pane{
 		Canvas canvas = new Canvas(200,130);
 		GraphicsContext gc= canvas.getGraphicsContext2D();
 		//String img_path=ClassLoader.getSystemResource("pole/1D/blue/dark/1.png").toString();
-		if(logic.getNowState()>=3 && logic.getPlayer().getName().equals(player.getName())) {
+		if(GameLogic.getNowState()>=3 && GameLogic.getPlayer().getName().equals(player.getName())) {
 			gc.setFill(Color.GOLD);
-			if(logic.getNowSubPlayer().getIdx()==0) {
+			if(GameLogic.getNowSubPlayer().getIdx()==0) {
 				gc.fillRoundRect(6, 0, 90, 130,15,15);
-			}else if(logic.getNowSubPlayer().getIdx()==1) {
+			}else if(GameLogic.getNowSubPlayer().getIdx()==1) {
 				gc.fillRect(102, 0, 90, 130);
 			}
 		}

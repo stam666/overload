@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.game.GameScreen;
+import gui.game.GameScreen1;
+import gui.start.StartScreen;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,7 +16,19 @@ import player.SubPlayer;
 import sharedObject.Constants;
 
 public class GameScene extends Scene {
-	private GameScreen gameScreen;
+	private GameScreen game;
+
+	private GameScene(Parent root) {
+		super(root);
+	}
+
+	public GameScene() {
+		this((Parent) new GameScreen());
+		//initialize();
+		
+	
+	}
+	/*private GameScreen1 gameScreen;
 	public static  boolean updateSame=false,update=false,changeSame=false;
 	public static boolean change=false;
 	static int a=0,b=0,changeNo;
@@ -25,12 +39,12 @@ public class GameScene extends Scene {
 	}
 
 	public GameScene() {
-		this((Parent) new GameScreen(players));
+		this((Parent) new GameScreen1(players));
 		initialize();
 	}
 
 	private void initialize() {
-		GameScreen gameScreen = new GameScreen(players);
+		GameScreen1 gameScreen = new GameScreen1(players);
 		logic.initialize(players);
 		
 		setRoot((Parent) (this.gameScreen = gameScreen));
@@ -63,6 +77,6 @@ public class GameScene extends Scene {
 		};
 		animation.start();
 		
-	}
+	}*/
 
 }

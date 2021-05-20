@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import main.GameLogic;
 import main.logic;
 import player.Player;
 
@@ -26,7 +27,7 @@ public class PlayerPane extends VBox{
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setSpacing(15);
-		if(logic.getPlayer().getName().equals(player.getName())) {
+		if(GameLogic.getPlayer().getName().equals(player.getName())) {
 			this.setBackground(new Background(new BackgroundFill(Color.GREENYELLOW, CornerRadii.EMPTY, Insets.EMPTY)));
 		}
 		this.playerName = new Label();
