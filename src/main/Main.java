@@ -22,7 +22,7 @@ public class Main extends Application {
 		sceneHolder = new SceneHolder(primaryStage);
 	    sceneHolder.initialize();
 	    
-	    primaryStage.getIcons().add(ImageHolder.getInstance().redPole1D.get(8));
+	    primaryStage.getIcons().add(ImageHolder.getInstance().lightRedPole1D.get(8));
 	    primaryStage.setTitle("OverLoad");
 	    primaryStage.show();
 	}
