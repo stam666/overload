@@ -19,6 +19,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import player.Player;
 import player.SubPlayer;
+import sharedObject.AudioHolder;
 import sharedObject.FontHolder;
 
 public class SubPlayerAtSameActionPane extends VBox{
@@ -45,6 +46,7 @@ public class SubPlayerAtSameActionPane extends VBox{
 		recieveButton.setPrefSize(100, 25);
 		recieveButton.setFont(FontHolder.getInstance().gameFont_20);
 		recieveButton.setOnAction((ActionEvent event) -> {
+			AudioHolder.getInstance().playPressed();
 			InputUtility.setAtSameAction(idx, sharedObject.Constants.get);
 			InputUtility.setAtSameActionEnter(true);
 		});
@@ -54,6 +56,7 @@ public class SubPlayerAtSameActionPane extends VBox{
 		giveButton.setPrefSize(100, 25);
 		giveButton.setFont(FontHolder.getInstance().gameFont_20);
 		giveButton.setOnAction((ActionEvent event) -> {
+			AudioHolder.getInstance().playPressed();
 			InputUtility.setAtSameActionEnter(true);
 			InputUtility.setAtSameAction(idx, sharedObject.Constants.give);
 		});

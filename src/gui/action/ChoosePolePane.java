@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import main.GameLogic;
 import main.logic;
+import sharedObject.AudioHolder;
 import javafx.event.ActionEvent;
 
 public class ChoosePolePane extends HBox{
@@ -31,6 +32,7 @@ public class ChoosePolePane extends HBox{
 		    view0.setFitWidth(124);
 		    chooseZeroButton.setGraphic(view0);
 			chooseZeroButton.setOnAction((ActionEvent event) -> {
+				AudioHolder.getInstance().playPressed();
 				InputUtility.setChoosePoleZero(true);
 			});
 			chooseZeroButton.setPrefSize(256, 200);
@@ -43,6 +45,7 @@ public class ChoosePolePane extends HBox{
 		    view1.setFitWidth(124);
 		    chooseOneButton.setGraphic(view1);
 			chooseOneButton.setOnAction((ActionEvent event) -> {
+				AudioHolder.getInstance().playPressed();
 				InputUtility.setChoosePoleOne(true);
 			});
 			chooseOneButton.setPrefSize(256, 200);

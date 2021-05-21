@@ -30,9 +30,7 @@ public class ButtonStart extends HBox{
 		playButton.setPrefSize(150, 80);
 		playButton.setOnMouseClicked(e -> {
 			if (e.getButton() == MouseButton.PRIMARY) {
-				 AudioHolder.getInstance().buttonPressed.setCycleCount(1);
-				 AudioHolder.getInstance().buttonPressed.setVolume(0.3D);
-				 AudioHolder.getInstance().buttonPressed.play();
+				AudioHolder.getInstance().playPressed();
 				Main.sceneHolder.switchScene((Scene)new GameScene());
 			}
 		});

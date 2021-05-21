@@ -10,6 +10,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import sharedObject.AudioHolder;
 import sharedObject.FontHolder;
 import javafx.event.ActionEvent;
 
@@ -40,6 +41,7 @@ public class RollDicePane extends HBox{
 		stopButton.setPrefSize(150, 150);
 		setBtnStyle(stopButton);
 		stopButton.setOnAction((ActionEvent event) -> {
+			AudioHolder.getInstance().playPressed();
 			InputUtility.setNumberDice(this.nowNumber);
 			InputUtility.setStopDice(true);
 		});
