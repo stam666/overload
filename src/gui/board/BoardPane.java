@@ -27,11 +27,11 @@ public class BoardPane extends Pane {
 	}
 	
 	public void initializeBoard() {
-		for (int i = 0; i < player; i++) {
+		for (int i = 0; i < player * 2; i++) {
 			List<Tile> lane = new ArrayList<Tile>(length);
 			for (int j = 0; j < length; j++) {
 				Tile tile = new Tile((player - i) * 10);
-				tile.setX(0 + j * tile.getWidth());
+				tile.setX((i * tile.getWidth() * 2 / 10) + (j * tile.getWidth() * 8 / 10));
 				tile.setY(0 + i * tile.getHeight());
 				lane.add(tile);
 				RenderableHolder.getInstance().add(tile);
