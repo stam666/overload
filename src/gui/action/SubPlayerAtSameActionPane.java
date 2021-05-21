@@ -36,7 +36,7 @@ public class SubPlayerAtSameActionPane extends VBox{
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
-		this.setSpacing(15);
+		this.setSpacing(2);
 		Canvas canvas = new Canvas(100,100);
 		GraphicsContext gc= canvas.getGraphicsContext2D();
 		gc.drawImage(target.get1D(), 15, 0,70,100);

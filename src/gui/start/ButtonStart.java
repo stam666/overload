@@ -15,35 +15,33 @@ import scene.GameScene;
 import sharedObject.AudioHolder;
 import sharedObject.FontHolder;
 
-public class ButtonStart extends HBox{
-	Button playButton,exitButton;
+public class ButtonStart extends HBox {
+	private Button playButton, exitButton;
+
 	public ButtonStart() {
 		this.setAlignment(Pos.CENTER);
-		int width=1024,height=368;
+		int width = 1024, height = 368;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setSpacing(30);
 		this.getStylesheets().add(ClassLoader.getSystemResource("styleSheet.css").toString());
-		playButton=new Button("Play");
+		playButton = new Button("Play");
 		playButton.setPrefSize(150, 80);
 		playButton.setOnMouseClicked(e -> {
 			if (e.getButton() == MouseButton.PRIMARY) {
 				AudioHolder.getInstance().playPressed();
-				Main.sceneHolder.switchScene((Scene)new GameScene());
+				Main.sceneHolder.switchScene((Scene) new GameScene());
 			}
 		});
-		
-		
-		
+
 		playButton.setFont(FontHolder.getInstance().gameFont_50);
-		
-		
-		exitButton=new Button("Exit");
+
+		exitButton = new Button("Exit");
 		exitButton.setFont(FontHolder.getInstance().gameFont_50);
 		exitButton.setPrefSize(150, 80);
 		exitButton.setOnMouseClicked(e -> System.exit(0));
-		this.getChildren().addAll(playButton,exitButton);
+		this.getChildren().addAll(playButton, exitButton);
 	}
 }
