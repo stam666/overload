@@ -3,25 +3,33 @@ package gui.game;
 import java.util.ArrayList;
 
 import gui.action.ActionPane;
+import gui.board.BoardPane;
 import gui.score.ScoreboardPane;
 import javafx.animation.AnimationTimer;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.VBox;
 import main.GameLogic;
 import main.logic;
 import player.Player;
 import player.SubPlayer;
 import sharedObject.Constants;
+import sharedObject.IRenderable;
+import sharedObject.RenderableHolder;
 
 public class GameScreen extends VBox{
 	private ScoreboardPane score;
 	private ActionPane action;
+	private BoardPane board;
+	private Canvas gameCanvas;
+	private GraphicsContext gamegc;
 	private ArrayList<Player> players;
 	private AnimationTimer gameLoop;
 	private Boolean updateSame=false,update=false,changeSame=false,change=false;
 	private int nextAction;
 	public GameScreen() {
 		players = new ArrayList<Player>();
-		players.add(new Player("BULE"));
+		players.add(new Player("BLUE"));
 		players.add(new Player("GREEN"));
 		players.add(new Player("PINK"));
 		players.add(new Player("RED"));
@@ -33,7 +41,11 @@ public class GameScreen extends VBox{
 		this.setMaxHeight(height);
 		this.score = new ScoreboardPane(this.players);
 		this.action = new ActionPane();
-		this.getChildren().addAll(this.score, this.action);
+		this.board = new BoardPane(players.size(), GameLogic.getStageLength());
+		this.gameCanvas = new Canvas(1024, 256);
+		gamegc = this.gameCanvas.getGraphicsContext2D();
+		board.getChildren().add(gameCanvas);
+		this.getChildren().addAll(this.score, this.action, this.board);
 		this.loop();
 	}
 	 private void loop() {
@@ -41,6 +53,12 @@ public class GameScreen extends VBox{
 		        public void handle(long now) {
 		        	
 					GameLogic.updateLogic();
+					RenderableHolder.getInstance().update();
+					
+					for (IRenderable entity: RenderableHolder.getInstance().getEntities()) {
+						entity.draw(gamegc);
+					}
+					
 					updateSame=GameLogic.getUpdateSame();
 					update=GameLogic.getUpdate();
 					changeSame=GameLogic.getChangeSame();

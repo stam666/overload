@@ -1,9 +1,10 @@
 package entity;
 
 import javafx.scene.canvas.GraphicsContext;
+import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
 
-public class Ring extends Entity{
+public class Ring extends Entity implements IUpdatable {
 	
 	private int state;
 	
@@ -13,11 +14,10 @@ public class Ring extends Entity{
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		checkState();
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
 
-	public void checkState() {
+	public void update() {
 		if (state == 0) {
 			setSprite(ImageHolder.getInstance().ring.get(0));
 		} else if (state == 1) {

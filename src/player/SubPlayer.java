@@ -56,7 +56,7 @@ public class SubPlayer {
 		if(idx==0) {
 			if(getName().equals("RED")) {
 				return ImageHolder.getInstance().darkRedPole1D.get(getRings());
-			}else if(getName().equals("BULE")) {
+			}else if(getName().equals("BLUE")) {
 				return ImageHolder.getInstance().darkBluePole1D.get(getRings());
 			}else if(getName().equals("GREEN")) {
 				return ImageHolder.getInstance().darkGreenPole1D.get(getRings());
@@ -66,7 +66,7 @@ public class SubPlayer {
 		}else if(idx==1) {
 			if(getName().equals("RED")) {
 				return ImageHolder.getInstance().lightRedPole1D.get(getRings());
-			}else if(getName().equals("BULE")) {
+			}else if(getName().equals("BLUE")) {
 				return ImageHolder.getInstance().lightBluePole1D.get(getRings());
 			}else if(getName().equals("GREEN")) {
 				return ImageHolder.getInstance().lightGreenPole1D.get(getRings());

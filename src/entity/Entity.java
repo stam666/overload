@@ -1,6 +1,7 @@
 package entity;
 
 import javafx.scene.image.Image;
+import main.GameLogic;
 import sharedObject.IRenderable;
 import sharedObject.ImageHolder;
 
@@ -25,6 +26,10 @@ public abstract class Entity implements IRenderable {
 	public boolean isVisible(){
 		return isVisible();
 	}
+	
+	public void setVisible(boolean isVisible) {
+		this.isVisible = isVisible;
+	}	
 	
 	public void setDestroyed(boolean destroyed) {
 		this.isDestroyed = destroyed;
@@ -64,13 +69,13 @@ public abstract class Entity implements IRenderable {
 	}
 	
 	public double getWidth() {
-	    return getSprite().getWidth();
+		return getSprite().getWidth() * GameLogic.getFactor();
 	}
 
 	public double getHeight() {
-	    return getSprite().getHeight();
+		return getSprite().getHeight() * GameLogic.getFactor();
 	}
-	  
+
 	public double getCenterX() {
 		return getX() + getWidth() / 2.0D;
 	}

@@ -26,4 +26,25 @@ public class RenderableHolder {
 		return instance;
 	}
 	
+	public void add(IRenderable entity) {
+		entities.add(entity);
+		Collections.sort(this.entities, this.comparator);
+	}
+	
+	public void update() {
+	    Collections.sort(this.entities, this.comparator);
+	    for (int i = this.entities.size() - 1; i >= 0; i--) {
+	      if (this.entities.get(i) instanceof IUpdatable)
+	        ((IUpdatable)this.entities.get(i)).update(); 
+	    } 
+	    for (int i1 = this.entities.size() - 1; i1 >= 0; i1--) {
+	      if (!((IRenderable)this.entities.get(i1)).isVisible())
+	        this.entities.remove(i1); 
+	    }
+	}
+
+	public List<IRenderable> getEntities() {
+		return entities;
+	}
+	
 }

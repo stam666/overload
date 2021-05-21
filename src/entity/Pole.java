@@ -5,9 +5,10 @@ import java.util.List;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
 
-public class Pole extends Entity {
+public class Pole extends Entity implements IUpdatable {
 	
 	private List<Ring> ringStack;
 	private int ringCount;
@@ -34,8 +35,7 @@ public class Pole extends Entity {
 			setSprite(ImageHolder.getInstance().lightRedPole);
 		} else if (color == "lightYellow") {
 			setSprite(ImageHolder.getInstance().lightYellowPole);
-		}
-		
+		}		
 
 		List<Ring> ringStack = new ArrayList<>(7);
 		setRingCount(0);
@@ -45,7 +45,6 @@ public class Pole extends Entity {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		update();
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
 	
