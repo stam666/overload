@@ -23,7 +23,7 @@ public class PlayerPole extends Pane{
 		}
 		draw(gc,player.getSub().get(0).get1D(),6,0);
 		draw(gc,player.getSub().get(1).get1D(),102,0);
-		if(idx==0) {
+		/*if(idx==0) {
 			draw(gc,ImageHolder.getInstance().darkBluePole1D.get(player.getSub().get(0).getRings()),6,0);
 			draw(gc,ImageHolder.getInstance().lightBluePole1D.get(player.getSub().get(1).getRings()),102,0);
 		}else if(idx==1) {
@@ -40,7 +40,7 @@ public class PlayerPole extends Pane{
 		else if(idx==4) {
 			draw(gc,ImageHolder.getInstance().darkYellowPole1D.get(player.getSub().get(0).getRings()),6,0);
 			draw(gc,ImageHolder.getInstance().lightYellowPole1D.get(player.getSub().get(1).getRings()),102,0);
-		}
+		}*/
 
 
 		this.getChildren().add(canvas);

@@ -23,7 +23,8 @@ public class ActionPane extends VBox {
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
-		
+		this.getStylesheets().add(ClassLoader.getSystemResource("styleSheet.css").toString());
+		//this.setStyle("-fx-background-color: linear-gradient(#adff2f, #B06AB3);");
 	}
 	public void changeMode(int mode) {
 		this.mode=mode;

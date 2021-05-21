@@ -61,7 +61,7 @@ public class SubPlayer {
 			}else if(getName().equals("GREEN")) {
 				return ImageHolder.getInstance().darkGreenPole1D.get(getRings());
 			}else if(getName().equals("PINK")) {
-				return ImageHolder.getInstance().darkGreenPole1D.get(getRings());
+				return ImageHolder.getInstance().darkPinkPole1D.get(getRings());
 			}
 		}else if(idx==1) {
 			if(getName().equals("RED")) {

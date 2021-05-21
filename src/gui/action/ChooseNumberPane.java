@@ -25,6 +25,7 @@ public class ChooseNumberPane extends HBox {
 		for (int i = 0; i <= 8; i++) {
 			Button b = new Button(String.valueOf(i));
 			b.setFont(FontHolder.getInstance().gameFont_40);
+			b.setPrefSize(90, 90);
 			numberButton.add(b);
 			this.getChildren().add(b);
 		}

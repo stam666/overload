@@ -19,12 +19,13 @@ public class test extends Application {
 		for(int i=0;i<2;i++) {
 			s.add(new SubPlayer(0, "PINK"));
 		}
-		HBox root = new PlayerAtSameActionPane(s,true);
+		/*HBox root = new PlayerAtSameActionPane(s,true);
 		//HBox root1 = new PlayerAtSameActionPane(null, amLeft);
 		ChoosePolePane root2 = new ChoosePolePane();
-		ChooseNumberPane root3 = new ChooseNumberPane();
+		ChooseNumberPane root3 = new ChooseNumberPane();*/
+		RollDicePane root5= new RollDicePane();
 		//ActionPane root4= new ActionPane(3);
-		Scene scene = new Scene(root2);
+		Scene scene = new Scene(root5);
 		primaryStage.setScene(scene);
 		primaryStage.setMaxWidth(1024);
 		primaryStage.setMinWidth(1024);

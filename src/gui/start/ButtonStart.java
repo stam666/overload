@@ -24,8 +24,9 @@ public class ButtonStart extends HBox{
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setSpacing(30);
+		this.getStylesheets().add(ClassLoader.getSystemResource("styleSheet.css").toString());
 		playButton=new Button("Play");
-		
+		playButton.setPrefSize(150, 80);
 		playButton.setOnMouseClicked(e -> {
 			if (e.getButton() == MouseButton.PRIMARY) {
 				Main.sceneHolder.switchScene((Scene)new GameScene());
@@ -39,6 +40,7 @@ public class ButtonStart extends HBox{
 		
 		exitButton=new Button("Exit");
 		exitButton.setFont(FontHolder.getInstance().gameFont_50);
+		exitButton.setPrefSize(150, 80);
 		exitButton.setOnMouseClicked(e -> System.exit(0));
 		this.getChildren().addAll(playButton,exitButton);
 	}

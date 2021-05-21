@@ -35,24 +35,30 @@ public class RollDicePane extends HBox{
 		gc.setFill(Color.BLACK);
 		gc.setFont(FontHolder.getInstance().gameFont_70);
 		gc.fillText(String.valueOf(this.nowNumber) ,90, 115 );
-		stopButton = new  Button("Stop");
-		stopButton.setFont(FontHolder.getInstance().gameFont_40);
-		stopButton.setPrefSize(150, 100);
+		stopButton = new  Button(String.valueOf(this.nowNumber));
+		stopButton.setFont(FontHolder.getInstance().gameFont_100);
+		stopButton.setPrefSize(150, 150);
+		setBtnStyle(stopButton);
 		stopButton.setOnAction((ActionEvent event) -> {
 			InputUtility.setNumberDice(this.nowNumber);
 			InputUtility.setStopDice(true);
 		});
-		this.getChildren().addAll(canvas,stopButton);
+		this.getChildren().addAll(stopButton);
+	}
+	private void setBtnStyle(Button btn) {
+		btn.setId("dice-roll");
+		btn.getStylesheets().add(ClassLoader.getSystemResource("styleSheet.css").toString());
 	}
 	public void update() {
 		if(!InputUtility.isStopDice()) {
 			this.nowNumber=ran.nextInt(6)+1;
 		}
-			gc.setFill(Color.RED);
+			stopButton.setText(String.valueOf(this.nowNumber));
+			/*gc.setFill(Color.RED);
 			gc.fillRoundRect(50, 50, 100, 100,5,5);
 			gc.setFill(Color.BLACK);
 			gc.setFont(FontHolder.getInstance().gameFont_70);
-			gc.fillText(String.valueOf(this.nowNumber) ,90 ,115 );
+			gc.fillText(String.valueOf(this.nowNumber) ,90 ,115 );*/
 
 	}
 }
