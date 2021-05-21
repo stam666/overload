@@ -27,10 +27,10 @@ public class BoardPane extends Pane {
 	}
 	
 	public void initializeBoard() {
-		for (int i = player; i > 0; i--) {
+		for (int i = 0; i < player; i++) {
 			List<Tile> lane = new ArrayList<Tile>(length);
 			for (int j = 0; j < length; j++) {
-				Tile tile = new Tile(i * 10);
+				Tile tile = new Tile((player - i) * 10);
 				tile.setX(0 + j * tile.getWidth() * GameLogic.getFactor());
 				tile.setY(0 + i * tile.getHeight() * GameLogic.getFactor());
 				lane.add(tile);
