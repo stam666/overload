@@ -15,25 +15,25 @@ public class Pole extends Entity implements IUpdatable {
 	private boolean isFull;
 
 	public Pole(String color) {
-		if (color == "darkBlue") {
+		if (color == "darkBLUE") {
 			setSprite(ImageHolder.getInstance().darkBluePole);
-		} else if (color == "darkGreen") {
+		} else if (color == "darkGREEN") {
 			setSprite(ImageHolder.getInstance().darkGreenPole);
-		} else if (color == "darkPink") {
+		} else if (color == "darkPINK") {
 			setSprite(ImageHolder.getInstance().darkPinkPole);
-		} else if (color == "darkRed") {
+		} else if (color == "darkRED") {
 			setSprite(ImageHolder.getInstance().darkRedPole);
-		} else if (color == "darkYellow") {
+		} else if (color == "darkYELLOW") {
 			setSprite(ImageHolder.getInstance().darkYellowPole);
-		} else if (color == "lightBlue") {
+		} else if (color == "lightBLUE") {
 			setSprite(ImageHolder.getInstance().lightBluePole);
-		} else if (color == "lightGreen") {
+		} else if (color == "lightGREEN") {
 			setSprite(ImageHolder.getInstance().lightGreenPole);
-		} else if (color == "lightPink") {
+		} else if (color == "lightPINK") {
 			setSprite(ImageHolder.getInstance().lightPinkPole);
-		} else if (color == "lightRed") {
+		} else if (color == "lightRED") {
 			setSprite(ImageHolder.getInstance().lightRedPole);
-		} else if (color == "lightYellow") {
+		} else if (color == "lightYELLOW") {
 			setSprite(ImageHolder.getInstance().lightYellowPole);
 		}		
 

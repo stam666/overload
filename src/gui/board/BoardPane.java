@@ -4,16 +4,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import entity.Pole;
 import entity.Tile;
 import javafx.geometry.Pos;
 import javafx.scene.layout.Pane;
 import main.GameLogic;
+import sharedObject.Constants;
 import sharedObject.RenderableHolder;
 
 public class BoardPane extends Pane {
 	
 	private int player;
 	private int length;
+	
+	private List<List<Tile>> board;
 	
 	public BoardPane(int player, int length) {
 		this.player = player;
@@ -24,6 +28,7 @@ public class BoardPane extends Pane {
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		initializeBoard();
+		initializePole();
 	}
 	
 	public void initializeBoard() {
@@ -36,9 +41,18 @@ public class BoardPane extends Pane {
 				lane.add(tile);
 				RenderableHolder.getInstance().add(tile);
 			}
-			
+			board.add(lane);
 		}
-		
 	}
 	
+	
+	public void initializePole() {
+		for (int i = 0; i < player; i++) {
+			Pole darkPole = new Pole("dark" + Constants.colorList[i]);
+			Pole lightPole = new Pole("light" + Constants.colorList[i]);
+			board.get(i * 2).get(0).setPole(darkPole);
+			board.get(i * 2 + 1).get(0).setPole(lightPole);
+			
+		}
+	}
 }

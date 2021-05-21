@@ -201,6 +201,7 @@ public class GameLogic {
 			}
 		} else if (nowState == 6) {
 			// renderwalk
+			
 			nowState = 7;
 //			if(render fin ) {
 //				nowState=7;
