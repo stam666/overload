@@ -97,7 +97,7 @@ public class GameLogic {
 			nowState = 2;
 		}
 	}
-
+	
 	public static void CheckPassedPole() {
 		for (int i = 0; i < players.size(); i++) {
 			for (int j = 0; j <= 1; j++) {
@@ -143,6 +143,14 @@ public class GameLogic {
 		updateSame = false;
 		change = false;
 		changeSame = false;
+	}
+	private static Boolean allAtSameIsZero() {
+		for(SubPlayer e : atSame) {
+			if(e.getRings()!=0) {
+				return false;
+			}
+		}
+		return true;
 	}
 	public static void updateLogic() {
 		setUpdate();
@@ -215,7 +223,7 @@ public class GameLogic {
 				nowState = 10;
 			}
 		} else if (nowState == 10) {
-			if (atSame.isEmpty()) {
+			if (atSame.isEmpty() || (nowSubPlayer.getRings()==0 && allAtSameIsZero())) {
 				nowState = 12;
 			} else if (InputUtility.isAtSameActionEntered()) {
 				for (int i = 0; i < atSame.size(); i++) {
