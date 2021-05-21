@@ -20,7 +20,7 @@ public class GameLogic {
 	protected static ArrayList<SubPlayer> atSame = new ArrayList<SubPlayer>();
 	private static int turnofPlayer = 0, nextAction;
 	private static Boolean update = false, updateSame = false, change = false, changeSame = false;
-	private static double factor = 0.76D;
+	private static double factor = 1024.0D / 18.0D / 450.0D;
 	
 	public static int getNextAction() {
 		return nextAction;

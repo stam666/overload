@@ -19,7 +19,7 @@ public class testBoard extends Application {
 	
 	public void start(Stage primaryStage) {
 		// TODO
-		BoardPane root = new BoardPane(4, 25);
+		BoardPane root = new BoardPane(4, 18);
 		this.gameCanvas = new Canvas(1024, 256);
 		gamegc = this.gameCanvas.getGraphicsContext2D();
 		root.getChildren().add(gameCanvas);
