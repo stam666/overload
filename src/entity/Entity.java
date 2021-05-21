@@ -19,12 +19,12 @@ public abstract class Entity implements IRenderable {
 
 	@Override
 	public boolean isDestroyed(){
-		return isDestroyed();
+		return this.isDestroyed;
 	}
 	
 	@Override
 	public boolean isVisible(){
-		return isVisible();
+		return this.isVisible;
 	}
 	
 	public void setVisible(boolean isVisible) {
