@@ -30,8 +30,8 @@ public class BoardPane extends Pane {
 		for (int i = 0; i < player * 2; i++) {
 			List<Tile> lane = new ArrayList<Tile>(length);
 			for (int j = 0; j < length; j++) {
-				Tile tile = new Tile((player - i) * 10);
-				tile.setX((i * tile.getWidth() * 2 / 10) + (j * tile.getWidth() * 8 / 10));
+				Tile tile = new Tile((player * 2 - i) * 10);
+				tile.setX((i * tile.getWidth() * 105 / 450) + (j * tile.getWidth() * 345 / 450));
 				tile.setY(0 + i * tile.getHeight());
 				lane.add(tile);
 				RenderableHolder.getInstance().add(tile);

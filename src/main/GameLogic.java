@@ -15,7 +15,7 @@ public class GameLogic {
 	private static Scanner kb = new Scanner(System.in);
 	private static final int scoreToWin = 35;
 	static int nowState = 1;
-	private static int stageLength = 25, nowNumberSubPlayer, oldStage, nowStage;
+	private static int stageLength = 18, nowNumberSubPlayer, oldStage, nowStage;
 	protected static SubPlayer nowSubPlayer;
 	protected static ArrayList<SubPlayer> atSame = new ArrayList<SubPlayer>();
 	private static int turnofPlayer = 0, nextAction;
