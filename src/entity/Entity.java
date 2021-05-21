@@ -11,10 +11,6 @@ public abstract class Entity implements IRenderable {
 	protected boolean isVisible, isDestroyed;
 	protected Image sprite = ImageHolder.getInstance().nothing;
 	
-	//SystemCache
-	int factor;
-	
-	
 	protected Entity(){
 		isVisible = true;
 		isDestroyed = false;
@@ -68,11 +64,11 @@ public abstract class Entity implements IRenderable {
 	}
 	
 	public double getWidth() {
-	    return getSprite().getWidth() * factor;
+	    return getSprite().getWidth();
 	}
 
 	public double getHeight() {
-	    return getSprite().getHeight() * factor;
+	    return getSprite().getHeight();
 	}
 	  
 	public double getCenterX() {

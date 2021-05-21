@@ -14,17 +14,28 @@ public class Pole extends Entity {
 	private boolean isFull;
 
 	public Pole(String color) {
-		if (color == "blue") {
-			setSprite(ImageHolder.getInstance().bluePole);
-		} else if (color == "green") {
-			setSprite(ImageHolder.getInstance().greenPole);
-		} else if (color == "pink") {
-			setSprite(ImageHolder.getInstance().pinkPole);
-		} else if (color == "red") {
-			setSprite(ImageHolder.getInstance().redPole);
-		} else if (color == "yellow") {
-			setSprite(ImageHolder.getInstance().yellowPole);
+		if (color == "darkBlue") {
+			setSprite(ImageHolder.getInstance().darkBluePole);
+		} else if (color == "darkGreen") {
+			setSprite(ImageHolder.getInstance().darkGreenPole);
+		} else if (color == "darkPink") {
+			setSprite(ImageHolder.getInstance().darkPinkPole);
+		} else if (color == "darkRed") {
+			setSprite(ImageHolder.getInstance().darkRedPole);
+		} else if (color == "darkYellow") {
+			setSprite(ImageHolder.getInstance().darkYellowPole);
+		} else if (color == "lightBlue") {
+			setSprite(ImageHolder.getInstance().lightBluePole);
+		} else if (color == "lightGreen") {
+			setSprite(ImageHolder.getInstance().lightGreenPole);
+		} else if (color == "lightPink") {
+			setSprite(ImageHolder.getInstance().lightPinkPole);
+		} else if (color == "lightRed") {
+			setSprite(ImageHolder.getInstance().lightRedPole);
+		} else if (color == "lightYellow") {
+			setSprite(ImageHolder.getInstance().lightYellowPole);
 		}
+		
 
 		List<Ring> ringStack = new ArrayList<>(7);
 		setRingCount(0);
@@ -44,10 +55,6 @@ public class Pole extends Entity {
 		} else {
 			setFull(false);
 		}
-	}
-	
-	public void move() {
-		
 	}
 	
 	public void addNewRing() {

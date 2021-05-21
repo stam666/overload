@@ -8,14 +8,25 @@ public class Ring extends Entity{
 	private int state;
 	
 	public Ring() {
-		setSprite(ImageHolder.getInstance().ring.get(1));
+		state = 1;
 	}
 
 	@Override
 	public void draw(GraphicsContext gc) {
+		checkState();
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
 
+	public void checkState() {
+		if (state == 0) {
+			setSprite(ImageHolder.getInstance().ring.get(0));
+		} else if (state == 1) {
+			setSprite(ImageHolder.getInstance().ring.get(1));
+		} else if (state == 2) {
+			setSprite(ImageHolder.getInstance().ring.get(2));
+		}
+	}
+		
 	public int getState() {
 		return state;
 	}
