@@ -7,7 +7,6 @@ public interface IRenderable {
 	public void draw(GraphicsContext gc);
 	public boolean isDestroyed();
 	public boolean isVisible();
-	public void 
 }
 
 

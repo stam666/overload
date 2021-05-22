@@ -36,7 +36,7 @@ public class BoardPane extends Pane {
 		for (int i = 0; i < player * 2; i++) {
 			List<Tile> lane = new ArrayList<Tile>(length);
 			for (int j = 0; j < length; j++) {
-				Tile tile = new Tile(i * 10);
+				Tile tile = new Tile(i * 20);
 				tile.setX((i * tile.getWidth() * 105 / 450) + ((j+1.7) * tile.getWidth() * 345 / 450));
 				tile.setY(40 + i * tile.getHeight());
 				lane.add(tile);
@@ -57,16 +57,15 @@ public class BoardPane extends Pane {
 			board.get(i * 2 + 1).get(0).setPole(lightPole);
 			RenderableHolder.getInstance().add(darkPole);
 			RenderableHolder.getInstance().add(lightPole);
-			
-			
-//			for (List<Tile> list : board) {
-//				for (Tile tile : list) {
-//					if (tile.getPole() != null) {
-//						System.out.println(tile.getPole());
-//					}
-//				}
-//			}
-			
 		}
+	}
+	
+	//Unfinished
+	public void initializePole(int i) {
+		i += 1;
+		String newPole = "dark" + Constants.colorList[i];
+		Pole darkPole = new Pole(newPole);
+		board.get(i * 2).get(0).setPole(darkPole);
+		RenderableHolder.getInstance().add(darkPole);
 	}
 }

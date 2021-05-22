@@ -31,7 +31,8 @@ public class ImageHolder {
 	public Image lightRedPole;
 	public Image darkYellowPole;
 	public Image lightYellowPole;
-	public List<Image> ring;
+	public Image ring;
+	public Image ringGold;
 	public Image tile;
 	
 	public static ImageHolder getInstance() {
@@ -65,7 +66,8 @@ public class ImageHolder {
 		darkYellowPole = loadImage("pole/3D/dark/yellow", "png");
 		lightYellowPole = loadImage("pole/3D/light/yellow", "png");
 		
-		ring = loadImageList("ring/ring_", "png", 2);
+		ring = loadImage("ring/ring", "png");
+		ringGold = loadImage("ring/ringGold", "png");
 		
 		tile = loadImage("board/tile", "png");
 		

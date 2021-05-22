@@ -6,10 +6,10 @@ import sharedObject.ImageHolder;
 
 public class Ring extends Entity implements IUpdatable {
 	
-	private int state;
+	private boolean isGold;
 	
 	public Ring() {
-		state = 1;
+		isGold = false;
 	}
 
 	@Override
@@ -18,21 +18,19 @@ public class Ring extends Entity implements IUpdatable {
 	}
 
 	public void update() {
-		if (state == 0) {
+		if (isGold) {
 			setSprite(ImageHolder.getInstance().ring.get(0));
-		} else if (state == 1) {
+		} else {
 			setSprite(ImageHolder.getInstance().ring.get(1));
-		} else if (state == 2) {
-			setSprite(ImageHolder.getInstance().ring.get(2));
 		}
 	}
 		
-	public int getState() {
-		return state;
+	public boolean isGold() {
+		return isGold;
 	}
 
-	public void setState(int state) {
-		this.state = state;
+	public void setGold(boolean isGold) {
+		this.isGold = isGold;
 	}
 
 }

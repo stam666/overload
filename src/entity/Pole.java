@@ -56,15 +56,10 @@ public class Pole extends Entity implements IUpdatable {
 		}
 	}
 	
-	public void addNewRing() {
+	public void addNewRing(int n) {
 		Ring newRing = new Ring();
 		ringStack.add(newRing);
 		this.ringCount += 1;
-	}
-	
-	public boolean isColor(String color) {
-		
-		return true;
 	}
 	
 	public void setRingStack(List<Ring> ringStack) {
