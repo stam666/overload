@@ -59,9 +59,11 @@ public class GameScreen extends VBox{
 			Tile t1 = board.get(i * 2).get(0);
 			Tile t2 = board.get(i * 2 + 1).get(0);
 			darkPole.setCenterX(t1.getCenterX());
-			darkPole.setCenterY(t1.getCenterY() - t1.getHeight() / 2);
+			darkPole.setCenterY(t1.getCenterY() - darkPole.getHeight() / 2);
+			darkPole.setZ(t1.getzForEntity());
 			lightPole.setCenterX(t2.getCenterX());
-			lightPole.setCenterY(t2.getCenterY() - t1.getHeight() / 2);
+			lightPole.setCenterY(t2.getCenterY() - lightPole.getHeight() / 2);
+			lightPole.setZ(t2.getzForEntity());
 			RenderableHolder.getInstance().add(darkPole);
 			RenderableHolder.getInstance().add(lightPole);
 			players.get(i).getSub().get(0).setPole(darkPole);
