@@ -80,10 +80,8 @@ public class GameLogic {
 	}
 
 	public static void choosePole() {
-		System.out.println("Player " + turnofPlayer + " turn");
+		//System.out.println("Player " + turnofPlayer + " turn");
 		int idx = turnofPlayer;
-		// Random ran = new Random();
-		// int dice = ran.nextInt(8)+1;
 		if (players.get(idx).getSub().get(0).getStage() == 0) {
 			nowState = Constants.stateAskRings;
 			nowNumberSubPlayer = 0;
@@ -190,10 +188,16 @@ public class GameLogic {
 				// renderRolldice
 				change = true;
 				nextAction = Constants.rollDice;
-				nowState = Constants.stateGetDice;
+				nowState =Constants.stateRenderStartAddRing;
 				InputUtility.setNumberOfRings(-1);
 			}
-		} else if (nowState == Constants.stateGetDice) {
+		} else if(nowState== Constants.stateRenderStartAddRing) {
+			//renderaddRing
+			nowState=Constants.stateGetDice;
+		}
+		
+		
+		else if (nowState == Constants.stateGetDice) {
 			update = true;
 			if (InputUtility.isStopDice()) {
 				update = true;
@@ -254,7 +258,6 @@ public class GameLogic {
 		} else if (nowState == Constants.stateEndTurn) {
 			CheckEndgame();
 			CheckAtEnd();
-			// System.out.println("hi");
 			turnofPlayer += 1;
 			turnofPlayer %= 4;
 			nowState = Constants.stateSelectPole;
