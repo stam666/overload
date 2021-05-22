@@ -19,7 +19,11 @@ public class PlayerPane extends VBox{
 	private Label playerName;
 	private PlayerPole poleDisplay;
 	private Label point;
+	private Player player;
+	private int idx;
 	public PlayerPane(int idx,Player player) {
+		this.player=player;
+		this.idx=idx;
 		this.setAlignment(Pos.CENTER);
 		int width=200,height=256;
 		this.setMinWidth(width);
@@ -42,5 +46,14 @@ public class PlayerPane extends VBox{
 		//this.poleDisplay = new PlayerPole(player.getSub().get(0).getCounter(),player.getSub().get(1).getCounter());
 		this.getChildren().addAll(this.playerName,this.poleDisplay,this.point);
 		
+	}
+	public void update() {
+		this.point.textProperty().setValue(Integer.toString(player.getPoint()));
+		this.poleDisplay.update();
+		if(GameLogic.getPlayer().getName().equals(player.getName())) {
+			this.setBackground(new Background(new BackgroundFill(Color.GREENYELLOW, CornerRadii.EMPTY, Insets.EMPTY)));
+		}else {
+			this.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+		}
 	}
 }

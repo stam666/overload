@@ -32,7 +32,12 @@ public class ScoreboardPane extends HBox {
 		}
 	}
 	public void update() {
-		this.getChildren().clear();
+		int count=0;
+		for(Player e :this.players) {
+			playerPanes.get(count).update();
+			count++;
+		}
+		/*this.getChildren().clear();
 		this.playerPanes.clear();
 		int count=0;
 		for(Player e :players) {
@@ -41,6 +46,6 @@ public class ScoreboardPane extends HBox {
 		}
 		for(VBox e :playerPanes) {
 			this.getChildren().add(e);
-		}
+		}*/
 	}
 }
