@@ -20,9 +20,10 @@ public class testBoard extends Application {
 	public void start(Stage primaryStage) {
 		// TODO
 		BoardPane root = new BoardPane(4, 18);
-		this.gameCanvas = new Canvas(1024, 256);
+		this.gameCanvas = new Canvas(1024, 400);
 		gamegc = this.gameCanvas.getGraphicsContext2D();
 		root.getChildren().add(gameCanvas);
+		RenderableHolder.getInstance().getEntities();
 		RenderableHolder.getInstance().update();
 		for (IRenderable entity: RenderableHolder.getInstance().getEntities()) {
 			entity.draw(gamegc);
@@ -39,8 +40,8 @@ public class testBoard extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.setMaxWidth(1024);
 		primaryStage.setMinWidth(1024);
-		primaryStage.setMaxHeight(256);
-		primaryStage.setMinHeight(256);
+		primaryStage.setMaxHeight(400);
+		primaryStage.setMinHeight(400);
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}

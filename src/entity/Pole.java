@@ -8,11 +8,10 @@ import javafx.scene.image.Image;
 import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
 
-public class Pole extends Entity implements IUpdatable {
+public class Pole extends Entity {
 	
 	private List<Ring> ringStack;
-	private int ringCount;
-	private boolean isFull;
+	private int stackCount;
 
 	public Pole(String color) {
 		if (color.equals("darkBLUE")) {
@@ -38,9 +37,8 @@ public class Pole extends Entity implements IUpdatable {
 		}		
 
 		List<Ring> ringStack = new ArrayList<>(7);
-		setRingCount(0);
-		setFull(false);
-		
+		setStackCount(0);
+	
 	}
 
 	@Override
@@ -48,42 +46,28 @@ public class Pole extends Entity implements IUpdatable {
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
 	
-	public void update() {
-		if (ringCount > 8) {
-			setFull(true);
-		} else {
-			setFull(false);
-		}
-	}
-	
-	public void addNewRing(int n) {
-		Ring newRing = new Ring();
-		ringStack.add(newRing);
-		this.ringCount += 1;
+	public void setRing(Ring ring) {
+		ring.setZ(getZ() + stackCount);
+		ring.setCenterX(getCenterX());
+		ring.setCenterY(getY() + getHeight() * 4.0D / 5.62D - ring.getHeight() * stackCount * 45.0D / 165.0D);
+		this.ringStack.add(ring);
+		stackCount += 1;
 	}
 	
 	public void setRingStack(List<Ring> ringStack) {
 		this.ringStack = ringStack;
 	}
 
-	public int getRingCount() {
-		return ringCount;
+	public int getStackCount() {
+		return stackCount;
 	}
 
-	public void setRingCount(int ringCount) {
-		this.ringCount = ringCount;
+	public void setStackCount(int ringCount) {
+		this.stackCount = ringCount;
 	}
 
 	public List<Ring> getRingStack() {
 		return ringStack;
-	}
-
-	public boolean isFull() {
-		return isFull;
-	}
-
-	public void setFull(boolean isFull) {
-		this.isFull = isFull;
 	}
 
 }
