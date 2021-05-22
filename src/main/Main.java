@@ -6,7 +6,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 import javafx.application.Application;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.util.Pair;
 import player.*;
 import scene.SceneHolder;
@@ -21,7 +24,14 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		sceneHolder = new SceneHolder(primaryStage);
 	    sceneHolder.initialize();
-	    
+	    /*Media media = new Media(ClassLoader.getSystemResource("sound/game.mp3").toString());
+		MediaPlayer mediaPlayer1 = new MediaPlayer(media);
+		mediaPlayer1.setOnEndOfMedia(new Runnable() {
+		       public void run() {
+		    	   mediaPlayer1.seek(Duration.ZERO);
+		       }
+		   });
+		mediaPlayer1.play();*/
 	    primaryStage.getIcons().add(ImageHolder.getInstance().lightRedPole1D.get(8));
 	    primaryStage.setTitle("OverLoad");
 	    primaryStage.show();
