@@ -24,6 +24,13 @@ public class FrontRing extends Entity {
 
 	@Override
 	public void draw(GraphicsContext gc) {
+		Image imagePole = getSprite();
+		int w = (int) imagePole.getWidth();
+		int h = (int) imagePole.getHeight();
+		
+		PixelReader reader = imagePole.getPixelReader();
+		WritableImage frontPole = new WritableImage(reader, 0, h / 2, w, h/2);
+		setSprite(frontPole);
 		gc.drawImage(getSprite(), getX(), getY(), getSprite().getWidth(), getSprite().getHeight());
 	}
 }

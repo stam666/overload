@@ -44,11 +44,13 @@ public class Pole extends Entity {
 	}
 
 	public void move(int n) {
-		double maxX = getX() + n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 105 / 450;
+		double maxX = getX() + n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;
 		if (Math.abs(maxX - getX()) > speed) {
 			setX(getX() + speed);
 		} else {
 			setX(maxX);
 		}	
 	}
+	
+	
 }

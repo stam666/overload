@@ -7,7 +7,7 @@ import javafx.scene.image.WritableImage;
 import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
 
-public class Ring extends Entity {
+public class Ring extends Entity implements IUpdatable {
 
 	private FrontRing front;
 	private RearRing rear;
@@ -41,6 +41,16 @@ public class Ring extends Entity {
 
 	@Override
 	public void draw(GraphicsContext gc) {
+	}
+	
+	public void update() {
+		if (isGold == true) {
+			front.setSprite(ImageHolder.getInstance().ringGold);
+			rear.setSprite(ImageHolder.getInstance().ringGold);
+		} else {
+			front.setSprite(ImageHolder.getInstance().ring);
+			rear.setSprite(ImageHolder.getInstance().ring);
+		}
 	}
 
 }
