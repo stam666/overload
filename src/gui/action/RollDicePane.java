@@ -28,7 +28,7 @@ public class RollDicePane extends HBox{
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setSpacing(15);
-		this.nowNumber=ran.nextInt(6)+1;
+		this.nowNumber=ran.nextInt(5)+1;
 		this.canvas = new Canvas(200,200);
 		this.gc= canvas.getGraphicsContext2D();
 		gc.setFill(Color.RED);
@@ -53,7 +53,7 @@ public class RollDicePane extends HBox{
 	}
 	public void update() {
 		if(!InputUtility.isStopDice()) {
-			this.nowNumber=ran.nextInt(6)+1;
+			this.nowNumber=ran.nextInt(5)+1;
 		}
 			stopButton.setText(String.valueOf(this.nowNumber));
 			/*gc.setFill(Color.RED);

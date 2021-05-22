@@ -3,12 +3,16 @@ package gui.action;
 
 
 
+import exception.PlayerNoRingEception;
+import exception.TargetNoRingException;
 import gui.score.PlayerPole;
 import input.InputUtility;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -25,7 +29,7 @@ import sharedObject.FontHolder;
 public class SubPlayerAtSameActionPane extends VBox{
 	private boolean amLeft;
 	private SubPlayer target;
-	private Button recieveButton;
+	private Button getButton;
 	private Button giveButton;
 	public SubPlayerAtSameActionPane(int idx,SubPlayer target,Boolean amLeft) {
 		this.amLeft=amLeft;
@@ -42,15 +46,15 @@ public class SubPlayerAtSameActionPane extends VBox{
 		gc.drawImage(target.get1D(), 15, 0,70,100);
 		this.getChildren().add(canvas);
 		//////////////////////////////////////////////////////////
-		recieveButton = new Button("GET");//I recieve from this
-		recieveButton.setPrefSize(100, 25);
-		recieveButton.setFont(FontHolder.getInstance().gameFont_20);
-		recieveButton.setOnAction((ActionEvent event) -> {
+		getButton = new Button("GET");//I recieve from this
+		getButton.setPrefSize(100, 25);
+		getButton.setFont(FontHolder.getInstance().gameFont_20);
+		getButton.setOnAction((ActionEvent event) -> {
 			AudioHolder.getInstance().playPressed();
 			InputUtility.setAtSameAction(idx, sharedObject.Constants.get);
 			InputUtility.setAtSameActionEnter(true);
 		});
-		this.getChildren().add(recieveButton);
+		this.getChildren().add(getButton);
 		//////////////////////////////////////////////////////////////////////
 		giveButton = new Button("GIVE");
 		giveButton.setPrefSize(100, 25);
@@ -61,21 +65,31 @@ public class SubPlayerAtSameActionPane extends VBox{
 			InputUtility.setAtSameAction(idx, sharedObject.Constants.give);
 		});
 		this.getChildren().add(giveButton);
-		
-		if(this.target.getRings()==0) {
-			recieveButton.setDisable(true);
-		}
-		if(!this.amLeft) {
+		try {
+			if(this.target.getRings()==0) {
+				throw new TargetNoRingException();
+			}
+			if(!this.amLeft) {
+				throw new PlayerNoRingEception();
+				
+			}
+		}catch(TargetNoRingException egnE) {
+			System.out.println(egnE.toString());
+			getButton.setDisable(true);
+		}catch(PlayerNoRingEception egnE) {
+			System.out.println(egnE.toString());
 			giveButton.setDisable(true);
 		}
+		
 	}
 	
-	public void update(Boolean amLeft) {
+	/*public void update(Boolean amLeft) {
 		this.amLeft=amLeft;
+		
 		if(!this.amLeft) {
 			giveButton.setDisable(true);
 		}else {
 			giveButton.setDisable(true);
 		}
-	}
+	}*/
 }
