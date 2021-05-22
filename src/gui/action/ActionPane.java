@@ -81,7 +81,7 @@ public class ActionPane extends VBox {
 			direction="How Many Rings You Want to Add ?";
 		}else if(action==4) {
 			//AtSame
-			direction="Select Getting from/Giving to Each Pole?";
+			direction="Select Getting from/Giving to Each Pole";
 		}
 		labelPane.setAlignment(Pos.CENTER);
 		label.textProperty().setValue(direction);
