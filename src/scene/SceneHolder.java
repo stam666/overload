@@ -1,7 +1,10 @@
 package scene;
 
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class SceneHolder {
 	private Stage bindStage;
@@ -14,6 +17,15 @@ public class SceneHolder {
 	public void initialize() {
 		startScene = new StartScene();
 		switchScene(startScene);
+		Media media = new Media(ClassLoader.getSystemResource("sound/game.mp3").toString());
+		MediaPlayer mediaPlayer1 = new MediaPlayer(media);
+		mediaPlayer1.setOnEndOfMedia(new Runnable() {
+		       public void run() {
+		    	   mediaPlayer1.seek(Duration.ZERO);
+		       }
+		   });
+		mediaPlayer1.play();
+		
 	}
 	
 	

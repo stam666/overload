@@ -12,6 +12,7 @@ public class AudioHolder {
 	public AudioHolder() {
 		//Almost_Time_Up = new AudioClip(ClassLoader.getSystemResource("sound/almostTimeUp.wav").toString());
 		buttonPressed = new AudioClip(ClassLoader.getSystemResource("effectButtonPressed.mp3").toString());
+		
 	}
 	public void playPressed() {
 		 buttonPressed.setCycleCount(1);

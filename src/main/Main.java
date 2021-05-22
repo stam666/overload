@@ -24,14 +24,6 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		sceneHolder = new SceneHolder(primaryStage);
 	    sceneHolder.initialize();
-	    /*Media media = new Media(ClassLoader.getSystemResource("sound/game.mp3").toString());
-		MediaPlayer mediaPlayer1 = new MediaPlayer(media);
-		mediaPlayer1.setOnEndOfMedia(new Runnable() {
-		       public void run() {
-		    	   mediaPlayer1.seek(Duration.ZERO);
-		       }
-		   });
-		mediaPlayer1.play();*/
 	    primaryStage.getIcons().add(ImageHolder.getInstance().lightRedPole1D.get(8));
 	    primaryStage.setTitle("OverLoad");
 	    primaryStage.show();

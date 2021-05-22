@@ -18,8 +18,8 @@ public class GameLogic {
 	private static int stageLength = 18, nowNumberSubPlayer, oldStage, nowStage;
 	protected static SubPlayer nowSubPlayer;
 	protected static ArrayList<SubPlayer> atSame = new ArrayList<SubPlayer>();
-	private static int turnofPlayer = 0, nextAction;
-	private static Boolean update = false, updateSame = false, change = false, changeSame = false;
+	private static int turnofPlayer = 0, nextAction,dice;
+	private static Boolean update = false, updateSame = false, change = false, changeSame = false,finished;
 	private static double factor = 1024.0D / 18.0D / 450.0D;
 
 	public static int getNextAction() {
@@ -197,19 +197,24 @@ public class GameLogic {
 			update = true;
 			if (InputUtility.isStopDice()) {
 				update = true;
-				int dice = InputUtility.getNumberDice();
+				dice = InputUtility.getNumberDice();
 				oldStage = nowSubPlayer.getStage();
 				nowStage = nowSubPlayer.addStage(dice);
 				nowState = Constants.stateRenderWalk;
+				finished=false;
 				InputUtility.setStopDice(false);
 			}
 		} else if (nowState == Constants.stateRenderWalk) {
 			// renderwalk
-
-			nowState = Constants.stateCheckPass;
-//			if(render fin ) {
-//				nowState=7;
-//			}
+			Thread t= new Thread(() -> {	
+				nowSubPlayer.getPole().move(dice);
+				finished=true;
+			});
+			t.start();
+			
+			if(finished) { 
+				nowState = Constants.stateCheckPass;
+			}
 		} else if (nowState == Constants.stateCheckPass) {
 			atSame.clear();
 			CheckPassedPole();

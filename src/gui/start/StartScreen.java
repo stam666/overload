@@ -27,15 +27,6 @@ public class StartScreen extends StackPane {
 		this.getChildren().add(canvas);
 		ButtonStart button = new ButtonStart();
 		this.getChildren().add(button);
-		/*Media media = new Media(ClassLoader.getSystemResource("effectButtonPressed.mp3").toString());
-		MediaPlayer mediaPlayer1 = new MediaPlayer(media);
-		mediaPlayer1.setOnEndOfMedia(new Runnable() {
-		       public void run() {
-		    	   mediaPlayer1.seek(Duration.ZERO);
-		       }
-		   });
-		mediaPlayer1.play();*/
-
 	}
 
 	private void drawBackground(GraphicsContext gc) {
