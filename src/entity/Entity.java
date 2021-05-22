@@ -83,4 +83,12 @@ public abstract class Entity implements IRenderable {
 	public double getCenterY() {
 		return getY() + getWidth() / 2.0D;
 	}
+	
+	public void setCenterX(double center) {
+		setX(center - getWidth() / 2);
+	}
+	
+	public void setCenterY(double center) {
+		setY(center - getHeight() / 2);
+	}
 }

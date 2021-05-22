@@ -27,8 +27,8 @@ public class Tile extends Entity {
 	public void setPole(Pole pole) {
 		if (pole != null) {
 			pole.setZ(zForEntity);
-			pole.setX(getX());
-			pole.setY(getY());
+			pole.setCenterX(getCenterX());
+			pole.setCenterY(getCenterY() - pole.getHeight() / 2);
 			this.pole = pole;
 		} else {
 			this.pole = null;

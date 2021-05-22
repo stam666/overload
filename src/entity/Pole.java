@@ -15,25 +15,25 @@ public class Pole extends Entity implements IUpdatable {
 	private boolean isFull;
 
 	public Pole(String color) {
-		if (color == "darkBLUE") {
+		if (color.equals("darkBLUE")) {
 			setSprite(ImageHolder.getInstance().darkBluePole);
-		} else if (color == "darkGREEN") {
+		} else if (color.equals("darkGREEN")) {
 			setSprite(ImageHolder.getInstance().darkGreenPole);
-		} else if (color == "darkPINK") {
+		} else if (color.equals("darkPINK")) {
 			setSprite(ImageHolder.getInstance().darkPinkPole);
-		} else if (color == "darkRED") {
+		} else if (color.equals("darkRED")) {
 			setSprite(ImageHolder.getInstance().darkRedPole);
-		} else if (color == "darkYELLOW") {
+		} else if (color.equals("darkYELLOW")) {
 			setSprite(ImageHolder.getInstance().darkYellowPole);
-		} else if (color == "lightBLUE") {
+		} else if (color.equals("lightBLUE")) {
 			setSprite(ImageHolder.getInstance().lightBluePole);
-		} else if (color == "lightGREEN") {
+		} else if (color.equals("lightGREEN")) {
 			setSprite(ImageHolder.getInstance().lightGreenPole);
-		} else if (color == "lightPINK") {
+		} else if (color.equals("lightPINK")) {
 			setSprite(ImageHolder.getInstance().lightPinkPole);
-		} else if (color == "lightRED") {
+		} else if (color.equals("lightRED")) {
 			setSprite(ImageHolder.getInstance().lightRedPole);
-		} else if (color == "lightYELLOW") {
+		} else if (color.equals("lightYELLOW")) {
 			setSprite(ImageHolder.getInstance().lightYellowPole);
 		}		
 
@@ -60,6 +60,11 @@ public class Pole extends Entity implements IUpdatable {
 		Ring newRing = new Ring();
 		ringStack.add(newRing);
 		this.ringCount += 1;
+	}
+	
+	public boolean isColor(String color) {
+		
+		return true;
 	}
 	
 	public void setRingStack(List<Ring> ringStack) {
