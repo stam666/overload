@@ -18,7 +18,7 @@ public class BoardPane extends Pane {
 	private int player;
 	private int length;
 	
-	private List<List<Tile>> board = new ArrayList<List<Tile>>();
+	private static final List<List<Tile>> board = new ArrayList<List<Tile>>();
 	
 	public BoardPane(int player, int length) {
 		this.player = player;
@@ -68,4 +68,9 @@ public class BoardPane extends Pane {
 		board.get(i * 2).get(0).setPole(darkPole);
 		RenderableHolder.getInstance().add(darkPole);
 	}
+
+	public List<List<Tile>> getBoard() {
+		return board;
+	}
+	
 }
