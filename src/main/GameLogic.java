@@ -217,7 +217,7 @@ public class GameLogic {
 //			}
 			nowState = 9;
 		} else if (nowState == 9) {
-			if (atSame.isEmpty()) {
+			if (atSame.isEmpty()|| (nowSubPlayer.getRings()==0 && allAtSameIsZero())) {
 				nowState = 12;
 			} else {
 				// render
@@ -225,7 +225,7 @@ public class GameLogic {
 				nowState = 10;
 			}
 		} else if (nowState == 10) {
-			if (atSame.isEmpty() || (nowSubPlayer.getRings()==0 && allAtSameIsZero())) {
+			if (atSame.isEmpty() || (nowSubPlayer.getRings()==0 && allAtSameIsZero()) ) {
 				nowState = 12;
 			} else if (InputUtility.isAtSameActionEntered()) {
 				for (int i = 0; i < atSame.size(); i++) {
@@ -242,10 +242,10 @@ public class GameLogic {
 //			if(render fin ) {
 //			nowState=12;
 //			}
-			if (!atSame.isEmpty()) {
-				nowState = 10;
-			} else {
+			if (atSame.isEmpty() || (nowSubPlayer.getRings()==0 && allAtSameIsZero()) ) {
 				nowState = 12;
+			} else {
+				nowState = 1;
 			}
 		} else if (nowState == 12) {
 			CheckEndgame();

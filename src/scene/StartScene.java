@@ -14,7 +14,7 @@ public class StartScene extends Scene {
 
 	public StartScene() {
 		this((Parent) new StartScreen());
-		initialize();
+		//initialize();
 	}
 
 	private void initialize() {

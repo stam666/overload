@@ -5,7 +5,10 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import sharedObject.FontHolder;
 import sharedObject.ImageHolder;
 
@@ -24,6 +27,15 @@ public class StartScreen extends StackPane {
 		this.getChildren().add(canvas);
 		ButtonStart button = new ButtonStart();
 		this.getChildren().add(button);
+		/*Media media = new Media(ClassLoader.getSystemResource("effectButtonPressed.mp3").toString());
+		MediaPlayer mediaPlayer1 = new MediaPlayer(media);
+		mediaPlayer1.setOnEndOfMedia(new Runnable() {
+		       public void run() {
+		    	   mediaPlayer1.seek(Duration.ZERO);
+		       }
+		   });
+		mediaPlayer1.play();*/
+
 	}
 
 	private void drawBackground(GraphicsContext gc) {
