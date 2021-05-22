@@ -9,6 +9,9 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import main.GameLogic;
 import main.logic;
 import player.Player;
@@ -29,6 +32,7 @@ public class GameScreen extends VBox {
 	private int nextAction;
 
 	public GameScreen() {
+		
 		players = new ArrayList<Player>();
 		players.add(new Player("BLUE"));
 		players.add(new Player("GREEN"));
@@ -60,7 +64,7 @@ public class GameScreen extends VBox {
 	private void loop() {
 		this.gameLoop = new AnimationTimer() {
 			public void handle(long now) {
-
+				
 				GameLogic.updateLogic();
 				RenderableHolder.getInstance().update();
 
