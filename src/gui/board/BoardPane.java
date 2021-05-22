@@ -17,7 +17,7 @@ public class BoardPane extends Pane {
 	private int player;
 	private int length;
 	
-	private List<List<Tile>> board;
+	private List<List<Tile>> board = new ArrayList<List<Tile>>();
 	
 	public BoardPane(int player, int length) {
 		this.player = player;
@@ -52,6 +52,8 @@ public class BoardPane extends Pane {
 			Pole lightPole = new Pole("light" + Constants.colorList[i]);
 			board.get(i * 2).get(0).setPole(darkPole);
 			board.get(i * 2 + 1).get(0).setPole(lightPole);
+			RenderableHolder.getInstance().add(darkPole);
+			RenderableHolder.getInstance().add(lightPole);
 			
 		}
 	}
