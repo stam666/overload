@@ -64,6 +64,8 @@ public class GameScreen extends VBox{
 			lightPole.setCenterY(t2.getCenterY() - t1.getHeight() / 2);
 			RenderableHolder.getInstance().add(darkPole);
 			RenderableHolder.getInstance().add(lightPole);
+			players.get(i).getSub().get(0).setPole(darkPole);
+			players.get(i).getSub().get(1).setPole(lightPole);
 		}
 		
 		this.loop();
