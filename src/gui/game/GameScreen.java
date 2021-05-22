@@ -1,8 +1,11 @@
 package gui.game;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import entity.Pole;
+import entity.Tile;
 import gui.action.ActionPane;
 import gui.board.BoardCanvas;
 import gui.board.BoardPane;
@@ -31,6 +34,7 @@ public class GameScreen extends VBox{
 	private int nextAction;
 	private Pole pole;
 	public GameScreen() {
+		this.boardCanvas = new BoardCanvas();
 		players = new ArrayList<Player>();
 		players.add(new Player("BLUE"));
 		players.add(new Player("GREEN"));
@@ -44,11 +48,24 @@ public class GameScreen extends VBox{
 		this.setMaxHeight(height);
 		this.score = new ScoreboardPane(this.players);
 		this.action = new ActionPane();
-		this.boardCanvas = new BoardCanvas();
 		this.getChildren().addAll(this.score, this.action, this.boardCanvas);
-		pole=new Pole("darkBLUE");
-		pole.setX(0);pole.setY(0);
-		RenderableHolder.getInstance().add(pole);
+		
+		List<List<Tile>> board = boardCanvas.getBoard();
+		for (int i = 0; i < players.size(); i++) {
+			String dark = "dark" + Constants.colorList[i];
+			String light = "light" + Constants.colorList[i];
+			Pole darkPole = new Pole(dark.toString());
+			Pole lightPole = new Pole(light.toString());
+			Tile t1 = board.get(i * 2).get(0);
+			Tile t2 = board.get(i * 2 + 1).get(0);
+			darkPole.setCenterX(t1.getCenterX());
+			darkPole.setCenterY(t1.getCenterY() - t1.getHeight() / 2);
+			lightPole.setCenterX(t2.getCenterX());
+			lightPole.setCenterY(t2.getCenterY() - t1.getHeight() / 2);
+			RenderableHolder.getInstance().add(darkPole);
+			RenderableHolder.getInstance().add(lightPole);
+		}
+		
 		this.loop();
 	}
 	 private void loop() {

@@ -41,7 +41,7 @@ public class BoardCanvas extends Canvas {
     }
 
     public void clearScreen() {
-        this.gc.clearRect(0.0D, 0.0D, 1024.0D, 768.0D);
+        this.gc.clearRect(0.0D, 0.0D, 1024.0D, 256.0D);
     }
 
     public void drawGameObject() {
@@ -49,4 +49,9 @@ public class BoardCanvas extends Canvas {
             entity.draw(gc);
         } 
     }
+
+	public static List<List<Tile>> getBoard() {
+		return board;
+	}
+    
 }
