@@ -3,6 +3,7 @@ package gui.board;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import entity.Pole;
 import entity.Tile;
@@ -48,12 +49,24 @@ public class BoardPane extends Pane {
 	
 	public void initializePole() {
 		for (int i = 0; i < player; i++) {
-			Pole darkPole = new Pole("dark" + Constants.colorList[i]);
-			Pole lightPole = new Pole("light" + Constants.colorList[i]);
+			String dark = "dark" + Constants.colorList[i];
+			String light = "light" + Constants.colorList[i];
+			System.out.println(dark.toString());
+			Pole darkPole = new Pole(dark.toString());
+			Pole lightPole = new Pole(light.toString());
 			board.get(i * 2).get(0).setPole(darkPole);
 			board.get(i * 2 + 1).get(0).setPole(lightPole);
 			RenderableHolder.getInstance().add(darkPole);
 			RenderableHolder.getInstance().add(lightPole);
+			
+			
+//			for (List<Tile> list : board) {
+//				for (Tile tile : list) {
+//					if (tile.getPole() != null) {
+//						System.out.println(tile.getPole());
+//					}
+//				}
+//			}
 			
 		}
 	}
