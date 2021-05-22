@@ -5,14 +5,12 @@ import sharedObject.ImageHolder;
 
 public class Tile extends Entity {
 	
-	private Pole pole;
 	private int zForEntity;
 
 	public Tile(int zForEntity) {
 		this.zForEntity = zForEntity;
 		setZ(-999);
 		setSprite(ImageHolder.getInstance().tile);
-		setPole(null);
 	}
 	
 	@Override
@@ -20,21 +18,6 @@ public class Tile extends Entity {
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
 	
-	public Pole getPole() {
-		return pole;
-	}
-
-	public void setPole(Pole pole) {
-		if (pole != null) {
-			pole.setZ(zForEntity);
-			pole.setCenterX(getCenterX());
-			pole.setCenterY(getCenterY() - pole.getHeight() / 2);
-			this.pole = pole;
-		} else {
-			this.pole = null;
-		}
-		
-	}
 
 	public int getzForEntity() {
 		return zForEntity;

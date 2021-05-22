@@ -5,13 +5,14 @@ import java.util.List;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import main.GameLogic;
 import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
+import sharedObject.RenderableHolder;
 
 public class Pole extends Entity {
 	
-	private List<Ring> ringStack;
-	private int stackCount;
+	double speed = 5.0D;
 
 	public Pole(String color) {
 		if (color.equals("darkBLUE")) {
@@ -35,39 +36,19 @@ public class Pole extends Entity {
 		} else if (color.equals("lightYELLOW")) {
 			setSprite(ImageHolder.getInstance().lightYellowPole);
 		}		
-
-		List<Ring> ringStack = new ArrayList<>(7);
-		setStackCount(0);
-	
 	}
 
 	@Override
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
-	
-	public void setRing(Ring ring) {
-		ring.setZ(getZ() + stackCount);
-		ring.setCenterX(getCenterX());
-		ring.setCenterY(getY() + getHeight() * 4.0D / 5.62D - ring.getHeight() * stackCount * 45.0D / 165.0D);
-		this.ringStack.add(ring);
-		stackCount += 1;
-	}
-	
-	public void setRingStack(List<Ring> ringStack) {
-		this.ringStack = ringStack;
-	}
 
-	public int getStackCount() {
-		return stackCount;
+	public void move(int n) {
+		double maxX = getX() + n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 105 / 450;
+		if (Math.abs(maxX - getX()) > speed) {
+			setX(getX() + speed);
+		} else {
+			setX(maxX);
+		}	
 	}
-
-	public void setStackCount(int ringCount) {
-		this.stackCount = ringCount;
-	}
-
-	public List<Ring> getRingStack() {
-		return ringStack;
-	}
-
 }
