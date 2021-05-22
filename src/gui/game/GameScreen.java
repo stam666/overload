@@ -2,6 +2,7 @@ package gui.game;
 
 import java.util.ArrayList;
 
+import entity.Pole;
 import gui.action.ActionPane;
 import gui.board.BoardCanvas;
 import gui.board.BoardPane;
@@ -28,6 +29,7 @@ public class GameScreen extends VBox{
 	private AnimationTimer gameLoop;
 	private Boolean updateSame=false,update=false,changeSame=false,change=false;
 	private int nextAction;
+	private Pole pole;
 	public GameScreen() {
 		players = new ArrayList<Player>();
 		players.add(new Player("BLUE"));
@@ -44,6 +46,9 @@ public class GameScreen extends VBox{
 		this.action = new ActionPane();
 		this.boardCanvas = new BoardCanvas();
 		this.getChildren().addAll(this.score, this.action, this.boardCanvas);
+		pole=new Pole("darkBLUE");
+		pole.setX(0);pole.setY(0);
+		RenderableHolder.getInstance().add(pole);
 		this.loop();
 	}
 	 private void loop() {
