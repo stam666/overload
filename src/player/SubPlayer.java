@@ -1,5 +1,10 @@
 package player;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import entity.Pole;
+import entity.Tile;
 import javafx.scene.image.Image;
 import sharedObject.ImageHolder;
 
@@ -8,13 +13,31 @@ public class SubPlayer {
 	private int rings;
 	private String name="RED";
 	private int idx;
-	
+	private List<Tile> lane;
+	private Pole pole;
 	public SubPlayer(int idx,String name) {
 		this.rings=0;
 		this.stage=0;
 		this.idx=idx;
 		this.name=name;
 	}
+	
+	public List<Tile> getLane() {
+		return lane;
+	}
+
+	public void setLane(List<Tile> list) {
+		this.lane = list;
+	}
+
+	public Pole getPole() {
+		return pole;
+	}
+
+	public void setPole(Pole pole) {
+		this.pole = pole;
+	}
+
 	public int getStage() {
 		return stage;
 	}

@@ -11,6 +11,7 @@ public class Constants {
 	public static final int statePlayerChoosePole = 2;
 	public static final int stateAskRings = 3;
 	public static final int stateGetRings = 4;
+	public static final int stateRenderStartAddRing=13;
 	public static final int stateGetDice = 5;
 	public static final int stateRenderWalk = 6;
 	public static final int stateCheckPass = 7;
