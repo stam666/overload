@@ -83,6 +83,7 @@ public class Pole extends Entity implements IUpdatable {
 		newRing.setCenterX(getCenterX());
 		newRing.setCenterY(getY() + getHeight() * 4.0D / 5.62D - newRing.getHeight() * stackCount * 45.0D / 165.0D);
 		newRing.setVisible(false);
+		RenderableHolder.getInstance().add(newRing);
 		newRing.initializeMove(getY());
 		stackCount += 1;
 	}
