@@ -4,7 +4,6 @@ import javafx.scene.media.AudioClip;
 
 public class AudioHolder {
 	private static final AudioHolder instance = new AudioHolder();
-	// public static AudioClip Almost_Time_Up;
 	public AudioClip buttonPressed, gameSound;
 
 	public static AudioHolder getInstance() {
@@ -12,9 +11,7 @@ public class AudioHolder {
 	}
 
 	public AudioHolder() {
-		// Almost_Time_Up = new
-		// AudioClip(ClassLoader.getSystemResource("sound/almostTimeUp.wav").toString());
-		buttonPressed = new AudioClip(ClassLoader.getSystemResource("effectButtonPressed.mp3").toString());
+		buttonPressed = new AudioClip(ClassLoader.getSystemResource("sound/effectButtonPressed.mp3").toString());
 		gameSound = new AudioClip(ClassLoader.getSystemResource("sound/game.mp3").toString());
 
 	}

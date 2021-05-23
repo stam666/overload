@@ -10,9 +10,8 @@ import sharedObject.ImageHolder;
 public class SubPlayer {
 	private int stage;
 	private int rings;
-	private String name = "RED";
+	private String name;
 	private int idx;
-	private List<Tile> lane;
 	private Pole pole;
 
 	public SubPlayer(int idx, String name) {
@@ -20,14 +19,6 @@ public class SubPlayer {
 		this.stage = 0;
 		this.idx = idx;
 		this.name = name;
-	}
-
-	public List<Tile> getLane() {
-		return lane;
-	}
-
-	public void setLane(List<Tile> list) {
-		this.lane = list;
 	}
 
 	public Pole getPole() {

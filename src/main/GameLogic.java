@@ -213,7 +213,6 @@ public class GameLogic {
 			// renderwalk
 			if (finished) {
 				InputUtility.setStopDice(false);
-				// System.out.println(dice);
 				nowSubPlayer.getPole().move(dice, "right");
 				nowState = Constants.stateWaitWalk;
 			}
@@ -224,14 +223,8 @@ public class GameLogic {
 		} else if (nowState == Constants.stateCheckPass) {
 			atSame.clear();
 			CheckPassedPole();
-			nowState = Constants.stateRenderPass;
-		} else if (nowState == Constants.stateRenderPass) {
-			// renderadd pass pole
-//			if(render fin ) {
-//			nowState=9; 
-//			}
 			nowState = Constants.stateCheckAtSamePlace;
-		} else if (nowState == Constants.stateCheckAtSamePlace) {
+		}else if (nowState == Constants.stateCheckAtSamePlace) {
 			if (atSame.isEmpty() || (nowSubPlayer.getRings() == 0 && allAtSameIsZero())) {
 				nowState = Constants.stateEndTurn;
 			} else {
@@ -254,9 +247,6 @@ public class GameLogic {
 				}
 			}
 		} else if (nowState == Constants.stateRenderAtSame) {
-//			if(render fin ) {
-//			nowState=12;
-//			}
 			if (atSame.isEmpty() || (nowSubPlayer.getRings() == 0 && allAtSameIsZero())) {
 				nowState = Constants.stateEndTurn;
 			} else {
@@ -266,7 +256,6 @@ public class GameLogic {
 
 			CheckAtEnd();
 			CheckEndgame();
-			// System.out.println("hi");
 			turnofPlayer += 1;
 			turnofPlayer %= 4;
 			nowState = Constants.stateSelectPole;
