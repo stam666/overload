@@ -14,6 +14,7 @@ public class Constants {
 	public static final int stateRenderStartAddRing=13;
 	public static final int stateGetDice = 5;
 	public static final int stateRenderWalk = 6;
+	public static final int stateWaitWalk = 14;
 	public static final int stateCheckPass = 7;
 	public static final int stateRenderPass = 8;
 	public static final int stateCheckAtSamePlace = 9;
