@@ -24,6 +24,7 @@ public class SceneHolder {
 		    	   mediaPlayer1.seek(Duration.ZERO);
 		       }
 		   });
+		mediaPlayer1.setVolume(0.3D);
 		mediaPlayer1.play();
 		
 	}

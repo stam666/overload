@@ -16,7 +16,7 @@ public class AudioHolder {
 	}
 	public void playPressed() {
 		 buttonPressed.setCycleCount(1);
-		 buttonPressed.setVolume(0.3D);
+		 buttonPressed.setVolume(0.7D);
 		 buttonPressed.play();
 	}
 }

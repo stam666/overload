@@ -202,17 +202,20 @@ public class GameLogic {
 				nowStage = nowSubPlayer.addStage(dice);
 				nowState = Constants.stateRenderWalk;
 				finished=false;
+				Thread t= new Thread(() -> {	
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+					}
+					finished=true;
+				});
+				t.start();
 				InputUtility.setStopDice(false);
 			}
 		} else if (nowState == Constants.stateRenderWalk) {
 			// renderwalk
-			Thread t= new Thread(() -> {	
-				nowSubPlayer.getPole().move(dice);
-				finished=true;
-			});
-			t.start();
-			
 			if(finished) { 
+				nowSubPlayer.getPole().move(dice);
 				nowState = Constants.stateCheckPass;
 			}
 		} else if (nowState == Constants.stateCheckPass) {
