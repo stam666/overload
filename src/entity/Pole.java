@@ -26,8 +26,6 @@ public class Pole extends Entity implements IUpdatable {
 			setSprite(ImageHolder.getInstance().darkBluePole);
 		} else if (color.equals("darkGREEN")) {
 			setSprite(ImageHolder.getInstance().darkGreenPole);
-		} else if (color.equals("darkPINK")) {
-			setSprite(ImageHolder.getInstance().darkPinkPole);
 		} else if (color.equals("darkRED")) {
 			setSprite(ImageHolder.getInstance().darkRedPole);
 		} else if (color.equals("darkYELLOW")) {
@@ -36,8 +34,6 @@ public class Pole extends Entity implements IUpdatable {
 			setSprite(ImageHolder.getInstance().lightBluePole);
 		} else if (color.equals("lightGREEN")) {
 			setSprite(ImageHolder.getInstance().lightGreenPole);
-		} else if (color.equals("lightPINK")) {
-			setSprite(ImageHolder.getInstance().lightPinkPole);
 		} else if (color.equals("lightRED")) {
 			setSprite(ImageHolder.getInstance().lightRedPole);
 		} else if (color.equals("lightYELLOW")) {
