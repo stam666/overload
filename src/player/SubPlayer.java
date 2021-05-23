@@ -92,8 +92,8 @@ public class SubPlayer {
 				return ImageHolder.getInstance().darkBluePole1D.get(getRings());
 			}else if(getName().equals("GREEN")) {
 				return ImageHolder.getInstance().darkGreenPole1D.get(getRings());
-			}else if(getName().equals("PINK")) {
-				return ImageHolder.getInstance().darkPinkPole1D.get(getRings());
+			}else if(getName().equals("YELLOW")) {
+				return ImageHolder.getInstance().darkYellowPole1D.get(getRings());
 			}
 		}else if(idx==1) {
 			if(getName().equals("RED")) {
@@ -102,8 +102,8 @@ public class SubPlayer {
 				return ImageHolder.getInstance().lightBluePole1D.get(getRings());
 			}else if(getName().equals("GREEN")) {
 				return ImageHolder.getInstance().lightGreenPole1D.get(getRings());
-			}else if(getName().equals("PINK")) {
-				return ImageHolder.getInstance().lightPinkPole1D.get(getRings());
+			}else if(getName().equals("YELLOW")) {
+				return ImageHolder.getInstance().lightYellowPole1D.get(getRings());
 			}
 		}
 		return null;
