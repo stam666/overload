@@ -20,7 +20,7 @@ public class ActionPane extends VBox {
 	public ActionPane() {
 		this.mode = 0;
 		this.setAlignment(Pos.CENTER);
-		int width = 1024, height = 256;
+		int width = 1024, height = 206;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
@@ -73,7 +73,7 @@ public class ActionPane extends VBox {
 	private HBox Label(int action) {
 		HBox labelPane = new HBox();
 		Label label = new Label();
-		int width = 1024, height = 56;
+		int width = 1024, height = 26;
 		labelPane.setMinWidth(width);
 		labelPane.setMaxWidth(height);
 		labelPane.setMinHeight(height);

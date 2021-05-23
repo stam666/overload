@@ -26,7 +26,7 @@ public class PlayerAtSameActionPane extends HBox {
 		this.targets = targets;
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(20);
-		int width = 1024, height = 200;
+		int width = 1024, height = 180;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);

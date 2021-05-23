@@ -16,7 +16,7 @@ public class ChooseNumberPane extends HBox {
 	public ChooseNumberPane() {
 		numberButton = new ArrayList<Button>();
 		this.setAlignment(Pos.CENTER);
-		int width = 1024, height = 200;
+		int width = 1024, height = 180;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);

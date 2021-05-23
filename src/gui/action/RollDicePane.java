@@ -21,7 +21,7 @@ public class RollDicePane extends HBox {
 	private static final int[] number= {1,2,3,4,5};
 	public RollDicePane() {
 		this.setAlignment(Pos.CENTER);
-		int width = 1024, height = 200;
+		int width = 1024, height = 180;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);

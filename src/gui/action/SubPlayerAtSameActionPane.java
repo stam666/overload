@@ -36,15 +36,15 @@ public class SubPlayerAtSameActionPane extends VBox{
 		this.amLeft=amLeft;
 		this.target=target;
 		this.setAlignment(Pos.CENTER);
-		int width=102,height=200;
+		int width=102,height=180;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setSpacing(2);
-		Canvas canvas = new Canvas(100,100);
+		Canvas canvas = new Canvas(80,80);
 		GraphicsContext gc= canvas.getGraphicsContext2D();
-		gc.drawImage(target.get1D(), 15, 0,70,100);
+		gc.drawImage(target.get1D(), 15, 0,57,80);
 		this.getChildren().add(canvas);
 		//////////////////////////////////////////////////////////
 		getButton = new Button("GET");//I recieve from this
