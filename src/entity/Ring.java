@@ -22,7 +22,7 @@ public class Ring extends Entity implements IUpdatable {
 	public Ring(int z) {
 		setSprite(ImageHolder.getInstance().ring);
 		setZ(z);;
-		//setVisible(false);
+		setVisible(false);
 		setFront(new FrontRing(z));
 		setRear(new RearRing(z));
 		setMoveRight(false);
@@ -41,46 +41,30 @@ public class Ring extends Entity implements IUpdatable {
 		if (isMoveRight) {
 			if (Math.abs(desX - getX()) > speed) {
 				setX(getX() + speed);
-				getFront().setX(getFront().getX() + speed);
-				getRear().setX(getRear().getX() + speed);
 			} else {
 				setX(desX);
-				getFront().setX(desX);
-				getRear().setX(desX);
 				setMoveRight(false);
 			}
 		} else if (isMoveLeft) {
 			if (Math.abs(desX - getX()) > speed) {
 				setX(getX() - speed);
-				getFront().setX(getFront().getX() - speed);
-				getRear().setX(getRear().getX() - speed);
 			} else {
 				setX(desX);
-				getFront().setX(desX);
-				getRear().setX(desX);
 				setMoveLeft(false);
 			}
 		}
 		if (isMoveDown) {
 			if (Math.abs(desY - getY()) > speed) {
 				setY(getY() + speed);
-				getFront().setY(getFront().getY() + speed);
-				getRear().setY(getRear().getY() + speed);
 			} else {
 				setY(desY);
-				getFront().setY(desY);
-				getRear().setY(desY);
 				setMoveDown(false);
 			}
 		} else if (isMoveUp) {
 			if (Math.abs(desY - getY()) > speed) {
 				setY(getY() - speed);
-				getFront().setY(getFront().getY() - speed);
-				getRear().setY(getRear().getY() - speed);
 			} else {
 				setY(desY);
-				getFront().setY(desY);
-				getRear().setY(desY);
 				setMoveUp(false);
 			}
 		}
