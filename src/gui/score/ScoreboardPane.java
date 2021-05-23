@@ -9,8 +9,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import player.Player;
+import sharedObject.IUpdatable;
 
-public class ScoreboardPane extends HBox {
+public class ScoreboardPane extends HBox implements IUpdatable{
 	private ArrayList<PlayerPane> playerPanes;
 	private ArrayList<Player> players;
 

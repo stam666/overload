@@ -1,6 +1,7 @@
 package gui.score;
 
 import sharedObject.FontHolder;
+import sharedObject.IUpdatable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -15,7 +16,7 @@ import main.GameLogic;
 import main.logic;
 import player.Player;
 
-public class PlayerPane extends VBox {
+public class PlayerPane extends VBox implements IUpdatable {
 	private Label playerName;
 	private PlayerPole poleDisplay;
 	private Label point;

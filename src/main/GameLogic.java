@@ -83,10 +83,8 @@ public class GameLogic {
 	}
 
 	public static void choosePole() {
-		System.out.println("Player " + turnofPlayer + " turn");
+		//System.out.println("Player " + turnofPlayer + " turn");
 		int idx = turnofPlayer;
-		// Random ran = new Random();
-		// int dice = ran.nextInt(8)+1;
 		if (players.get(idx).getSub().get(0).getStage() == 0) {
 			nowState = Constants.stateAskRings;
 			nowNumberSubPlayer = 0;
@@ -114,7 +112,6 @@ public class GameLogic {
 
 					players.get(i).getSub().get(j).addRings(1);
 					// RenderAddRing
-					System.out.println(players.get(i).getSub().get(j).getRings());
 					if (players.get(i).getSub().get(j).isOverload()) {
 						if (!players.get(i).getName().equals(players.get(turnofPlayer).getName())) {
 							players.get(turnofPlayer).addPoint(1);

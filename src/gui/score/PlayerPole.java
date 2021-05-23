@@ -7,9 +7,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import main.GameLogic;
 import player.Player;
+import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
 
-public class PlayerPole extends Pane {
+public class PlayerPole extends Pane implements IUpdatable {
 	private int idx;
 	private Player player;
 
