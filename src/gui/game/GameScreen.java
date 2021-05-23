@@ -49,7 +49,7 @@ public class GameScreen extends VBox{
                 BackgroundRepeat.NO_REPEAT, 
                 BackgroundPosition.DEFAULT, 
                    BackgroundSize.DEFAULT);
-		//this.setBackground(new Background(backgroundimage));
+		this.setBackground(new Background(backgroundimage));
 		this.boardCanvas = new BoardCanvas();
 		players = new ArrayList<Player>();
 		players.add(new Player("BLUE"));
