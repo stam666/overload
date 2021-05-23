@@ -32,8 +32,11 @@ public class ImageHolder {
 	public Image lightRedPole;
 	public Image darkYellowPole;
 	public Image lightYellowPole;
-	public Image ring;
-	public Image ringGold;
+	
+	public Image frontRing;
+	public Image rearRing;
+	public Image frontGoldRing;
+	public Image rearGoldRing;
 	public Image tile;
 	
 	public static ImageHolder getInstance() {
@@ -68,8 +71,10 @@ public class ImageHolder {
 		darkYellowPole = loadImage("pole/3D/dark/yellow", "png");
 		lightYellowPole = loadImage("pole/3D/light/yellow", "png");
 		
-		ring = loadImage("ring/ring", "png");
-		ringGold = loadImage("ring/ringGold", "png");
+		frontRing = loadImage("ring/frontRing", "png");
+		rearRing = loadImage("ring/rearRing", "png");   
+		frontGoldRing = loadImage("ring/frontGoldRing", "png");
+		rearGoldRing = loadImage("ring/rearGoldRing", "png");
 		
 		tile = loadImage("board/tile", "png");
 		

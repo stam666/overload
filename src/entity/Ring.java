@@ -5,8 +5,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import main.GameLogic;
+import sharedObject.IRenderable;
 import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
+import sharedObject.RenderableHolder;
 
 public class Ring extends Entity implements IUpdatable {
 
@@ -18,17 +20,12 @@ public class Ring extends Entity implements IUpdatable {
 	private double speed = 5.0D;
 
 	public Ring(int z) {
+		setZ(z);;
 		setVisible(false);
 		setMoveRight(false);
 		setMoveLeft(false);
 		setMoveUp(false);
 		setMoveDown(false);
-		front =  new FrontRing(getZ());
-		front.setCenterX(getCenterX());
-		front.setY(getY() + getHeight() * 120.0D / 165.0D);
-		rear =  new RearRing(getZ());
-		rear.setCenterX(getCenterX());
-		rear.setY(getY());
 		isGold = false;
 	}
 	
@@ -52,7 +49,6 @@ public class Ring extends Entity implements IUpdatable {
 				setMoveLeft(false);
 			}
 		}
-		
 		if (isMoveDown) {
 			if (Math.abs(desY - getY()) > speed) {
 				setY(getY() + speed);
@@ -75,11 +71,20 @@ public class Ring extends Entity implements IUpdatable {
 		rear.setY(getY());
 	}
 	
+	public void initialSubRing() {
+		front = new FrontRing(getZ());
+		front.setCenterX(getCenterX());
+		front.setY(getY() + getHeight() * 120.0D / 165.0D);
+		rear =  new RearRing(getZ());
+		rear.setCenterX(getCenterX());
+		rear.setY(getY());
+		
+		RenderableHolder.getInstance().add(front);
+		RenderableHolder.getInstance().add(rear);
+	}
+	
 	public void initializeMove(double y) {
-		desY = getY();
-		setY(y);
-		setVisible(true);
-		moveY(desY, "down");
+		moveY(y, "down");
 	}
 	
 	public void moveX(double x, String dir) {

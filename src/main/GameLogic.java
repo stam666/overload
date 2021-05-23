@@ -109,6 +109,7 @@ public class GameLogic {
 				if (thisStage > oldStage && thisStage < nowStage) {
 
 					players.get(i).getSub().get(j).addRings(1);
+					
 					// RenderAddRing
 					if (players.get(i).getSub().get(j).isOverload()
 							&& !(players.get(i).getName().equals(players.get(turnofPlayer).getName()))) {

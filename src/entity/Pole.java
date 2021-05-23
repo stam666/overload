@@ -69,24 +69,38 @@ public class Pole extends Entity implements IUpdatable {
 	}
 
 	public void move(int n, String dir) {
+		double d = ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;
 		if (dir.toString() == "right") {
 			setMoveRight(true);
-			desX = getX() + n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;
+			desX = getX() + n * d;
 		} else if (dir.toString() == "left") {
 			setMoveLeft(true);
-			desX = getX() - n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;
+			desX = getX() - n * d;
+		}
+		
+		for (Ring ring : stackRing) {
+			ring.moveX(n * d, dir);
 		}
 	}
 	
-	public void addRing() {
-		System.out.println("hi");
-		Ring newRing = new Ring(getZ() + stackCount);
-		newRing.setCenterX(getCenterX());
-		newRing.setCenterY(getY() + getHeight() * 4.0D / 5.62D - newRing.getHeight() * stackCount * 45.0D / 165.0D);
-		newRing.setVisible(false);
-		RenderableHolder.getInstance().add(newRing);
-		newRing.initializeMove(getY());
-		stackCount += 1;
+	public void addRing() {		
+		Ring newRing = new Ring(getZ() + stackCount + 1);
+        //start add top of the pole
+        newRing.setCenterX(getCenterX());
+        newRing.setY(this.getY() + (getHeight() * 4.0D / 5.62D) - (stackCount * 6.0D));
+        
+        newRing.initialSubRing();
+        stackCount += 1;
+        stackRing.add(newRing);
+        
+        
+//		Ring newRing = new Ring(getZ() + stackCount);
+//		newRing.setCenterX(getCenterX());
+//		newRing.setCenterY(getY() + getHeight() * 4.0D / 5.62D - newRing.getHeight() * stackCount * 45.0D / 165.0D);
+//		newRing.setVisible(false);
+//		RenderableHolder.getInstance().add(newRing);
+//		newRing.initializeMove(getY());
+//		stackCount += 1;
 	}
 
 
