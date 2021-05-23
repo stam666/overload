@@ -11,8 +11,8 @@ import sharedObject.AudioHolder;
 import sharedObject.FontHolder;
 
 public class ChooseNumberPane extends HBox {
-	ArrayList<Button> numberButton;
-	
+	private ArrayList<Button> numberButton;
+
 	public ChooseNumberPane() {
 		numberButton = new ArrayList<Button>();
 		this.setAlignment(Pos.CENTER);
@@ -22,7 +22,7 @@ public class ChooseNumberPane extends HBox {
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
 		this.setSpacing(15);
-		
+
 		for (int i = 0; i <= 8; i++) {
 			Button b = new Button(String.valueOf(i));
 			b.setFont(FontHolder.getInstance().gameFont_40);

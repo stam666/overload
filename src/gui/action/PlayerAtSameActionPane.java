@@ -1,6 +1,5 @@
 package gui.action;
 
-
 import java.util.ArrayList;
 
 import gui.score.PlayerPole;
@@ -20,32 +19,34 @@ import javafx.scene.text.Font;
 import player.Player;
 import player.SubPlayer;
 
-public class PlayerAtSameActionPane extends HBox{
-	ArrayList<SubPlayer> targets;
-	public PlayerAtSameActionPane(ArrayList<SubPlayer> targets,Boolean amLeft) {
-		this.targets=targets;
+public class PlayerAtSameActionPane extends HBox {
+	private ArrayList<SubPlayer> targets;
+
+	public PlayerAtSameActionPane(ArrayList<SubPlayer> targets, Boolean amLeft) {
+		this.targets = targets;
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(20);
-		int width=1024,height=200;
+		int width = 1024, height = 200;
 		this.setMinWidth(width);
 		this.setMaxWidth(height);
 		this.setMinHeight(height);
 		this.setMaxHeight(height);
-		for(int i=0;i<this.targets.size();i++) {
-			SubPlayerAtSameActionPane r = new SubPlayerAtSameActionPane(i,targets.get(i),amLeft);
-			
+		for (int i = 0; i < this.targets.size(); i++) {
+			SubPlayerAtSameActionPane r = new SubPlayerAtSameActionPane(i, targets.get(i), amLeft);
+
 			this.getChildren().add(r);
 		}
-		/*Button enterButton =new Button("Enter");
-		enterButton.setPrefSize(100,151);
-		this.getChildren().add(enterButton);*/
+		/*
+		 * Button enterButton =new Button("Enter"); enterButton.setPrefSize(100,151);
+		 * this.getChildren().add(enterButton);
+		 */
 	}
-	
-	public void update(ArrayList<SubPlayer> targets,Boolean amLeft) {
+
+	public void update(ArrayList<SubPlayer> targets, Boolean amLeft) {
 		this.getChildren().clear();
-		this.targets=targets;
-		for(int i=0;i<this.targets.size();i++) {
-			SubPlayerAtSameActionPane r = new SubPlayerAtSameActionPane(i,targets.get(i),amLeft);
+		this.targets = targets;
+		for (int i = 0; i < this.targets.size(); i++) {
+			SubPlayerAtSameActionPane r = new SubPlayerAtSameActionPane(i, targets.get(i), amLeft);
 			this.getChildren().add(r);
 		}
 	}
