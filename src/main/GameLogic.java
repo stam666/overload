@@ -6,8 +6,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 import input.InputUtility;
+import javafx.scene.Scene;
 import javafx.util.Pair;
 import player.*;
+import scene.EndScene;
+import scene.GameScene;
 import sharedObject.*;
 
 public class GameLogic {
@@ -18,8 +21,8 @@ public class GameLogic {
 	private static int stageLength = 18, nowNumberSubPlayer, oldStage, nowStage;
 	protected static SubPlayer nowSubPlayer;
 	protected static ArrayList<SubPlayer> atSame = new ArrayList<SubPlayer>();
-	private static int turnofPlayer = 0, nextAction,dice;
-	private static Boolean update = false, updateSame = false, change = false, changeSame = false,finished;
+	private static int turnofPlayer = 0, nextAction, dice;
+	private static Boolean update = false, updateSame = false, change = false, changeSame = false, finished, isWalk;
 	private static double factor = 1024.0D / 18.0D / 450.0D;
 
 	public static int getNextAction() {
@@ -69,7 +72,7 @@ public class GameLogic {
 	}
 
 	public static void CheckAtEnd() {
-		if (nowStage >= stageLength) {
+		if (nowStage >= stageLength - 1) {
 			if (nowSubPlayer.getRings() == 8) {
 				players.get(turnofPlayer).addPoint(12);
 			} else {
@@ -101,19 +104,21 @@ public class GameLogic {
 	}
 
 	public static void CheckPassedPole() {
-		for (int i = 0; i < players.size(); i++) {
+		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j <= 1; j++) {
 				if (i == turnofPlayer && j == nowNumberSubPlayer)
 					continue;
+
 				int thisStage = players.get(i).getSub().get(j).getStage();
 				if (thisStage > oldStage && thisStage < nowStage) {
 
 					players.get(i).getSub().get(j).addRings(1);
-					
 					// RenderAddRing
-					if (players.get(i).getSub().get(j).isOverload()
-							&& !(players.get(i).getName().equals(players.get(turnofPlayer).getName()))) {
-						players.get(turnofPlayer).addPoint(1);
+					System.out.println(players.get(i).getSub().get(j).getRings());
+					if (players.get(i).getSub().get(j).isOverload()) {
+						if (!players.get(i).getName().equals(players.get(turnofPlayer).getName())) {
+							players.get(turnofPlayer).addPoint(1);
+						}
 					}
 				} else if (thisStage == nowStage) {
 					atSame.add(players.get(i).getSub().get(j));
@@ -200,24 +205,30 @@ public class GameLogic {
 				update = true;
 				dice = InputUtility.getNumberDice();
 				oldStage = nowSubPlayer.getStage();
-				nowStage = nowSubPlayer.addStage(dice);
+				nowStage = nowSubPlayer.addStage(Math.min(dice, 17 - oldStage));
+				dice = Math.min(dice, 17 - oldStage);
 				nowState = Constants.stateRenderWalk;
-				finished=false;
-				Thread t= new Thread(() -> {	
+				finished = false;
+				Thread t = new Thread(() -> {
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 					}
-					finished=true;
+					finished = true;
 				});
 				t.start();
-				
+
 			}
 		} else if (nowState == Constants.stateRenderWalk) {
 			// renderwalk
-			if(finished) { 
+			if (finished) {
 				InputUtility.setStopDice(false);
-				nowSubPlayer.getPole().move(dice,"right");
+				// System.out.println(dice);
+				nowSubPlayer.getPole().move(dice, "right");
+				nowState = Constants.stateWaitWalk;
+			}
+		} else if (nowState == Constants.stateWaitWalk) {
+			if (!nowSubPlayer.getPole().isMoveRight()) {
 				nowState = Constants.stateCheckPass;
 			}
 		} else if (nowState == Constants.stateCheckPass) {
@@ -227,7 +238,7 @@ public class GameLogic {
 		} else if (nowState == Constants.stateRenderPass) {
 			// renderadd pass pole
 //			if(render fin ) {
-//			nowState=9;
+//			nowState=9; 
 //			}
 			nowState = Constants.stateCheckAtSamePlace;
 		} else if (nowState == Constants.stateCheckAtSamePlace) {
@@ -262,8 +273,9 @@ public class GameLogic {
 				nowState = Constants.stateAtSameAction;
 			}
 		} else if (nowState == Constants.stateEndTurn) {
-			CheckEndgame();
+			
 			CheckAtEnd();
+			CheckEndgame();
 			// System.out.println("hi");
 			turnofPlayer += 1;
 			turnofPlayer %= 4;
@@ -275,7 +287,8 @@ public class GameLogic {
 		// TODO Auto-generated method stub
 		for (Player e : players) {
 			if (e.getPoint() >= scoreToWin) {
-
+				Main.sceneHolder.switchScene((Scene) new EndScene(e.getName()));
+				break;
 			}
 		}
 	}
