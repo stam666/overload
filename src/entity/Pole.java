@@ -107,9 +107,36 @@ public class Pole extends Entity implements IUpdatable {
 	}
 	
 	public void moveRing(Pole p) {
+		double upY = 30 + stackRing.get(stackCount - 1).getY() - getY();
+		stackRing.get(stackCount - 1).moveY(upY, "up");
+		double x1 = stackRing.get(stackCount - 1).getX();
+		double y1 = stackRing.get(stackCount - 1).getY();
+		int z = p.getZ() + p.stackCount + 1;
 		
-		this.removeRing();
-		Ring animation = new Ring();
+		double x2 = p.getX();
+		double y2 = p.getY();
+		
+		double dx = Math.abs(x1 - x2);
+		double dy = Math.abs(y1 - y2);
+
+		stackRing.remove(stackCount - 1);
+
+		Ring animation = new Ring(1000);
+		RenderableHolder.getInstance().add(animation);
+		
+		if (x2 > x1) {
+			animation.moveX(dx, "right");
+		} else {
+			animation.moveX(dx, "left");
+		}
+		
+		if (y2 > y1) {
+			animation.moveY(dy, "down");
+		} else {
+			animation.moveY(dy, "up");
+		}
+		
+		
 	}
 	
 	public boolean isMoveRight() {
