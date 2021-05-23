@@ -46,12 +46,15 @@ public class Pole extends Entity implements IUpdatable {
 	}
 	
 	public void update() {
-		if (Math.abs(desX - getX()) > speed) {
-			setX(getX() + speed);
-		} else {
-			setX(desX);
-			setMove(false);
+		if(isMove) {
+			if (Math.abs(desX - getX()) > speed) {
+				setX(getX() + speed);
+			} else {
+				setX(desX);
+				setMove(false);
+			}
 		}
+		
 	}
 
 	public void move(int n) {

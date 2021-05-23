@@ -22,7 +22,21 @@ public class Ring extends Entity implements IUpdatable {
 		rear.setY(getY());
 		isGold = false;
 	}
-
+	
+	@Override
+	public void draw(GraphicsContext gc) {
+	}
+	
+	public void update() {
+		if (isGold == true) {
+			front.setSprite(ImageHolder.getInstance().ringGold);
+			rear.setSprite(ImageHolder.getInstance().ringGold);
+		} else {
+			front.setSprite(ImageHolder.getInstance().ring);
+			rear.setSprite(ImageHolder.getInstance().ring);
+		}
+	}
+	
 	public boolean isGold() {
 		return isGold;
 	}
@@ -38,19 +52,5 @@ public class Ring extends Entity implements IUpdatable {
 	public void setZ(int z) {
 		this.z = z;
 	}
-
-	@Override
-	public void draw(GraphicsContext gc) {
-	}
 	
-	public void update() {
-		if (isGold == true) {
-			front.setSprite(ImageHolder.getInstance().ringGold);
-			rear.setSprite(ImageHolder.getInstance().ringGold);
-		} else {
-			front.setSprite(ImageHolder.getInstance().ring);
-			rear.setSprite(ImageHolder.getInstance().ring);
-		}
-	}
-
 }
