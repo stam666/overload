@@ -38,7 +38,7 @@ public class RenderableHolder {
 	        ((IUpdatable)this.entities.get(i)).update(); 
 	    } 
 	    for (int i1 = this.entities.size() - 1; i1 >= 0; i1--) {
-	      if (!((IRenderable)this.entities.get(i1)).isVisible())
+	      if (((IRenderable)this.entities.get(i1)).isDestroyed())
 	        this.entities.remove(i1); 
 	    }
 	}

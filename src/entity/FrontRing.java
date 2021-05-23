@@ -10,20 +10,39 @@ import sharedObject.ImageHolder;
 
 public class FrontRing extends Entity {
 	
+	private boolean isGold;
+	private WritableImage frontRing;
+	private WritableImage frontRingGold;
+	
 	public FrontRing(int z) {
 		setZ(z);
+		Image ring = ImageHolder.getInstance().ring;
+		Image ringGold = ImageHolder.getInstance().ringGold;
+		int w = (int) ring.getWidth();
+		int h = (int) ring.getHeight();
+		
+		PixelReader ringReader = ring.getPixelReader();
+		PixelReader ringGoldReader = ringGold.getPixelReader();
+		WritableImage frontRing = new WritableImage(ringReader, 0, h / 2, w, h/2);
+		WritableImage frontRingGold = new WritableImage(ringGoldReader, 0, h / 2, w, h/2);
 	}
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		Image imagePole = getSprite();
-		int w = (int) imagePole.getWidth();
-		int h = (int) imagePole.getHeight();
+		if (isGold) {
+			gc.drawImage(frontRingGold , getX(), getY(), getSprite().getWidth(), getSprite().getHeight());
+		} else {
+			gc.drawImage(frontRing , getX(), getY(), getSprite().getWidth(), getSprite().getHeight());
+		}
 		
-		PixelReader reader = imagePole.getPixelReader();
-		WritableImage frontPole = new WritableImage(reader, 0, h / 2, w, h/2);
-		setSprite(frontPole);
-		gc.drawImage(getSprite(), getX(), getY(), getSprite().getWidth(), getSprite().getHeight());
+	}
+
+	public boolean isGold() {
+		return isGold;
+	}
+
+	public void setGold(boolean isGold) {
+		this.isGold = isGold;
 	}
 	
 }

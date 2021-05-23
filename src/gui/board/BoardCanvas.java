@@ -46,7 +46,9 @@ public class BoardCanvas extends Canvas {
 
     public void drawGameObject() {
         for (IRenderable entity: RenderableHolder.getInstance().getEntities()) {
-            entity.draw(gc);
+        	if (entity.isVisible()) {
+        		entity.draw(gc);
+        	}
         } 
     }
 

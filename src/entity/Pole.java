@@ -13,10 +13,15 @@ import sharedObject.RenderableHolder;
 public class Pole extends Entity implements IUpdatable {
 	
 	private double speed = 5.0D;
-	private boolean isMove;
+	private boolean isMoveRight, isMoveLeft;
 	private double desX;
+	private List<Ring> stackRing;
+	private int stackCount;
 
 	public Pole(String color) {
+		setMoveRight(false);
+		setMoveLeft(false);
+		stackRing = new ArrayList<Ring>(8);
 		if (color.equals("darkBLUE")) {
 			setSprite(ImageHolder.getInstance().darkBluePole);
 		} else if (color.equals("darkGREEN")) {
@@ -46,27 +51,57 @@ public class Pole extends Entity implements IUpdatable {
 	}
 	
 	public void update() {
-		if(isMove) {
+		if (isMoveRight) {
 			if (Math.abs(desX - getX()) > speed) {
 				setX(getX() + speed);
 			} else {
 				setX(desX);
-				setMove(false);
+				setMoveRight(false);
+			}
+		} else if (isMoveLeft) {
+			if (Math.abs(desX - getX()) > speed) {
+				setX(getX() - speed);
+			} else {
+				setX(desX);
+				setMoveLeft(false);
 			}
 		}
 	}
 
-	public void move(int n) {
-		setMove(true);
-		desX = getX() + n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;	
+	public void move(int n, String dir) {
+		if (dir.toString() == "right") {
+			setMoveRight(true);
+			desX = getX() + n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;
+		} else if (dir.toString() == "left") {
+			setMoveLeft(true);
+			desX = getX() - n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;
+		}
+	}
+	
+	public void addRing() {
+		Ring newRing = new Ring(getZ() + stackCount);
+		newRing.setCenterX(getCenterX());
+		newRing.setCenterY(getY() + getHeight() * 4.0D / 5.62D - newRing.getHeight() * stackCount * 45.0D / 165.0D);
+		newRing.setVisible(false);
+		newRing.initializeMove(getY());
+		stackCount += 1;
 	}
 
-	public boolean isMove() {
-		return isMove;
+
+	public boolean isMoveRight() {
+		return isMoveRight;
 	}
 
-	public void setMove(boolean isMove) {
-		this.isMove = isMove;
+	public void setMoveRight(boolean isMoveRight) {
+		this.isMoveRight = isMoveRight;
+	}
+
+	public boolean isMoveLeft() {
+		return isMoveLeft;
+	}
+
+	public void setMoveLeft(boolean isMoveLeft) {
+		this.isMoveLeft = isMoveLeft;
 	}
 
 	public double getDesX() {
