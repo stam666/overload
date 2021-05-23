@@ -12,10 +12,6 @@ public class RearRing extends Entity {
 	
 	public RearRing(int z) {
 		setZ(z - 10);
-		
-		PixelReader reader = imagePole.getPixelReader();
-		WritableImage rearPole = new WritableImage(reader, 0, 0, w, h/2);
-		setSprite(rearPole);
 	}
 
 	@Override
@@ -27,7 +23,6 @@ public class RearRing extends Entity {
 		PixelReader reader = imagePole.getPixelReader();
 		WritableImage rearPole = new WritableImage(reader, 0, 0, w, h/2);
 		setSprite(rearPole);
-		
 		gc.drawImage(getSprite(), getX(), getY(), getSprite().getWidth(), getSprite().getHeight());
 	}
 	

@@ -10,9 +10,11 @@ import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
 import sharedObject.RenderableHolder;
 
-public class Pole extends Entity {
+public class Pole extends Entity implements IUpdatable {
 	
-	double speed = 5.0D;
+	private double speed = 5.0D;
+	private boolean isMove;
+	private double desX;
 
 	public Pole(String color) {
 		if (color.equals("darkBLUE")) {
@@ -42,15 +44,37 @@ public class Pole extends Entity {
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
-
-	public void move(int n) {
-		double maxX = getX() + n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;
-		if (Math.abs(maxX - getX()) > speed) {
+	
+	public void update() {
+		if (Math.abs(desX - getX()) > speed) {
 			setX(getX() + speed);
 		} else {
-			setX(maxX);
-		}	
+			setX(desX);
+			setMove(false);
+		}
 	}
+
+	public void move(int n) {
+		setMove(true);
+		desX = getX() + n * ImageHolder.getInstance().tile.getWidth() * 345 / 450;	
+	}
+
+	public boolean isMove() {
+		return isMove;
+	}
+
+	public void setMove(boolean isMove) {
+		this.isMove = isMove;
+	}
+
+	public double getDesX() {
+		return desX;
+	}
+
+	public void setDesX(double desX) {
+		this.desX = desX;
+	}
+	
 	
 	
 }

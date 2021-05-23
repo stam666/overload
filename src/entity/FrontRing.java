@@ -12,14 +12,6 @@ public class FrontRing extends Entity {
 	
 	public FrontRing(int z) {
 		setZ(z);
-		
-		Image imagePole =ImageHolder.getInstance().ring;
-		int w = (int) imagePole.getWidth();
-		int h = (int) imagePole.getHeight();
-		
-		PixelReader reader = imagePole.getPixelReader();
-		WritableImage frontPole = new WritableImage(reader, 0, h / 2, w, h/2);
-		setSprite(frontPole);
 	}
 
 	@Override
