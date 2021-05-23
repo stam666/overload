@@ -44,7 +44,7 @@ public class SubPlayerAtSameActionPane extends VBox{
 		this.setSpacing(2);
 		Canvas canvas = new Canvas(80,80);
 		GraphicsContext gc= canvas.getGraphicsContext2D();
-		gc.drawImage(target.get1D(), 15, 0,57,80);
+		gc.drawImage(target.get1D(), 11, 0,57,80);
 		this.getChildren().add(canvas);
 		//////////////////////////////////////////////////////////
 		getButton = new Button("GET");//I recieve from this
