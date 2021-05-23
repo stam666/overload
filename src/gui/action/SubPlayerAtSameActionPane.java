@@ -4,7 +4,7 @@ package gui.action;
 
 
 import exception.PlayerNoRingEception;
-import exception.TargetNoRingOrPlayerFullException;
+import exception.TargetNoRingException;
 import gui.score.PlayerPole;
 import input.InputUtility;
 import javafx.event.ActionEvent;
@@ -67,14 +67,14 @@ public class SubPlayerAtSameActionPane extends VBox{
 		});
 		this.getChildren().add(giveButton);
 		try {
-			if(this.target.getRings()==0 || GameLogic.getNowSubPlayer().getRings()==8) {
-				throw new TargetNoRingOrPlayerFullException();
+			if(this.target.getRings()==0 ) {
+				throw new TargetNoRingException();
 			}
 			if(!this.amLeft) {
 				throw new PlayerNoRingEception();
 				
 			}
-		}catch(TargetNoRingOrPlayerFullException egnE) {
+		}catch(TargetNoRingException egnE) {
 			System.out.println(egnE.toString());
 			getButton.setDisable(true);
 		}catch(PlayerNoRingEception egnE) {
