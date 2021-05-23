@@ -13,7 +13,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import main.GameLogic;
-import main.logic;
 import player.Player;
 
 public class PlayerPane extends VBox implements IUpdatable {

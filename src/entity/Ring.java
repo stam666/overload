@@ -1,11 +1,6 @@
 package entity;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.WritableImage;
-import main.GameLogic;
-import sharedObject.IRenderable;
 import sharedObject.IUpdatable;
 import sharedObject.ImageHolder;
 import sharedObject.RenderableHolder;
@@ -21,7 +16,8 @@ public class Ring extends Entity implements IUpdatable {
 
 	public Ring(int z) {
 		setSprite(ImageHolder.getInstance().ring);
-		setZ(z);;
+		setZ(z);
+		;
 		setVisible(false);
 		setFront(new FrontRing(z));
 		setRear(new RearRing(z));
@@ -31,12 +27,12 @@ public class Ring extends Entity implements IUpdatable {
 		setMoveDown(false);
 		setGold(false);
 	}
-	
+
 	@Override
 	public void draw(GraphicsContext gc) {
 		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
-	
+
 	public void update() {
 		if (isMoveRight) {
 			if (Math.abs(desX - getX()) > speed) {
@@ -68,12 +64,12 @@ public class Ring extends Entity implements IUpdatable {
 				setMoveUp(false);
 			}
 		}
-		
+
 		getFront().setX(this.getX());
 		getRear().setX(this.getX());
 		getFront().setY(this.getY());
 		getRear().setY(this.getY());
-		
+
 		if (isGold) {
 			getFront().setGold(true);
 			getRear().setGold(true);
@@ -82,21 +78,21 @@ public class Ring extends Entity implements IUpdatable {
 			getRear().setGold(false);
 		}
 	}
-	
+
 	public void initialSubRing() {
 		front = new FrontRing(getZ());
 		front.setX(getX());
 		front.setY(getY());
-		rear =  new RearRing(getZ());
+		rear = new RearRing(getZ());
 		rear.setX(getX());
 		rear.setY(getY());
 		setFront(front);
 		setRear(rear);
-		
+
 		RenderableHolder.getInstance().add(front);
 		RenderableHolder.getInstance().add(rear);
 	}
-	
+
 	public void moveX(double x, String dir) {
 		if (dir.toString().equals("right")) {
 			setMoveRight(true);
@@ -106,17 +102,17 @@ public class Ring extends Entity implements IUpdatable {
 			desX = getX() - x;
 		}
 	}
-	
+
 	public void moveY(double y, String dir) {
 		if (dir.toString().equals("up")) {
 			setMoveUp(true);
-			desY = getY() - y; 
+			desY = getY() - y;
 		} else if (dir.toString().equals("down")) {
 			setMoveDown(true);
 			desY = getY() + y;
 		}
 	}
-	
+
 	public boolean isGold() {
 		return isGold;
 	}
@@ -188,5 +184,5 @@ public class Ring extends Entity implements IUpdatable {
 	public void setRear(RearRing rear) {
 		this.rear = rear;
 	}
-	
+
 }

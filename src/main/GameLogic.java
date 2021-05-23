@@ -1,28 +1,21 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
-
 import input.InputUtility;
 import javafx.scene.Scene;
-import javafx.util.Pair;
 import player.*;
 import scene.EndScene;
-import scene.GameScene;
 import sharedObject.*;
 
 public class GameLogic {
 	private static ArrayList<Player> players;
-	private static Scanner kb = new Scanner(System.in);
 	private static final int scoreToWin = 35;
 	static int nowState = Constants.stateSelectPole;
 	private static int stageLength = 18, nowNumberSubPlayer, oldStage, nowStage;
 	protected static SubPlayer nowSubPlayer;
 	protected static ArrayList<SubPlayer> atSame = new ArrayList<SubPlayer>();
 	private static int turnofPlayer = 0, nextAction, dice;
-	private static Boolean update = false, updateSame = false, change = false, changeSame = false, finished, isWalk;
+	private static Boolean update = false, updateSame = false, change = false, changeSame = false, finished;
 	private static double factor = 1024.0D / 18.0D / 450.0D;
 
 	public static int getNextAction() {
@@ -83,7 +76,7 @@ public class GameLogic {
 	}
 
 	public static void choosePole() {
-		//System.out.println("Player " + turnofPlayer + " turn");
+		// System.out.println("Player " + turnofPlayer + " turn");
 		int idx = turnofPlayer;
 		if (players.get(idx).getSub().get(0).getStage() == 0) {
 			nowState = Constants.stateAskRings;
@@ -270,7 +263,7 @@ public class GameLogic {
 				nowState = Constants.stateAtSameAction;
 			}
 		} else if (nowState == Constants.stateEndTurn) {
-			
+
 			CheckAtEnd();
 			CheckEndgame();
 			// System.out.println("hi");

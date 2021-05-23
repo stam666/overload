@@ -1,7 +1,6 @@
 package scene;
 
 import gui.end.EndScreen;
-import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 

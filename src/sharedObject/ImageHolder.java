@@ -6,7 +6,7 @@ import java.util.List;
 import javafx.scene.image.Image;
 
 public class ImageHolder {
-	
+
 	private static final ImageHolder instance = new ImageHolder();
 	public Image nothing;
 	public Image startBackground;
@@ -28,24 +28,24 @@ public class ImageHolder {
 	public Image lightRedPole;
 	public Image darkYellowPole;
 	public Image lightYellowPole;
-	
+
 	public Image ring;
 	public Image frontRing;
 	public Image rearRing;
 	public Image frontGoldRing;
 	public Image rearGoldRing;
 	public Image tile;
-	
+
 	public static ImageHolder getInstance() {
-	    return instance;
+		return instance;
 	}
-	
+
 	public ImageHolder() {
-		
+
 		nothing = loadImage("nothing/nothing", "png");
-		startBackground=loadImage("background/start", "jpg");
-		endBackground=loadImage("background/end", "jpg");
-		gameBackground=loadImage("background/bg", "jpg");
+		startBackground = loadImage("background/start", "jpg");
+		endBackground = loadImage("background/end", "jpg");
+		gameBackground = loadImage("background/bg", "jpg");
 		darkBluePole1D = loadImageList("pole/1D/blue/dark/", "png", 8);
 		lightBluePole1D = loadImageList("pole/1D/blue/light/", "png", 8);
 		darkGreenPole1D = loadImageList("pole/1D/green/dark/", "png", 8);
@@ -54,7 +54,7 @@ public class ImageHolder {
 		lightRedPole1D = loadImageList("pole/1D/red/light/", "png", 8);
 		darkYellowPole1D = loadImageList("pole/1D/yellow/dark/", "png", 8);
 		lightYellowPole1D = loadImageList("pole/1D/yellow/light/", "png", 8);
-		
+
 		darkBluePole = loadImage("pole/3D/dark/blue", "png");
 		lightBluePole = loadImage("pole/3D/light/blue", "png");
 		darkGreenPole = loadImage("pole/3D/dark/green", "png");
@@ -63,22 +63,22 @@ public class ImageHolder {
 		lightRedPole = loadImage("pole/3D/light/red", "png");
 		darkYellowPole = loadImage("pole/3D/dark/yellow", "png");
 		lightYellowPole = loadImage("pole/3D/light/yellow", "png");
-		
+
 		ring = loadImage("ring/ring", "png");
 		frontRing = loadImage("ring/frontRing", "png");
-		rearRing = loadImage("ring/rearRing", "png");   
+		rearRing = loadImage("ring/rearRing", "png");
 		frontGoldRing = loadImage("ring/frontGoldRing", "png");
 		rearGoldRing = loadImage("ring/rearGoldRing", "png");
-		
+
 		tile = loadImage("board/tile", "png");
-		
+
 	}
-	
+
 	public Image loadImage(String prefix, String fileFormat) {
-		//System.out.println(prefix + "." + fileFormat);
+		// System.out.println(prefix + "." + fileFormat);
 		return new Image(ClassLoader.getSystemResource(prefix + "." + fileFormat).toString());
 	}
-	
+
 	public List<Image> loadImageList(String prefix, String fileFormat, int n) {
 		List<Image> list = new ArrayList<>();
 		for (int i = 0; i <= n; i++) {
@@ -86,5 +86,5 @@ public class ImageHolder {
 		}
 		return list;
 	}
-	
+
 }

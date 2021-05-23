@@ -1,6 +1,5 @@
 package player;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import entity.Pole;
@@ -11,17 +10,18 @@ import sharedObject.ImageHolder;
 public class SubPlayer {
 	private int stage;
 	private int rings;
-	private String name="RED";
+	private String name = "RED";
 	private int idx;
 	private List<Tile> lane;
 	private Pole pole;
-	public SubPlayer(int idx,String name) {
-		this.rings=0;
-		this.stage=0;
-		this.idx=idx;
-		this.name=name;
+
+	public SubPlayer(int idx, String name) {
+		this.rings = 0;
+		this.stage = 0;
+		this.idx = idx;
+		this.name = name;
 	}
-	
+
 	public List<Tile> getLane() {
 		return lane;
 	}
@@ -47,70 +47,77 @@ public class SubPlayer {
 	}
 
 	public int addStage(int add) {
-		this.stage+=add;
+		this.stage += add;
 		return this.stage;
 	}
+
 	public int addRings(int add) {
-		this.rings+=add;
-		//System.out.println("tt");
-		for(int i=0;i<add;i++) {	
+		this.rings += add;
+		// System.out.println("tt");
+		for (int i = 0; i < add; i++) {
 			this.pole.addRing();
 		}
 		return this.rings;
 	}
+
 	public int reduceRings(int reduce) {
-		this.rings-=reduce;
-		for(int i=0;i<reduce;i++) {
+		this.rings -= reduce;
+		for (int i = 0; i < reduce; i++) {
 			this.pole.removeRing();
 		}
 		return this.rings;
 	}
+
 	public boolean isOverload() {
-		if(this.rings>8) {
+		if (this.rings > 8) {
 			this.reset();
-			
+
 			return true;
 		}
 		return false;
 	}
+
 	public void reset() {
-		int back=this.stage;
-		this.stage=0;
-		while(this.rings>0) {
+		int back = this.stage;
+		this.stage = 0;
+		while (this.rings > 0) {
 			this.reduceRings(1);
 		}
 		this.pole.move(back, "left");
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public Image get1D() {
-		if(idx==0) {
-			if(getName().equals("RED")) {
+		if (idx == 0) {
+			if (getName().equals("RED")) {
 				return ImageHolder.getInstance().darkRedPole1D.get(getRings());
-			}else if(getName().equals("BLUE")) {
+			} else if (getName().equals("BLUE")) {
 				return ImageHolder.getInstance().darkBluePole1D.get(getRings());
-			}else if(getName().equals("GREEN")) {
+			} else if (getName().equals("GREEN")) {
 				return ImageHolder.getInstance().darkGreenPole1D.get(getRings());
-			}else if(getName().equals("YELLOW")) {
+			} else if (getName().equals("YELLOW")) {
 				return ImageHolder.getInstance().darkYellowPole1D.get(getRings());
 			}
-		}else if(idx==1) {
-			if(getName().equals("RED")) {
+		} else if (idx == 1) {
+			if (getName().equals("RED")) {
 				return ImageHolder.getInstance().lightRedPole1D.get(getRings());
-			}else if(getName().equals("BLUE")) {
+			} else if (getName().equals("BLUE")) {
 				return ImageHolder.getInstance().lightBluePole1D.get(getRings());
-			}else if(getName().equals("GREEN")) {
+			} else if (getName().equals("GREEN")) {
 				return ImageHolder.getInstance().lightGreenPole1D.get(getRings());
-			}else if(getName().equals("YELLOW")) {
+			} else if (getName().equals("YELLOW")) {
 				return ImageHolder.getInstance().lightYellowPole1D.get(getRings());
 			}
 		}
 		return null;
-	
+
 	}
+
 	public int getIdx() {
 		return idx;
 	}
-	
+
 }
