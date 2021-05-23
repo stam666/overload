@@ -210,11 +210,12 @@ public class GameLogic {
 					finished=true;
 				});
 				t.start();
-				InputUtility.setStopDice(false);
+				
 			}
 		} else if (nowState == Constants.stateRenderWalk) {
 			// renderwalk
 			if(finished) { 
+				InputUtility.setStopDice(false);
 				nowSubPlayer.getPole().move(dice);
 				nowState = Constants.stateCheckPass;
 			}

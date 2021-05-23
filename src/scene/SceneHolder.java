@@ -17,7 +17,7 @@ public class SceneHolder {
 	public void initialize() {
 		startScene = new StartScene();
 		switchScene(startScene);
-		Media media = new Media(ClassLoader.getSystemResource("sound/game.mp3").toString());
+	/*	Media media = new Media(ClassLoader.getSystemResource("sound/game.mp3").toString());
 		MediaPlayer mediaPlayer1 = new MediaPlayer(media);
 		mediaPlayer1.setOnEndOfMedia(new Runnable() {
 		       public void run() {
@@ -25,7 +25,7 @@ public class SceneHolder {
 		       }
 		   });
 		mediaPlayer1.setVolume(0.3D);
-		mediaPlayer1.play();
+		mediaPlayer1.play();*/
 		
 	}
 	
