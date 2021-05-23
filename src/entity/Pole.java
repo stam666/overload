@@ -70,10 +70,10 @@ public class Pole extends Entity implements IUpdatable {
 
 	public void move(int n, String dir) {
 		double d = ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;
-		if (dir.toString() == "right") {
+		if (dir.toString().equals("right")) {
 			setMoveRight(true);
 			desX = getX() + n * d;
-		} else if (dir.toString() == "left") {
+		} else if (dir.toString().equals("left")) {
 			setMoveLeft(true);
 			desX = getX() - n * d;
 		}

@@ -110,20 +110,20 @@ public class Ring extends Entity implements IUpdatable {
 	}
 	
 	public void moveX(double x, String dir) {
-		if (dir.toString() == "right") {
+		if (dir.toString().equals("right")) {
 			setMoveRight(true);
 			desX = getX() + x;
-		} else if (dir.toString() == "left") {
+		} else if (dir.toString().equals("left")) {
 			setMoveLeft(true);
 			desX = getX() - x;
 		}
 	}
 	
 	public void moveY(double y, String dir) {
-		if (dir.toString() == "up") {
+		if (dir.toString().equals("up")) {
 			setMoveUp(true);
 			desY = getY() - y; 
-		} else if (dir.toString() == "down") {
+		} else if (dir.toString().equals("down")) {
 			setMoveDown(true);
 			desY = getY() + y;
 		}
