@@ -16,8 +16,6 @@ public class ImageHolder {
 	public List<Image> lightBluePole1D;
 	public List<Image> darkGreenPole1D;
 	public List<Image> lightGreenPole1D;
-	public List<Image> darkPinkPole1D;
-	public List<Image> lightPinkPole1D;
 	public List<Image> darkRedPole1D;
 	public List<Image> lightRedPole1D;
 	public List<Image> darkYellowPole1D;
@@ -26,8 +24,6 @@ public class ImageHolder {
 	public Image lightBluePole;
 	public Image darkGreenPole;
 	public Image lightGreenPole;
-	public Image darkPinkPole;
-	public Image lightPinkPole;
 	public Image darkRedPole;
 	public Image lightRedPole;
 	public Image darkYellowPole;
@@ -54,8 +50,6 @@ public class ImageHolder {
 		lightBluePole1D = loadImageList("pole/1D/blue/light/", "png", 8);
 		darkGreenPole1D = loadImageList("pole/1D/green/dark/", "png", 8);
 		lightGreenPole1D = loadImageList("pole/1D/green/light/", "png", 8);
-		darkPinkPole1D = loadImageList("pole/1D/pink/dark/", "png", 8);
-		lightPinkPole1D = loadImageList("pole/1D/pink/light/", "png", 8);
 		darkRedPole1D = loadImageList("pole/1D/red/dark/", "png", 8);
 		lightRedPole1D = loadImageList("pole/1D/red/light/", "png", 8);
 		darkYellowPole1D = loadImageList("pole/1D/yellow/dark/", "png", 8);
@@ -65,8 +59,6 @@ public class ImageHolder {
 		lightBluePole = loadImage("pole/3D/light/blue", "png");
 		darkGreenPole = loadImage("pole/3D/dark/green", "png");
 		lightGreenPole = loadImage("pole/3D/light/green", "png");
-		darkPinkPole = loadImage("pole/3D/dark/pink", "png");
-		lightPinkPole = loadImage("pole/3D/light/pink", "png");
 		darkRedPole = loadImage("pole/3D/dark/red", "png");
 		lightRedPole = loadImage("pole/3D/light/red", "png");
 		darkYellowPole = loadImage("pole/3D/dark/yellow", "png");

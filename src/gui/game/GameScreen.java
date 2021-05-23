@@ -54,7 +54,7 @@ public class GameScreen extends VBox{
 		players = new ArrayList<Player>();
 		players.add(new Player("BLUE"));
 		players.add(new Player("GREEN"));
-		players.add(new Player("PINK"));
+		players.add(new Player("YELLOW"));
 		players.add(new Player("RED"));
 		GameLogic.initialize(players);
 		int width = 1024, height = 768;
