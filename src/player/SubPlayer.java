@@ -53,8 +53,7 @@ public class SubPlayer {
 	public int addRings(int add) {
 		this.rings+=add;
 		//System.out.println("tt");
-		for(int i=0;i<add;i++) {
-			
+		for(int i=0;i<add;i++) {	
 			this.pole.addRing();
 		}
 		return this.rings;
@@ -66,14 +65,16 @@ public class SubPlayer {
 	public boolean isOverload() {
 		if(this.rings>8) {
 			this.reset();
+			
 			return true;
 		}
 		return false;
 	}
 	public void reset() {
 		this.rings=0;
-		//this.pole.move();
+		int back=this.stage;
 		this.stage=0;
+		this.pole.move(back, "left");
 	}
 	public void setRings(int counter) {
 		this.rings = counter;
