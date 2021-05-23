@@ -54,12 +54,11 @@ public class Pole extends Entity implements IUpdatable {
 				setMove(false);
 			}
 		}
-		
 	}
 
 	public void move(int n) {
 		setMove(true);
-		desX = getX() + n * ImageHolder.getInstance().tile.getWidth() * 345 / 450;	
+		desX = getX() + n * ImageHolder.getInstance().tile.getWidth() * GameLogic.getFactor() * 345 / 450;	
 	}
 
 	public boolean isMove() {

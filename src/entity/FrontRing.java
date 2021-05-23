@@ -25,5 +25,6 @@ public class FrontRing extends Entity {
 		setSprite(frontPole);
 		gc.drawImage(getSprite(), getX(), getY(), getSprite().getWidth(), getSprite().getHeight());
 	}
+	
 }
 
