@@ -87,15 +87,31 @@ public class Pole extends Entity implements IUpdatable {
 		Ring newRing = new Ring(getZ() + stackCount + 1);
         //start add top of the pole
         newRing.setCenterX(getCenterX());
-        newRing.setY(getY() + (getHeight() * 3.0D / 5.62D) - (stackCount * newRing.getHeight() * 45.0D / 165.0D));
-        
+        //newRing.setY(getY() + (getHeight() * 3.0D / 5.62D) - (stackCount * newRing.getHeight() * 45.0D / 165.0D));
+        newRing.setY(getY() - 30);
         RenderableHolder.getInstance().add(newRing);
         newRing.initialSubRing();
+        
+        //animation
+        double desY = 30 + (getHeight() * 3.0D / 5.62D) - (stackCount * newRing.getHeight() * 45.0D / 165.0D);
+        newRing.moveY(desY, "down");
+        
         stackCount += 1;
         stackRing.add(newRing);
 	}
 
-
+	public void removeRing() {
+		stackRing.get(stackCount - 1).setDestroyed(true);;
+		stackRing.remove(stackCount - 1);
+		stackCount -= 1;
+	}
+	
+	public void moveRing(Pole p) {
+		
+		this.removeRing();
+		Ring animation = new Ring();
+	}
+	
 	public boolean isMoveRight() {
 		return isMoveRight;
 	}
@@ -118,8 +134,5 @@ public class Pole extends Entity implements IUpdatable {
 
 	public void setDesX(double desX) {
 		this.desX = desX;
-	}
-	
-	
-	
+	}	
 }
