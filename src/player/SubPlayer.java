@@ -60,6 +60,9 @@ public class SubPlayer {
 	}
 	public int reduceRings(int reduce) {
 		this.rings-=reduce;
+		for(int i=0;i<reduce;i++) {
+			this.pole.removeRing();
+		}
 		return this.rings;
 	}
 	public boolean isOverload() {
