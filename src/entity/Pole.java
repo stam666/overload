@@ -98,10 +98,16 @@ public class Pole extends Entity implements IUpdatable {
         
         stackCount += 1;
         stackRing.add(newRing);
+        
+        if (stackCount >= 8) {
+        	for (Ring ring : stackRing) {
+				ring.setGold(true);
+			}
+        }
 	}
 
 	public void removeRing() {
-		stackRing.get(stackCount - 1).setDestroyed(true);;
+		stackRing.get(stackCount - 1).setDestroyed(true);
 		stackRing.remove(stackCount - 1);
 		stackCount -= 1;
 	}

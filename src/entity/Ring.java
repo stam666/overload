@@ -29,7 +29,7 @@ public class Ring extends Entity implements IUpdatable {
 		setMoveLeft(false);
 		setMoveUp(false);
 		setMoveDown(false);
-		isGold = false;
+		setGold(false);
 	}
 	
 	@Override
@@ -73,6 +73,11 @@ public class Ring extends Entity implements IUpdatable {
 		getRear().setX(this.getX());
 		getFront().setY(this.getY());
 		getRear().setY(this.getY());
+		
+		if (isGold) {
+			getFront().setGold(true);
+			getRear().setGold(true);
+		}
 	}
 	
 	public void initialSubRing() {
@@ -87,10 +92,6 @@ public class Ring extends Entity implements IUpdatable {
 		
 		RenderableHolder.getInstance().add(front);
 		RenderableHolder.getInstance().add(rear);
-	}
-	
-	public void initializeMove(double y) {
-		moveY(y, "down");
 	}
 	
 	public void moveX(double x, String dir) {
