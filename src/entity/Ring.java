@@ -77,6 +77,9 @@ public class Ring extends Entity implements IUpdatable {
 		if (isGold) {
 			getFront().setGold(true);
 			getRear().setGold(true);
+		} else {
+			getFront().setGold(false);
+			getRear().setGold(false);
 		}
 	}
 	
