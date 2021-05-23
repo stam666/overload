@@ -23,7 +23,7 @@ public class BoardCanvas extends Canvas {
     public void setup() {
         this.gc = getGraphicsContext2D();
         setWidth(1024.0D);
-        setHeight(256.0D);
+        setHeight(306.0D);
     }
 
     public void buildBoard() {
@@ -34,7 +34,7 @@ public class BoardCanvas extends Canvas {
             for (int j = 0; j < length; j++) {
                 Tile tile = new Tile(i * 20);
                 tile.setX((i * tile.getWidth() * 105 / 450) + ((j+1.7) * tile.getWidth() * 345 / 450));
-                tile.setY(40 + i * tile.getHeight());
+                tile.setY(90 + i * tile.getHeight());
                 lane.add(tile);
                 RenderableHolder.getInstance().add(tile);
             }
