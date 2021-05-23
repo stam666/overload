@@ -11,6 +11,7 @@ public class ImageHolder {
 	public Image nothing;
 	public Image startBackground;
 	public Image endBackground;
+	public Image gameBackground;
 	public List<Image> darkBluePole1D;
 	public List<Image> lightBluePole1D;
 	public List<Image> darkGreenPole1D;
@@ -44,6 +45,7 @@ public class ImageHolder {
 		nothing = loadImage("nothing/nothing", "png");
 		startBackground=loadImage("background/start", "jpg");
 		endBackground=loadImage("background/end", "jpg");
+		gameBackground=loadImage("background/bg", "jpg");
 		darkBluePole1D = loadImageList("pole/1D/blue/dark/", "png", 8);
 		lightBluePole1D = loadImageList("pole/1D/blue/light/", "png", 8);
 		darkGreenPole1D = loadImageList("pole/1D/green/dark/", "png", 8);

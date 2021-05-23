@@ -11,15 +11,25 @@ import gui.board.BoardCanvas;
 import gui.board.BoardPane;
 import gui.score.ScoreboardPane;
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import main.GameLogic;
 import main.logic;
 import player.Player;
 import player.SubPlayer;
 import sharedObject.Constants;
 import sharedObject.IRenderable;
+import sharedObject.ImageHolder;
 import sharedObject.RenderableHolder;
 
 public class GameScreen extends VBox{
@@ -34,6 +44,12 @@ public class GameScreen extends VBox{
 	private int nextAction;
 	private Pole pole;
 	public GameScreen() {
+		BackgroundImage backgroundimage = new BackgroundImage(ImageHolder.getInstance().gameBackground, 
+                BackgroundRepeat.NO_REPEAT, 
+                BackgroundRepeat.NO_REPEAT, 
+                BackgroundPosition.DEFAULT, 
+                   BackgroundSize.DEFAULT);
+		//this.setBackground(new Background(backgroundimage));
 		this.boardCanvas = new BoardCanvas();
 		players = new ArrayList<Player>();
 		players.add(new Player("BLUE"));

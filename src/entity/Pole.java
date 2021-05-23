@@ -79,6 +79,7 @@ public class Pole extends Entity implements IUpdatable {
 	}
 	
 	public void addRing() {
+		System.out.println("hi");
 		Ring newRing = new Ring(getZ() + stackCount);
 		newRing.setCenterX(getCenterX());
 		newRing.setCenterY(getY() + getHeight() * 4.0D / 5.62D - newRing.getHeight() * stackCount * 45.0D / 165.0D);

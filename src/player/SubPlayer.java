@@ -52,6 +52,11 @@ public class SubPlayer {
 	}
 	public int addRings(int add) {
 		this.rings+=add;
+		//System.out.println("tt");
+		for(int i=0;i<add;i++) {
+			
+			this.pole.addRing();
+		}
 		return this.rings;
 	}
 	public int reduceRings(int reduce) {
@@ -67,10 +72,15 @@ public class SubPlayer {
 	}
 	public void reset() {
 		this.rings=0;
+		//this.pole.move();
 		this.stage=0;
 	}
 	public void setRings(int counter) {
 		this.rings = counter;
+		for(int i=0;i<counter;i++) {
+			
+			this.pole.addRing();
+		}
 	}
 	public String getName() {
 		return name;

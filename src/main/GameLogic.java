@@ -216,7 +216,7 @@ public class GameLogic {
 			// renderwalk
 			if(finished) { 
 				InputUtility.setStopDice(false);
-				nowSubPlayer.getPole().move(dice);
+				nowSubPlayer.getPole().move(dice,"right");
 				nowState = Constants.stateCheckPass;
 			}
 		} else if (nowState == Constants.stateCheckPass) {
