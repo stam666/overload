@@ -3,6 +3,8 @@ package gui.board;
 import java.util.ArrayList;
 import java.util.List;
 
+import entity.FrontRing;
+import entity.Ring;
 import entity.Tile;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -46,6 +48,9 @@ public class BoardCanvas extends Canvas {
 
     public void drawGameObject() {
         for (IRenderable entity: RenderableHolder.getInstance().getEntities()) {
+        	if (entity instanceof Ring) {
+    			System.out.println(((Ring) entity).getX());
+    		}
         	if (entity.isVisible()) {
         		entity.draw(gc);
         	}

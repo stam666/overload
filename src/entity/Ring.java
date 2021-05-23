@@ -22,7 +22,9 @@ public class Ring extends Entity implements IUpdatable {
 	public Ring(int z) {
 		setSprite(ImageHolder.getInstance().ring);
 		setZ(z);;
-		setVisible(false);
+		//setVisible(false);
+		setFront(new FrontRing(z));
+		setRear(new RearRing(z));
 		setMoveRight(false);
 		setMoveLeft(false);
 		setMoveUp(false);
@@ -32,53 +34,72 @@ public class Ring extends Entity implements IUpdatable {
 	
 	@Override
 	public void draw(GraphicsContext gc) {
+		gc.drawImage(getSprite(), getX(), getY(), getWidth(), getHeight());
 	}
 	
 	public void update() {
 		if (isMoveRight) {
 			if (Math.abs(desX - getX()) > speed) {
 				setX(getX() + speed);
+				getFront().setX(getFront().getX() + speed);
+				getRear().setX(getRear().getX() + speed);
 			} else {
 				setX(desX);
+				getFront().setX(desX);
+				getRear().setX(desX);
 				setMoveRight(false);
 			}
 		} else if (isMoveLeft) {
 			if (Math.abs(desX - getX()) > speed) {
 				setX(getX() - speed);
+				getFront().setX(getFront().getX() - speed);
+				getRear().setX(getRear().getX() - speed);
 			} else {
 				setX(desX);
+				getFront().setX(desX);
+				getRear().setX(desX);
 				setMoveLeft(false);
 			}
 		}
 		if (isMoveDown) {
 			if (Math.abs(desY - getY()) > speed) {
 				setY(getY() + speed);
+				getFront().setY(getFront().getY() + speed);
+				getRear().setY(getRear().getY() + speed);
 			} else {
 				setY(desY);
+				getFront().setY(desY);
+				getRear().setY(desY);
 				setMoveDown(false);
 			}
 		} else if (isMoveUp) {
 			if (Math.abs(desY - getY()) > speed) {
 				setY(getY() - speed);
+				getFront().setY(getFront().getY() - speed);
+				getRear().setY(getRear().getY() - speed);
 			} else {
 				setY(desY);
+				getFront().setY(desY);
+				getRear().setY(desY);
 				setMoveUp(false);
 			}
 		}
 		
-		front.setX(getX());
-		front.setY(getY());
-		rear.setX(getX());
-		rear.setY(getY());
+		getFront().setX(this.getX());
+		getRear().setX(this.getX());
+		getFront().setY(this.getY());
+		getRear().setY(this.getY());
 	}
 	
 	public void initialSubRing() {
 		front = new FrontRing(getZ());
-		front.setCenterX(getCenterX());
+		front.setX(getX());
 		front.setY(getY());
 		rear =  new RearRing(getZ());
-		rear.setCenterX(getCenterX());
+		rear.setX(getX());
 		rear.setY(getY());
+		setFront(front);
+		setRear(rear);
 		
 		RenderableHolder.getInstance().add(front);
 		RenderableHolder.getInstance().add(rear);
@@ -162,6 +183,22 @@ public class Ring extends Entity implements IUpdatable {
 
 	public void setZ(int z) {
 		this.z = z;
+	}
+
+	public FrontRing getFront() {
+		return front;
+	}
+
+	public RearRing getRear() {
+		return rear;
+	}
+
+	public void setFront(FrontRing front) {
+		this.front = front;
+	}
+
+	public void setRear(RearRing rear) {
+		this.rear = rear;
 	}
 	
 }
