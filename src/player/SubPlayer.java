@@ -71,17 +71,12 @@ public class SubPlayer {
 		return false;
 	}
 	public void reset() {
-		this.rings=0;
 		int back=this.stage;
 		this.stage=0;
-		this.pole.move(back, "left");
-	}
-	public void setRings(int counter) {
-		this.rings = counter;
-		for(int i=0;i<counter;i++) {
-			
-			this.pole.addRing();
+		while(this.rings>0) {
+			this.reduceRings(1);
 		}
+		this.pole.move(back, "left");
 	}
 	public String getName() {
 		return name;
