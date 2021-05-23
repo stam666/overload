@@ -17,6 +17,7 @@ public class RearRing extends Entity {
 	private Image goldRing = ImageHolder.getInstance().rearGoldRing; 
 	
 	public RearRing(int z) {
+		setSprite(ImageHolder.getInstance().rearRing);
 		setGold(false);
 		setZ(z - 10);
 	}
@@ -24,9 +25,9 @@ public class RearRing extends Entity {
 	@Override
 	public void draw(GraphicsContext gc) {
 		if (isGold) {
-			gc.drawImage(goldRing , getX(), getY(), goldRing.getWidth() * GameLogic.getFactor() , goldRing.getHeight() * GameLogic.getFactor());
+			gc.drawImage(goldRing , getX(), getY(), getWidth() , getHeight());
 		} else {
-			gc.drawImage(ring , getX(), getY(), goldRing.getWidth() * GameLogic.getFactor() , goldRing.getHeight() * GameLogic.getFactor());
+			gc.drawImage(ring , getX(), getY(), getWidth() , getHeight());
 		}
 	}
 	

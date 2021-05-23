@@ -33,6 +33,7 @@ public class ImageHolder {
 	public Image darkYellowPole;
 	public Image lightYellowPole;
 	
+	public Image ring;
 	public Image frontRing;
 	public Image rearRing;
 	public Image frontGoldRing;
@@ -71,6 +72,7 @@ public class ImageHolder {
 		darkYellowPole = loadImage("pole/3D/dark/yellow", "png");
 		lightYellowPole = loadImage("pole/3D/light/yellow", "png");
 		
+		ring = loadImage("ring/ring", "png");
 		frontRing = loadImage("ring/frontRing", "png");
 		rearRing = loadImage("ring/rearRing", "png");   
 		frontGoldRing = loadImage("ring/frontGoldRing", "png");

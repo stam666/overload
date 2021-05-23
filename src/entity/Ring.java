@@ -20,6 +20,7 @@ public class Ring extends Entity implements IUpdatable {
 	private double speed = 5.0D;
 
 	public Ring(int z) {
+		setSprite(ImageHolder.getInstance().ring);
 		setZ(z);;
 		setVisible(false);
 		setMoveRight(false);
@@ -74,7 +75,7 @@ public class Ring extends Entity implements IUpdatable {
 	public void initialSubRing() {
 		front = new FrontRing(getZ());
 		front.setCenterX(getCenterX());
-		front.setY(getY() + getHeight() * 120.0D / 165.0D);
+		front.setY(getY());
 		rear =  new RearRing(getZ());
 		rear.setCenterX(getCenterX());
 		rear.setY(getY());

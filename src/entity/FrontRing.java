@@ -14,9 +14,10 @@ public class FrontRing extends Entity {
 	private boolean isGold;
 	private Image ring = ImageHolder.getInstance().frontRing;
 	private Image goldRing = ImageHolder.getInstance().frontGoldRing;
-	private double gap = ImageHolder.getInstance().rearRing.getHeight() * GameLogic.getFactor();
+	private double gap = 5.688888888888889D;
 	
 	public FrontRing(int z) {
+		setSprite(ImageHolder.getInstance().frontRing);
 		setGold(false);
 		setZ(z);
 	}
@@ -24,12 +25,11 @@ public class FrontRing extends Entity {
 	@Override
 	public void draw(GraphicsContext gc) {
 		if (isGold) {
-			gc.drawImage(goldRing , getX(), getY() + gap, goldRing.getWidth() * GameLogic.getFactor() , goldRing.getHeight() * GameLogic.getFactor());
+			gc.drawImage(goldRing , getX(), getY() + gap, getWidth() , getHeight());
 		} else {
-			gc.drawImage(ring , getX(), getY() + gap, goldRing.getWidth() * GameLogic.getFactor() , goldRing.getHeight() * GameLogic.getFactor());
+			gc.drawImage(ring , getX(), getY() + gap, getWidth() , getHeight());
 		}
 	}
-
 	public boolean isGold() {
 		return isGold;
 	}
