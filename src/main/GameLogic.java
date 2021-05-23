@@ -125,7 +125,7 @@ public class GameLogic {
 	}
 
 	public static void setRingsToSubPlayer(int numberOfRings) {
-		nowSubPlayer.setRings(numberOfRings);
+		nowSubPlayer.addRings(numberOfRings);
 	}
 
 	public static void atSameAction(int idx, int action) {
